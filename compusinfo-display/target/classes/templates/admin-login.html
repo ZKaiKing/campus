@@ -94,7 +94,6 @@
 			success: function (result) {
 				console.log(result);//打印服务端返回的数据(调试用)
 				if (result.code == 200) {
-                    alert(result.data.id);
 					userstorage.set("user_name",result.data.username);
 					userstorage.set("user_img",result.data.user_img);
 					userstorage.set("user_email",result.data.email);

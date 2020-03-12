@@ -1,10 +1,12 @@
 package com.graduation.compusinfo.display.controller;
 
+import com.graduation.compusinfo.display.dto.WangEditor;
 import com.graduation.compusinfo.display.entity.User;
 import com.graduation.compusinfo.display.service.UserService;
 import com.graduation.compusinfo.display.utils.CommonResponseDto;
 import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +21,9 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * @author zzk
@@ -136,9 +141,39 @@ public class AdminController {
 
     @RequestMapping(value = "/picture/upload",method = RequestMethod.POST)
     public  @ResponseBody
-    CommonResponseDto upLoadPicture(@RequestParam("picture") MultipartFile picture){
-        log.info("picture  {} ",picture);
-        return new CommonResponseDto().code(0).success(true);
+    WangEditor upLoadPicture(@RequestParam("myPicture") MultipartFile multipartFile,
+                             HttpServletRequest request){
+        log.info("picture  {} ",multipartFile);
+        String separator = System.getProperty("file.separator");
+        separator=separator.replaceAll("\\\\","/");
+        String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() +           request.getContextPath()+ separator; //获取项目路径+端口号 比如：http://localhost:8080/
+
+        try {
+            // 获取项目路径
+            String realPath = request.getSession().getServletContext()
+                    .getRealPath("");
+            InputStream inputStream = multipartFile.getInputStream();
+//            String contextPath = request.getContextPath();
+            // 服务器根目录的路径
+//            String path = realPath.replace(contextPath.substring(1), "");
+            // 根目录下新建文件夹upload，存放上传图片
+            String uploadPath = "path" + "upload";
+            // 获取文件名称
+            String filename = multipartFile.getOriginalFilename();
+            // 将文件上传的服务器根目录下的upload文件夹
+            File file = new File(uploadPath, filename);
+            FileUtils.copyInputStreamToFile(inputStream, file);
+            // 返回图片访问路径
+            String url = request.getScheme() + "://" + request.getServerName()
+                    + ":" + request.getServerPort() + "/upload/" + filename;
+
+            String [] str = {url};
+            WangEditor we = new WangEditor(str);
+            return we;
+        } catch (IOException e) {
+            log.error("上传文件失败", e);
+        }
+        return null;
     }
 
 }
