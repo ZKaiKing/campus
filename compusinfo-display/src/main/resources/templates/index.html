@@ -1,0 +1,347 @@
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="lt-ie9 lt-ie8 lt-ie7" lang="en-US" xmlns:th="http://www.thymeleaf.org"> <![endif]-->
+<!--[if IE 7]>
+<html class="lt-ie9 lt-ie8" lang="en-US" xmlns:th="http://www.thymeleaf.org"> <![endif]-->
+<!--[if IE 8]>
+<html class="lt-ie9" lang="en-US" xmlns:th="http://www.thymeleaf.org"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org"> <!--<![endif]-->
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--    <link rel="stylesheet" type="text/css" href="../static/css/searchCSS/bootstrap.css">-->
+    <script src="../static/js/searchJS/jquery.min.js"></script>
+    <title>CampusInfo Platform</title>
+</head>
+<body>
+<!-- Start of Head -->
+<div th:include="com/head.html"></div>
+<!-- End of Head -->
+
+<!-- Start of Page Container -->
+<div class="page-container">
+    <div class="container">
+        <div class="row">
+            <!-- start of page content -->
+            <div class="span8 page-content">
+                <!-- Basic Home Page Template -->
+                <div class="row separator">
+                    <section class="span4 articles-list">
+                        <h3>热度资讯</h3>
+                        <ul class="articles" th:each="hotArtical,articalStat:${hotArticals}">
+                            <li class="article-entry image">
+                                <h4><a th:href="@{/article/single(arti=${hotArtical.id})}" th:text="${hotArtical.title}"></a></h4>
+                                <span class="article-meta" th:text="${hotArtical.creatTime}"></span>
+                                <span class="article-content"><a th:href="@{/article/single(arti=${hotArtical.id})}" th:utext="${hotArtical.content.substring(0,300)}" ></a></span>
+                                <span th:if="${hotArtical.likeNum}==0"  class="like-count" th:text="${hotArtical.likeNum}" id="likeArt" th:value="${hotArtical.likeNum}"></span>
+                                <span th:if="${hotArtical.likeNum}!=0"  class="unlike-count" th:text="${hotArtical.likeNum}" id="likeArt" th:value="${hotArtical.likeNum}"></span>
+                            </li>
+                        </ul>
+                    </section>
+                    <section class="span4 articles-list">
+                        <h3>最新资讯</h3>
+                        <ul class="articles">
+                            <li class="article-entry image">
+                                <h4><a th:href="@{/campus/single}">最新资讯题目1</a></h4>
+                                <span class="article-meta">25 Feb, 2013 in <a href="#"title="View all posts in Server &amp; Database">所属部门</a></span>
+                                <span class="like-count">66</span>
+                            </li>
+                            <li class="article-entry standard">
+                                <h4><a th:href="@{/campus/single}">最新资讯题目2</a></h4>
+                                <span class="article-meta">25 Feb, 2013 in <a href="#"title="View all posts in Server &amp; Database">所属部门</a></span>
+                                <span class="like-count">66</span>
+                            </li>
+                            <li class="article-entry video">
+                                <h4><a th:href="@{/campus/single}">最新资讯题目3</a></h4>
+                                <span class="article-meta">25 Feb, 2013 in <a href="#"title="View all posts in Server &amp; Database">所属部门</a></span>
+                                <span class="like-count">66</span>
+                            </li>
+                        </ul>
+                    </section>
+                </div>
+            </div>
+            <!-- end of page content -->
+
+            <!-- start of sidebar -->
+            <aside class="span4 page-sidebar">
+
+                <section class="widget">
+                    <div class="support-widget">
+<!--                        <h3 class="title">询问</h3>-->
+<!--                        <a href="contact.html" th:href="@{/campus/contact}"><p class="intro">需要更多资料么？如果您找不到所需信息，请与我们联系以获取更多帮助。</p></a>-->
+                        <input type="text" class="form-control" id="keywords" placeholder="回车查询">
+                        <span class="input-group-btn">
+                             <button class="btn btn-default" id="search" type="button">查询</button>
+                        </span><br>
+                        <div style="margin:20px 20px 0px 20px;">
+                            <span id="empty">清除历史</span>
+                        </div>
+                        <div style="margin:10px;" id="history"></div>
+                    </div>
+                </section>
+
+                <section class="widget">
+                    <div class="quick-links-widget">
+                        <h3 class="title">快速链接</h3>
+                        <ul id="menu-quick-links" class="menu clearfix">
+                            <li><a th:href="@{/campus/articleslist}">文章列表</a></li>
+                            <li><a href="faq.html" th:href="@{/campus/faq}">常见问题</a></li>
+                            <li><a href="contact.html" th:href="@{/campus/contact}">联系</a></li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="widget">
+                    <h3 class="title">标签</h3>
+                    <div class="tagcloud" th:each="tag,tagStat:${tags}">
+                        <a th:href="@{/tag/all(tagId=${tag.id})}" class="btn btn-mini" th:text="${tag.tagName}"></a>
+                    </div>
+                </section>
+
+            </aside>
+            <!-- end of sidebar -->
+        </div>
+    </div>
+</div>
+<!-- End of Page Container -->
+
+<a href="#top" id="scroll-top"></a>
+
+<!--下面是搜索的-->
+<script type="text/javascript">
+    $(function(){
+        update_history();
+        // 绑定回车事件
+        $(document).keydown(function(event){
+            if(event.keyCode==13){
+                var searchval = $("#keywords").val();
+                $("#search").click();
+                $.ajax({
+                    type: "POST",
+                    url: "../article/search",
+                    data: {"searchval":searchval},
+                    dataType: "json",
+                    success: function (data) {
+                        if (data.code === 200){
+                        }
+                    },
+                    error : function(e) {           //请求失败的回调函数
+                        console.log(e);
+                        alert("搜索失败");
+                    }
+                })
+            }
+        });
+        // 搜索点击事件
+        $("#search").click(function(){
+            var searchval = $("#keywords").val();
+            history(searchval); //添加到缓存
+            update_history(); //更新搜索历史
+            //ajax搜索返回
+            $.ajax({
+                type: "POST",
+                url: "../article/search",
+                data: {"searchval":searchval},
+                dataType: "json",
+                success: function (data) {
+                    if (data.code === 200){
+                        alert("成功");
+                    }
+                },
+                error : function(e) {           //请求失败的回调函数
+                    console.log(e);
+                    alert("搜索失败");
+                }
+            })
+        })
+
+        // 清空搜索历史
+        $("#empty").click(function(){
+            mystorage.remove('keywords');
+            $("#history").html(" ");
+        })
+    })
+
+    /**
+     * [update_history 更新搜索历史]
+     * @return {[type]} [description]
+     */
+    function update_history(){
+        console.log(mystorage.get("keywords"));
+        var history = mystorage.get("keywords");
+        if (history) {
+            var html = "";
+            $.each(history,function(i,v){
+                html += "<a class='btn btn-default' href='javascript:;' role='button'>"+v+"</a>"
+            })
+            $("#history").html(html);
+        };
+    }
+
+
+
+    /**
+     * [history //搜索历史函数存储]
+     * @param  {[type]} value [搜索词]
+     * @return {[type]}       [description]
+     */
+    function history(value){
+        var data = mystorage.get("keywords");
+        if (!data) {
+            var data = []; //定义一个空数组
+        }else if(data.length === 5){ //搜索历史数量
+            data.shift();  //删除数组第一个元素有
+        }else{
+
+        };
+        if (value) {  //判断搜索词是否为空
+            if (data.indexOf(value)<0) {  //判断搜索词是否存在数组中
+                data.push(value);    //搜索词添加到数组中
+                mystorage.set("keywords",data);  //存储到本地化存储中
+            };
+        };
+    }
+
+    /**
+     * [mystorage 存储localstorage时候最好是封装一个自己的键值，在这个值里存储自己的内容对象，封装一个方法针对自己对象进行操作。避免冲突也会在开发中更方便。]
+     * @param  {String} ){                 var ms [description]
+     * @return {[type]}     [description]
+     console.log(mystorage.set('tqtest','tqtestcontent'));//存储
+     console.log(mystorage.set('aa','123'));//存储
+     console.log(mystorage.set('tqtest1','tqtestcontent1'));//存储
+     console.log(mystorage.set('tqtest1','newtqtestcontent1'));//修改
+     console.log(mystorage.get('tqtest'));//读取
+     console.log(mystorage.remove('tqtest'));//删除
+     mystorage.clear();//整体清除
+     */
+    var mystorage = (function mystorage(){
+        var ms = "mystorage";
+        var storage=window.localStorage;
+        if(!window.localStorage){
+            alert("浏览器不支持localstorage");
+            return false;
+        }
+        var set = function(key,value){
+            //存储
+            var mydata = storage.getItem(ms);
+            if(!mydata){
+                this.init();
+                mydata = storage.getItem(ms);
+            }
+            mydata = JSON.parse(mydata);
+            mydata.data[key] = value;
+            storage.setItem(ms,JSON.stringify(mydata));
+            return mydata.data;
+        };
+        var get = function(key){
+            //读取
+            var mydata = storage.getItem(ms);
+            if(!mydata){
+                return false;
+            }
+            mydata = JSON.parse(mydata);
+            return mydata.data[key];
+        };
+        var remove = function(key){
+            //读取
+            var mydata = storage.getItem(ms);
+            if(!mydata){
+                return false;
+            }
+            mydata = JSON.parse(mydata);
+            delete mydata.data[key];
+            storage.setItem(ms,JSON.stringify(mydata));
+            return mydata.data;
+        };
+        var clear = function(){
+            //清除对象
+            storage.removeItem(ms);
+        };
+        var init = function(){
+            storage.setItem(ms,'{"data":{}}');
+        };
+        return {
+            set : set,
+            get : get,
+            remove : remove,
+            init : init,
+            clear : clear
+        };
+    })();
+
+       //点赞效果
+        $(".like-count").click(function () {
+            var attr = $(this).attr("value");
+            var clas = $(this).attr("class");
+            if(clas=="like-count"){
+                $(this).css({color:"#395996",background:"url('../images/like.png')no-repeat 6px 8px"});
+                $(this).attr("class","unlike-count");
+            }else {
+                $(this).css({color:"#395996",background:"url('../images/like.png')no-repeat 6px -22px"});
+                $(this).attr("class","like-count");
+            }
+            likefunc(attr,clas);
+        })
+
+       $(".unlike-count").click(function () {
+           var attr = $(this).attr("value");
+           var clas = $(this).attr("class");
+           if(clas=="like-count"){
+               $(this).css({color:"#395996",background:"url('../images/like.png')no-repeat 6px 8px"});
+               $(this).attr("class","unlike-count");
+           }else {
+               $(this).css({color:"#395996",background:"url('../images/like.png')no-repeat 6px -22px"});
+               $(this).attr("class","like-count");
+           }
+           likefunc(attr,clas);
+       })
+
+    var likefunc= function (attr,clas) {
+        // var clas = $(this).attr("class");
+        if(clas=="like-count"){
+            $.ajax({
+                type: "POST",
+                async : false,
+                url: "../article/like",
+                data: {"islike":attr},
+                dataType: "json",
+                success: function (data) {
+                    if (data.code === 200){
+                        alert("取消点赞操作成功");
+                    }
+                },
+                error : function(e) {           //请求失败的回调函数
+                    console.log(e);
+                    alert("操作失败");
+                }
+            })
+        }else {
+            $.ajax({
+                type: "POST",
+                async : false,
+                url: "../article/like",
+                data: {"islike":attr},
+                dataType: "json",
+                success: function (data) {
+                    if (data.code === 200){
+                        alert("点赞操作成功");
+                    }
+                },
+                error : function(e) {           //请求失败的回调函数
+                    console.log(e);
+                    alert("操作失败");
+                }
+            })
+        }
+    }
+
+
+
+</script>
+
+
+
+
+</body>
+</html>

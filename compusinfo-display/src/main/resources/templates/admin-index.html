@@ -1,0 +1,129 @@
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="lt-ie9 lt-ie8 lt-ie7" lang="en-US" xmlns:th="http://www.thymeleaf.org"> <![endif]-->
+<!--[if IE 7]>
+<html class="lt-ie9 lt-ie8" lang="en-US" xmlns:th="http://www.thymeleaf.org"> <![endif]-->
+<!--[if IE 8]>
+<html class="lt-ie9" lang="en-US" xmlns:th="http://www.thymeleaf.org"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org"> <!--<![endif]-->
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>CampusInfo Platform</title>
+</head>
+<body>
+
+<div th:include="/com/adminhead.html"></div>
+<div>
+<!-- content YDC begin -->
+	<section>
+		<div class="ydc-content-slide ydc-body">
+			<div class="ydc-flex">
+				<!-- left begin -->
+				<div th:include="/com/admin-com.html"></div>
+				<!-- left end -->
+				<!-- right begin -->
+				<div class="ydc-column ydc-column-8">
+					<div class="ydc-entered-box">
+						<div class="ydc-content-right">
+							<div class="ydc-right-head">
+								<div class="ydc-right-head-info">
+									<dl>
+										<a href="#">
+											<dt>总订阅</dt>
+											<dd>35</dd>
+										</a>
+									</dl>
+									<dl>
+										<a href="#">
+											<dt>总阅读</dt>
+											<dd>224</dd>
+										</a>
+									</dl>
+									<dl>
+										<a href="#">
+											<dt>昨日阅读</dt>
+											<dd>14</dd>
+										</a>
+									</dl>
+									<dl>
+										<a href="#">
+											<dt>总数据指数</dt>
+											<dd>158</dd>
+										</a>
+									</dl>
+								</div>
+								<button class="btn ydc-ne-carousel" onclick="javascript:window.location.href='admin-release.html';">
+									<i class="ydc-icon-shu"></i>
+									<span>发布</span>
+								</button>
+							</div>
+							<!-- gongGao begin -->
+							<div class="ydc-loading-box">
+								<div class="ydc-tabPanel">
+									<div>
+										<ul>
+											<li class="hit">我的文章</li>
+										</ul>
+									</div>
+									<div class="ydc-panes">
+										<div class="ydc-pane" style="display:block;">
+											<ol class="ydc-pane-list">
+												<li>
+													<a href="page.html" target="_blank">一点车点讯号</a>
+													<span>2017-04-17 10:00:00</span>
+												</li>
+												<li>
+													<a href="page.html" target="_blank">4月特色MCN | 点讯号MCN颁发月度特色奖项：决定就是你了！</a>
+													<span>2017-04-17 10:00:00</span>
+												</li>
+											</ol>
+											<div class="ydc-pagination">
+												<ol>
+													<li class="ydc-previous-item">
+														<button class="ydc-previous-item-btn-medium ydc-disabled">
+															<span>上一页</span>
+														</button>
+													</li>
+													<li>
+														<button class="ydc-previous-item-btn-medium cur">1</button>
+													</li>
+													<li>
+														<button class="ydc-previous-item-btn-medium">2</button>
+													</li>
+													<li class="ydc-previous-item">
+														<button class="ydc-previous-item-btn-medium">
+															<span>下一页</span>
+														</button>
+													</li>
+													<li class="ydc-item-quick">
+														第<div class="ydc-item-quick-kun"><input type="number" aria-invalid="false" class=""></div>页
+														<button style="margin-left:5px;" class="ydc-previous-item-btn-medium">
+															<span>跳转</span>
+														</button>
+													</li>
+												</ol>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- gongGao End -->
+						</div>
+					</div>
+				</div>
+				<!-- right end -->
+			</div>
+		</div>
+	</section>
+<!-- content YDC end -->
+</div>
+</body>
+<script>
+	$("#admin-index").addClass("active");
+	//数据处理
+
+</script>
+
+</html>

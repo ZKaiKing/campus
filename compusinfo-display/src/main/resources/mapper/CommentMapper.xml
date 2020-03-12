@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.graduation.compusinfo.display.mapper.CommentMapper">
+
+<!--    &lt;!&ndash; 通用查询映射结果 &ndash;&gt;-->
+<!--    <resultMap id="BaseResultMap" type="com.graduation.compusinfo.display.entity.Comment">-->
+<!--        <id column="Id" property="Id" />-->
+<!--        <result column="comContent" property="comContent" />-->
+<!--        <result column="comArt_id" property="comartId" />-->
+<!--        <result column="comUser_id" property="comuserId" />-->
+<!--        <result column="comTime" property="comTime" />-->
+<!--    </resultMap>-->
+
+<!--    &lt;!&ndash; 通用查询结果列 &ndash;&gt;-->
+<!--    <sql id="Base_Column_List">-->
+<!--        Id, comContent, comArt_id, comUser_id, comTime-->
+<!--    </sql>-->
+
+    <select id="selectId" resultType="com.graduation.compusinfo.display.entity.Comment">
+        select * from camp_comment where id = 1;
+    </select>
+</mapper>

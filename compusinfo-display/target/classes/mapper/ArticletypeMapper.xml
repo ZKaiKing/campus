@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.graduation.compusinfo.display.mapper.ArticletypeMapper">
+
+<!--    &lt;!&ndash; 通用查询映射结果 &ndash;&gt;-->
+<!--    <resultMap id="BaseResultMap" type="com.graduation.compusinfo.display.entity.Articletype">-->
+<!--        <id column="typeId" property="typeId" />-->
+<!--        <result column="typeName" property="typeName" />-->
+<!--        <result column="typeCreateTime" property="typeCreateTime" />-->
+<!--    </resultMap>-->
+
+<!--    &lt;!&ndash; 通用查询结果列 &ndash;&gt;-->
+<!--    <sql id="Base_Column_List">-->
+<!--        typeId, typeName, typeCreateTime-->
+<!--    </sql>-->
+
+</mapper>

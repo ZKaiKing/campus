@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>帐号状态</title>
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
+	<link type="text/css" rel="stylesheet" href="../static/admin/css/core.css">
+	<link type="text/css" rel="stylesheet" href="../static/admin/css/icon.css">
+	<link type="text/css" rel="stylesheet" href="../static/admin/css/home.css">
+
+	<!-- Style -->
+	<script type="application/x-javascript"> addEventListener("load", function () {
+		setTimeout(hideURLbar, 0);
+	}, false);
+	function hideURLbar() {
+		window.scrollTo(0, 1);
+	}
+	</script>
+
+</head>
+<body>
+<div class="ydc-body-content">
+	<div class="ydc-body-bj">
+		<div class="ydc-body-logo">
+			<a href="index.html">
+				<img src="../static/admin/images/logo.png" title="" about="" alt="">
+			</a>
+		</div>
+		<div class="ydc-body-login">
+			<h2>登录</h2>
+			<div class="ydc-body-login-content">
+<!--				<form action="##"  method="post" id="loginForm">-->
+					<div class="ydc-body-login-box">
+						<div class="ydc-user-img">
+							<div class="ydc-user-img-img"><img src="../static/admin/images/icon/ph.png" alt=""></div>
+						</div>
+						<div class="ydc-user-border">
+							<input id="phone" type="text" Name="phone" data-type="phone" placeholder="请输入手机号码">
+						</div>
+					</div>
+					<div class="ydc-body-login-box">
+						<div class="ydc-user-img">
+							<div class="ydc-user-img-img"><img src="../static/admin/images/icon/pad.png" alt=""></div>
+						</div>
+						<div class="ydc-user-border">
+							<input id="password" type="password" Name="password" data-type="password" placeholder="密码">
+						</div>
+					</div>
+					<div class="ydc-bod-aq">
+						<p>为了您的账号安全，请勿在公共电脑登录</p>
+					</div>
+					<div class="clearfix">
+<!--						<div class="fl">-->
+<!--							<input type="checkbox" checked="checked" name="autoLogin">-->
+<!--							<label>三天内免登录</label>-->
+<!--						</div>-->
+						<div class="fr">
+							<a href="#">忘记密码</a>
+						</div>
+					</div>
+					<div class="ydc-body-submit">
+						<input type="button" id="admin-submit-button" value="登录" onclick="login()">
+					</div>
+					<div class="ydc-login-box">
+						<a href="go-reg.html" target="_blank">立即注册</a>
+						<span>|</span>
+						<a href="customer.html" target="_blank">常见问题</a>
+					</div>
+<!--				</form>-->
+
+			</div>
+
+		</div>
+	</div>
+</div>
+	<script type="text/javascript" src="../static/admin/js/jquery.min.js"></script>
+<script type="text/javascript" src="../static/admin/js/myJS/config.js"></script>
+<script type="text/javascript" src="../static/admin/js/myJS/common.js"></script>
+<script type="text/javascript" src="../static/admin/js/myJS/index.js"></script>
+<script type="text/javascript">
+	function login() {
+		let data = {
+			phone: $("#phone").val(),
+			password: $("#password").val(),
+		};
+		$.ajax({
+			//几个参数需要注意一下
+			type: "POST",//方法类型
+			dataType: "json",//预期服务器返回的数据类型
+            sync: false,
+			url: "/admin/login" ,//url
+			data: data,
+			// data: $('#form1').serialize(),
+			success: function (result) {
+				console.log(result);//打印服务端返回的数据(调试用)
+				if (result.code == 200) {
+                    alert(result.data.id);
+					userstorage.set("user_name",result.data.username);
+					userstorage.set("user_img",result.data.user_img);
+					userstorage.set("user_email",result.data.email);
+					userstorage.set("user_roleName",result.data.roleName);
+					userstorage.set("user_phone",result.data.phone);
+					userstorage.set("user_sex",result.data.sex);
+					userstorage.set("user_Show",result.data.userShow);
+					userstorage.set("user_fansNum",result.data.fansNum);
+					userstorage.set("user_concernNum",result.data.concernNum);
+					userstorage.set("user_blog",result.data.blog);
+                    window.location.href="index";
+                };
+			},
+			error : function() {
+				alert("异常！");
+			}
+		});
+	}
+</script>
+</body>
+</html>

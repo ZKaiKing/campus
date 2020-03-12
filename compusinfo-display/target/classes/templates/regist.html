@@ -1,0 +1,50 @@
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="lt-ie9 lt-ie8 lt-ie7" lang="en-US" xmlns:th="http://www.thymeleaf.org"> <![endif]-->
+<!--[if IE 7]>
+<html class="lt-ie9 lt-ie8" lang="en-US" xmlns:th="http://www.thymeleaf.org"> <![endif]-->
+<!--[if IE 8]>
+<html class="lt-ie9" lang="en-US" xmlns:th="http://www.thymeleaf.org"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org"> <!--<![endif]-->
+<head>
+    <title>注册</title>
+    <!-- Meta-Tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <script type="application/x-javascript"> addEventListener("load", function () {
+        setTimeout(hideURLbar, 0);
+    }, false);
+    function hideURLbar() {
+        window.scrollTo(0, 1);
+    } </script>
+    <!-- //Meta-Tags -->
+    <!-- Style -->
+    <link rel="stylesheet" href="css/style.css" th:href="@{/css/style.css}" type="text/css" media="all">
+
+</head>
+<!-- //Head -->
+<!-- Body -->
+<body>
+
+<div class="container">
+    <div class="register">
+        <h2>注 册</h2>
+        <form method="post" th:action="@{/user/register}">
+            <input type="text" Name="username" placeholder="用户名" required="">
+            <input type="text" Name="password" placeholder="密码" required="">
+            <input type="text" Name="repassword" placeholder="确认密码" required="">
+            <input type="text" Name="phone" placeholder="手机号码" required="">
+            <div class="send-button ">
+                <input type="submit" value="免费注册">
+            </div>
+        </form>
+        <div class="myselfys">
+            <a th:href="@{/campus/login}">返回登录</a>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+</body>
+<!-- //Body -->
+</html>

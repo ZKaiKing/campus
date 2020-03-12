@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.graduation.compusinfo.display.mapper.ReplyCommentMapper">
+
+<!--    &lt;!&ndash; 通用查询映射结果 &ndash;&gt;-->
+<!--    <resultMap id="BaseResultMap" type="com.graduation.compusinfo.display.entity.ReplyComment">-->
+<!--        <id column="id" property="id" />-->
+<!--        <result column="faccom_id" property="faccomId" />-->
+<!--        <result column="comMultiContent" property="comMultiContent" />-->
+<!--        <result column="comMultiUse_id" property="commultiuseId" />-->
+<!--        <result column="comMulti_time" property="commultiTime" />-->
+<!--    </resultMap>-->
+
+<!--    &lt;!&ndash; 通用查询结果列 &ndash;&gt;-->
+<!--    <sql id="Base_Column_List">-->
+<!--        id, faccom_id, comMultiContent, comMultiUse_id, comMulti_time-->
+<!--    </sql>-->
+
+</mapper>

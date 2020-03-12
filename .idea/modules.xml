@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/campusinfo-crm/campusinfo-crm.iml" filepath="$PROJECT_DIR$/campusinfo-crm/campusinfo-crm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/campusinfo-platform-parent.iml" filepath="$PROJECT_DIR$/campusinfo-platform-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/compusinfo-display/compusinfo-display.iml" filepath="$PROJECT_DIR$/compusinfo-display/compusinfo-display.iml" />
+    </modules>
+  </component>
+</project>

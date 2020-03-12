@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<!-- left begin -->
+<div class="ydc-column ydc-column-2">
+    <div class="ydc-menu">
+        <ul>
+            <li class="ydc-menu-item">
+                <a th:href="@{/admin/index}" id="admin-index"><i class="ydc-icon ydc-icon-home fl"></i>首页</a>
+            </li>
+            <li class="ydc-menu-item">
+                <a th:href="@{/admin/release}" id="admin-release"><i class="ydc-icon ydc-icon-find fl"></i>发布</a>
+            </li>
+            <li class="ydc-menu-item">
+								<span class="ydc-menu-sub-title">
+									<i class="ydc-icon ydc-icon-file fl"></i>管理
+								</span>
+                <ul>
+                    <li>
+                        <a href="content.html" id="admin-content"  th:href="@{/admin/commentManage}">内容管理</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="ydc-menu-item">
+								<span class="ydc-menu-sub-title">
+									<i class="ydc-icon ydc-icon-record fl"></i>数据
+								</span>
+                <ul>
+                    <li>
+                        <a href="subscribe.html" id="admin-subscribe" th:href="@{/admin/subscribe}">订阅数据</a>
+                    </li>
+                    <li>
+                        <a href="content-data.html" id="admin-data"  th:href="@{/admin/contentData}">内容数据</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="ydc-menu-item">
+								<span class="ydc-menu-sub-title">
+									<i class="ydc-icon ydc-icon-set fl"></i>设置
+								</span>
+                <ul>
+                    <li>
+                        <a href="info.html" id="admin-userinfo"  th:href="@{/admin/userInfo}">账号信息</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- left end -->
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<link type="text/css" rel="stylesheet" href="../../static/admin/css/core.css">
+<link type="text/css" rel="stylesheet" href="../../static/admin/css/icon.css">
+<link type="text/css" rel="stylesheet" href="../../static/admin/css/home.css">
+<script type="text/javascript" src="../../static/admin/js/jquery-1.5.2.min.js"></script>
+<script type="text/javascript" src="../../static/admin/js/myJS/common.js"></script>
+<body>
+<input type="hidden" id="userInfo">
+    <div class="header" th:fragment="common_head">
+        <div class="ydc-entered">
+            <div class="ydc-header-content ydc-flex">
+                <div class="ydc-column">
+                    <a href="../index.html" class="ydc-column-ydc-logo">
+                        <img src="../../static/admin/images/logo.png" title="" about="" alt="">
+                    </a>
+                </div>
+                <div class="ydc-column">
+                    <div class="ydc-column-user">
+                        <div class="ydc-user-photo">
+                            <a href="javascript:;">
+                                <img src="../../static/admin/images/icon/photo.png" title="" about="" alt="">
+                            </a>
+                        </div>
+                        <div class="ydc-user-info">
+                            <div class="ydc-user-info-name">
+                                <a href="javascript:;" id="user_name"></a>
+                            </div>
+                            <div class="ydc-user-info-func ydc-flex">
+                                <span class="ydc-tag" id="user_roleName"></span>
+                                <span class="ydc-mal">
+                                        <i class="ydc-icon ydc-icon-mail fl"></i>
+                                        <em>12</em>
+                                    </span>
+                                <a href="javascript:;">退出</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $("#user_name").attr("text",userstorage.get("user_name"));
+    $("#user_roleName").attr("text",userstorage.get("user_roleName"));
+</script>
+</html>
+
+
+
+

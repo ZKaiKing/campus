@@ -1,0 +1,80 @@
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="lt-ie9 lt-ie8 lt-ie7" lang="en-US" xmlns:th="http://www.thymeleaf.org"> <![endif]-->
+<!--[if IE 7]>
+<html class="lt-ie9 lt-ie8" lang="en-US" xmlns:th="http://www.thymeleaf.org"> <![endif]-->
+<!--[if IE 8]>
+<html class="lt-ie9" lang="en-US" xmlns:th="http://www.thymeleaf.org"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org"> <!--<![endif]-->
+
+<head>
+    <title>登录</title>
+    <!-- Meta-Tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <script type="application/x-javascript"> addEventListener("load", function () {
+        setTimeout(hideURLbar, 0);
+    }, false);
+
+    function hideURLbar() {
+        window.scrollTo(0, 1);
+    }
+    </script>
+    <!-- //Meta-Tags -->
+    <!-- Style -->
+    <link rel="stylesheet" href="../static/css/style.css" th:href="@{/css/style.css}" type="text/css" media="all">
+
+</head>
+<!-- //Head -->
+<!-- Body -->
+<body>
+<!--<h1>登录表单</h1>-->
+<div class="container">
+
+    <div class="login">
+        <h2>登 录</h2>
+        <form  method="post" action="#" th:action="@{/user/login}" id="loginform">
+            <input type="text" Name="username" placeholder="用户名" required="true">
+            <input type="password" Name="password" placeholder="密码" required="">
+            <ul class="tick">
+                <li>
+                    <input type="checkbox" id="brand1" value="" name="rememberMe">
+                    <label for="brand1"><span></span>记住我</label>
+                </li>
+            </ul>
+            <div class="send-button">
+                <input type="submit" value="登 录">
+            </div>
+        </form>
+        <div class="myselfys">
+            <a href="#">记住密码?</a>
+        </div>
+        <div class="myselfys">
+            <a th:href="@{/campus/register}">注册账号</a>
+        </div>
+<!--        <div class="social-icons ">-->
+<!--            <p>- 其他方式登录 -</p>-->
+<!--            <ul>-->
+<!--                <li class="qq"><a href="#">-->
+<!--                    <span class="icons "></span>-->
+<!--                    <span class="text ">QQ</span></a></li>-->
+<!--                <li class="weixin w3ls"><a href="#">-->
+<!--                    <span class="icons w3layouts"></span>-->
+<!--                    <span class="text ">微信</span></a></li>-->
+<!--                <li class="weibo aits"><a href="#">-->
+<!--                    <span class="icons agileits"></span>-->
+<!--                    <span class="text ">微博</span></a></li>-->
+<!--                <div class="clear"></div>-->
+<!--            </ul>-->
+<!--        </div>-->
+    </div>
+    <div class="clear"></div>
+</div>
+</body>
+<!-- //Body -->
+<script src="../static/js/TweenLite.min.js"></script>
+<script src="../static/js/EasePack.min.js"></script>
+<script src="../static/js/rAF.js"></script>
+<script src="../static/js/demo-1.js"></script>
+</html>

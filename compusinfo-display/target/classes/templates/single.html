@@ -1,0 +1,161 @@
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="lt-ie9 lt-ie8 lt-ie7" lang="en-US" xmlns:th="http://www.thymeleaf.org"> <![endif]-->
+<!--[if IE 7]>
+<html class="lt-ie9 lt-ie8" lang="en-US" xmlns:th="http://www.thymeleaf.org"> <![endif]-->
+<!--[if IE 8]>
+<html class="lt-ie9" lang="en-US" xmlns:th="http://www.thymeleaf.org"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org"> <!--<![endif]-->
+<head>
+    <!-- META TAGS -->
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../static/js/searchJS/jquery.min.js"></script>
+    <link rel="stylesheet" href="../static/css/animate.css">
+    <link rel="stylesheet" href="../static/css/reply.css">
+    <title>CampusInfo Platform</title>
+
+</head>
+
+<body>
+
+<!-- Start of Head -->
+<div th:include="com/head.html"></div>
+<!-- End of Head -->
+
+<!-- Start of Page Container -->
+<div class="page-container">
+    <div class="container">
+        <div class="row">
+            <!-- start of page content -->
+            <div class="span10 page-content">
+                <ul class="breadcrumb">
+                    <li><a href="#">Knowledge Base Theme</a><span class="divider">/</span></li>
+                    <li><a href="#" title="View all posts in Server &amp; Database">Server &amp; Database</a> <span
+                            class="divider">/</span></li>
+                    <input type="hidden" th:value="${article.id}" id="articleId"/>
+                    <H3 th:text="${article.title}"th:align="center"></H3>
+                </ul>
+                <article class=" type-post format-standard hentry clearfix" th:utext="${article.content}">
+                    <h1 class="post-title"><a href="#">Integrating WordPress with Your Website</a></h1>
+                    <div class="post-meta clearfix">
+                        <span class="date" th:text="${article.creatTime}"></span>
+                        <span class="category"><a href="#" title="View all posts in Server &amp; Database">Server &amp; Database</a></span>
+                        <span class="comments"><a href="#" title="Comment on Integrating WordPress with Your Website">3 Comments</a></span>
+                        <span class="like-count" th:text="${article.likeNum}"></span>+
+                    </div><!-- end of post meta -->
+                </article>
+                <div class="like-btn">
+                        <span  class="like-it" th:text="${article.likeNum}" th:value="${article.likeNum}"></span>
+<!--                        <span  th:if="${article.likeNum}!=1"  class="unlike-it" th:text="${article.likeNum}" th:value="${article.likeNum}"></span>-->
+                    <span class="tags"><strong>Tags:&nbsp;&nbsp;</strong><a href="#" rel="tag">basic</a>, <a
+                            href="#" rel="tag">setting</a>, <a href="#" rel="tag">website</a>
+                     </span>
+                </div>
+                <br>
+<!--                新的评论-->
+                <div class="talk">
+                    <div class="talk_box">
+                        <div class="talk_tit">评论</div>
+                        <textarea name="talk" id="textareaBox" placeholder="写下你的评论..."></textarea>
+                        <button id="talk_submit">发布</button>
+                        <button id="cancelbtn" class="cancelbtn hidden none">取消</button>
+                    </div>
+                    <div id="talk_content" class="talk_content">
+                        <!-- 动态生成 -->
+                    </div>
+                </div>
+            </div>
+            <!-- end of page content -->
+        </div>
+    </div>
+</div>
+<!-- End of Page Container -->
+<a href="#top" id="scroll-top"></a>
+
+
+<script src="../static/js/replyJS/jquery.min.js" type="text/javascript"></script>
+<script src="../static/js/replyJS/config.js" type="text/javascript"></script>
+<script src="../static/js/replyJS/common.js" type="text/javascript"></script>
+<script src="../static/js/replyJS/index.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+
+    window.onload=function(){
+        var articleId=$("#articleId").val();
+        getTalkData(articleId);
+    }
+
+    //取消点赞效果
+    $(".like-it").click(function () {
+        var attr = $(this).attr("value");
+        var clas = $(this).attr("class");
+        if(clas=="like-it"){
+            $(this).css({color:"#b6b6b6",background:"url('../images/like.png')no-repeat 6px 10px"});
+            $(this).attr("class","unlike-it");
+        }else {
+            $(this).css({color:"#8cd24e",background:"url('../images/like.png')no-repeat 6px -20px"});
+            $(this).attr("class","like-it");
+        }
+        likefunc(attr,clas);
+    })
+
+    //点赞效果
+    $(".unlike-it").click(function () {
+        var attr = $(this).attr("value");
+        var clas = $(this).attr("class");
+        if(clas=="like-it"){
+            $(this).css({color:"#b6b6b6",background:"url('../images/like.png')no-repeat 6px 10px"});
+            $(this).attr("class","unlike-it");
+        }else {
+            $(this).css({color:"#8cd24e",background:"url('../images/like.png')no-repeat 6px -20px"});
+            $(this).attr("class","like-it");
+        }
+        likefunc(attr,clas);
+    })
+
+
+    var likefunc= function (attr,clas) {
+        // var clas = $(this).attr("class");
+        if(clas=="like-count"){
+            $.ajax({
+                type: "POST",
+                async : false,
+                url: "../article/like",
+                data: {"islike":attr},
+                dataType: "json",
+                success: function (data) {
+                    if (data.code === 200){
+                        alert("取消点赞操作成功");
+                    }
+                },
+                error : function(e) {           //请求失败的回调函数
+                    console.log(e);
+                    alert("操作失败");
+                }
+            })
+        }else {
+            $.ajax({
+                type: "POST",
+                async : false,
+                url: "../article/like",
+                data: {"islike":attr},
+                dataType: "json",
+                success: function (data) {
+                    if (data.code === 200){
+                        alert("点赞操作成功");
+                    }
+                },
+                error : function(e) {           //请求失败的回调函数
+                    console.log(e);
+                    alert("操作失败");
+                }
+            })
+        }
+    }
+</script>
+
+</body>
+
+</html>

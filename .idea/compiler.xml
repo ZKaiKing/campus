@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <option name="USE_RELEASE_OPTION" value="false" />
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="campusinfo-crm" />
+        <module name="compusinfo-display" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel target="8">
+      <module name="campusinfo-crm" target="1.8" />
+      <module name="campusinfo-platform-parent" target="1.8" />
+      <module name="compusinfo-display" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="campusinfo-crm" options="-parameters" />
+      <module name="campusinfo-platform-parent" options="-parameters" />
+      <module name="compusinfo-display" options="-parameters" />
+    </option>
+  </component>
+</project>

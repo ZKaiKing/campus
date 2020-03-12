@@ -1,0 +1,1267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/compusinfo-display/src/main/java/com/graduation/compusinfo/display/entity/Article.java" description="    @ApiModelProperty(value = &quot;热度&quot;)&#10;    @TableFiel..." line="71" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="8d270c16-d081-4f82-8fbc-c2d9d329a136" name="Default Changelist" comment="" />
+    <ignored path="$PROJECT_DIR$/out/" />
+    <ignored path="$PROJECT_DIR$/target/" />
+    <ignored path="$PROJECT_DIR$/compusinfo-display/target/" />
+    <ignored path="$PROJECT_DIR$/campusinfo-crm/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="CompilerWorkspaceConfiguration">
+    <option name="MAKE_PROJECT_ON_SAVE" value="true" />
+  </component>
+  <component name="CoverageViewManager">
+    <option name="myElementSize" value="185" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="isMigrated" value="true" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="campusinfo-platform-parent" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/compusinfo-display/src/main/resources/templates/admin-index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3125">
+              <caret line="125" selection-start-line="125" selection-end-line="125" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/compusinfo-display/src/main/resources/templates/admin-release.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="274" lean-forward="true" selection-start-line="274" selection-end-line="274" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#div#0;n#div#1;n#div#1;n#form#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/compusinfo-display/src/main/resources/templates/admin-login.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2750">
+              <caret line="110" column="32" selection-start-line="110" selection-start-column="32" selection-end-line="110" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/compusinfo-display/src/main/java/com/graduation/compusinfo/display/entity/User.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1500">
+              <caret line="69" column="23" selection-start-line="69" selection-start-column="19" selection-end-line="69" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/compusinfo-display/src/main/resources/templates/com/adminhead.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="875">
+              <caret line="35" column="34" selection-start-line="35" selection-start-column="34" selection-end-line="35" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/compusinfo-display/src/main/resources/static/admin/js/myJS/common.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="925">
+              <caret line="37" column="5" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/compusinfo-display/src/main/resources/templates/single.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2000">
+              <caret line="80" column="38" selection-start-line="80" selection-start-column="38" selection-end-line="80" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/compusinfo-display/src/main/resources/templates/categoriesPage.html">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/compusinfo-display/src/main/resources/templates/admin-userInfo.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="200">
+              <caret line="8" selection-start-line="8" selection-end-line="8" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#11;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#11;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>ydc-reg-form-group</find>
+      <find>`</find>
+      <find>../static</find>
+      <find>search</find>
+      <find>like-it</find>
+      <find>current_user</find>
+      <find>getTalkData</find>
+      <find>org.mybatis</find>
+      <find>mybatis</find>
+      <find>replyUser</find>
+      <find>replyUserImg</find>
+      <find>articalStat</find>
+      <find>../</find>
+      <find>btn3</find>
+      <find>btn1</find>
+      <find>area2</find>
+      <find>btn</find>
+      <find>editor</find>
+      <find>showSlides</find>
+      <find>onDomLoaded</find>
+      <find>bkLib</find>
+      <find>textLimitCheck</find>
+      <find>upload_start</find>
+      <find>province</find>
+      <find>BeforeUpload</find>
+      <find>ydc-tabPanel</find>
+      <find>../../</find>
+      <find>mystorage</find>
+      <find>text1</find>
+      <find>uploadInit</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>../static</replace>
+      <replace>../../static/admin</replace>
+      <replace>like-count</replace>
+      <replace>../../</replace>
+      <replace>../</replace>
+      <replace>userstorage</replace>
+    </replaceStrings>
+    <dirStrings>
+      <dir>E:\Git\campusinfo-platform-parent\compusinfo-display\src\main\resources\static\images</dir>
+    </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/compusinfo-display/src/main/java/com/graduation/compusinfo/display/controller/CampusPageController.java" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/compusinfo-display/src/main/java/com/graduation/compusinfo/display/service/ArticleTagService.java" />
+        <option value="$PROJECT_DIR$/compusinfo-display/src/main/java/com/graduation/compusinfo/display/service/impl/ArticleTagServiceImpl.java" />
+        <option value="$PROJECT_DIR$/compusinfo-display/src/main/java/com/graduation/compusinfo/display/controller/TagController.java" />
+        <option value="$PROJECT_DIR$/compusinfo-display/src/main/resources/templates/articleslist.html" />
+        <option value="$PROJECT_DIR$/compusinfo-display/src/main/resources/templates/admin/index.html" />
+        <option value="$PROJECT_DIR$/compusinfo-display/src/main/resources/templates/account.html" />
+        <option value="$PROJECT_DIR$/compusinfo-display/src/main/resources/templates/asset.html" />
+        <option value="$PROJECT_DIR$/compusinfo-display/src/main/resources/templates/common.html" />
+        <option value="$PROJECT_DIR$/compusinfo-display/src/main/resources/templates/content.html" />
+        <option value="$PROJECT_DIR$/compusinfo-display/src/main/resources/templates/content-data.html" />
+        <option value="$PROJECT_DIR$/compusinfo-display/src/main/resources/templates/customer.html" />
+        <option value="$PROJECT_DIR$/compusinfo-display/src/main/resources/templates/index-starLevel.html" />
+        <option value="$PROJECT_DIR$/compusinfo-display/src/main/resources/templates/info.html" />
+        <option value="$PROJECT_DIR$/compusinfo-display/src/main/resources/templates/standard.html" />
+        <option value="$PROJECT_DIR$/compusinfo-display/src/main/resources/templates/subscribe.html" />
+        <option value="$PROJECT_DIR$/compusinfo-display/src/main/java/com/graduation/compusinfo/display/controller/CampusPageController.java" />
+        <option value="$PROJECT_DIR$/compusinfo-display/src/main/resources/templates/release.html" />
+        <option value="$PROJECT_DIR$/compusinfo-display/src/main/resources/templates/com/head.html" />
+        <option value="$PROJECT_DIR$/compusinfo-display/src/main/resources/templates/go-reg.html" />
+        <option value="$PROJECT_DIR$/compusinfo-display/src/main/resources/templates/go-reg-reg.html" />
+        <option value="$PROJECT_DIR$/compusinfo-display/src/main/resources/templates/go-reg-username.html" />
+        <option value="$PROJECT_DIR$/compusinfo-display/src/main/resources/templates/page.html" />
+        <option value="$PROJECT_DIR$/compusinfo-display/src/main/resources/templates/com/admin-aside.html" />
+        <option value="$PROJECT_DIR$/compusinfo-display/src/main/resources/templates/info-edit.html" />
+        <option value="$PROJECT_DIR$/compusinfo-display/src/main/resources/templates/admin-subscribe.html" />
+        <option value="$PROJECT_DIR$/compusinfo-display/src/main/resources/templates/com/admin-com.html" />
+        <option value="$PROJECT_DIR$/compusinfo-display/src/main/resources/templates/admin-content.html" />
+        <option value="$PROJECT_DIR$/compusinfo-display/src/main/resources/templates/admin-contentdata.html" />
+        <option value="$PROJECT_DIR$/compusinfo-display/src/main/resources/templates/admin-userInfo.html" />
+        <option value="$PROJECT_DIR$/compusinfo-display/src/main/resources/static/admin/js/myJS/config.js" />
+        <option value="$PROJECT_DIR$/compusinfo-display/src/main/resources/static/admin/js/myJS/index.js" />
+        <option value="$PROJECT_DIR$/compusinfo-display/src/main/resources/static/admin/css/home.css" />
+        <option value="$PROJECT_DIR$/compusinfo-display/src/main/resources/templates/admin/login.html" />
+        <option value="$PROJECT_DIR$/compusinfo-display/src/main/java/com/graduation/compusinfo/display/controller/UserController.java" />
+        <option value="$PROJECT_DIR$/compusinfo-display/src/main/resources/templates/login.html" />
+        <option value="$PROJECT_DIR$/compusinfo-display/src/main/resources/templates/regist.html" />
+        <option value="$PROJECT_DIR$/compusinfo-display/src/main/java/com/graduation/compusinfo/display/service/RedisService.java" />
+        <option value="$PROJECT_DIR$/compusinfo-display/src/main/java/com/graduation/compusinfo/display/utils/RedisKeyUtils.java" />
+        <option value="$PROJECT_DIR$/compusinfo-display/src/main/java/com/graduation/compusinfo/display/service/impl/UserServiceImpl.java" />
+        <option value="$PROJECT_DIR$/compusinfo-display/src/main/java/com/graduation/compusinfo/display/service/UserService.java" />
+        <option value="$PROJECT_DIR$/compusinfo-display/src/main/java/com/graduation/compusinfo/display/service/impl/RedisServiceImpl.java" />
+        <option value="$PROJECT_DIR$/compusinfo-display/src/main/resources/templates/index.html" />
+        <option value="$PROJECT_DIR$/compusinfo-display/src/main/resources/templates/single.html" />
+        <option value="$PROJECT_DIR$/compusinfo-display/src/main/resources/static/js/replyJS/common.js" />
+        <option value="$PROJECT_DIR$/compusinfo-display/src/main/resources/static/admin/js/myJS/common.js" />
+        <option value="$PROJECT_DIR$/compusinfo-display/src/main/java/com/graduation/compusinfo/display/controller/AdminController.java" />
+        <option value="$PROJECT_DIR$/compusinfo-display/src/main/java/com/graduation/compusinfo/display/entity/User.java" />
+        <option value="$PROJECT_DIR$/compusinfo-display/src/main/resources/templates/admin-login.html" />
+        <option value="$PROJECT_DIR$/compusinfo-display/src/main/resources/templates/com/adminhead.html" />
+        <option value="$PROJECT_DIR$/compusinfo-display/src/main/resources/templates/admin-index.html" />
+        <option value="$PROJECT_DIR$/compusinfo-display/src/main/resources/templates/admin-release.html" />
+      </list>
+    </option>
+  </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="E:\maven\repository" />
+        <option name="mavenHome" value="E:/maven/apache-maven-3.3.9" />
+        <option name="userSettingsFile" value="E:\maven\apache-maven-3.3.9\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+        <option name="vmOptionsForImporter" value="-Xmx768m" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="campusinfo-crm" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="compusinfo-display" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="compusinfo-display" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="compusinfo-display" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
+        </path>
+      </expand>
+      <select />
+    </treeState>
+  </component>
+  <component name="MavenRunner">
+    <option name="skipTests" value="true" />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-7" />
+    <option name="width" value="1376" />
+    <option name="height" value="735" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <flattenPackages ProjectPane="true" />
+      <hideEmptyPackages ProjectPane="true" />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="campusinfo-platform-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+            <path>
+              <item name="campusinfo-platform-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: io.springfox:springfox-swagger-ui:2.9.2" type="70bed36:NamedLibraryElementNode" />
+            </path>
+            <path>
+              <item name="campusinfo-platform-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: io.springfox:springfox-swagger-ui:2.9.2" type="70bed36:NamedLibraryElementNode" />
+              <item name="springfox-swagger-ui-2.9.2.jar" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="campusinfo-platform-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: io.springfox:springfox-swagger-ui:2.9.2" type="70bed36:NamedLibraryElementNode" />
+              <item name="springfox-swagger-ui-2.9.2.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="META-INF" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="campusinfo-platform-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: io.springfox:springfox-swagger-ui:2.9.2" type="70bed36:NamedLibraryElementNode" />
+              <item name="springfox-swagger-ui-2.9.2.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="META-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="campusinfo-platform-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: io.springfox:springfox-swagger-ui:2.9.2" type="70bed36:NamedLibraryElementNode" />
+              <item name="springfox-swagger-ui-2.9.2.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="META-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="springfox-swagger-ui" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="campusinfo-platform-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: io.springfox:springfox-swagger-ui:2.9.2" type="70bed36:NamedLibraryElementNode" />
+              <item name="springfox-swagger-ui-2.9.2.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="META-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="springfox-swagger-ui" type="462c0819:PsiDirectoryNode" />
+              <item name="swagger-ui-bundle.js" type="620a8d5e:NestingTreeNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="ToolWindowCoverage.ShowToolbar" value="false" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/compusinfo-display/src/main/resources/static/admin/js/myJS" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Git\campusinfo-platform-parent\compusinfo-display\src\main\resources\templates" />
+      <recent name="E:\Git\campusinfo-platform-parent\compusinfo-display\src\main\resources\templates\com" />
+      <recent name="E:\Git\campusinfo-platform-parent\compusinfo-display\src\main\resources\templates\admin\com" />
+      <recent name="E:\Git\campusinfo-platform-parent\compusinfo-display\src\main\resources\static\js" />
+      <recent name="E:\Git\campusinfo-platform-parent\compusinfo-display\src\test\java\com\graduation\compusinfo\display" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.graduation.compusinfo.display.service" />
+      <recent name="com.graduation.compusinfo.display" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.graduation.compusinfo.display.config" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Git\campusinfo-platform-parent\compusinfo-display\src\main\resources\static\admin\js\myJS" />
+      <recent name="E:\Git\campusinfo-platform-parent\compusinfo-display\src\main\resources\templates" />
+      <recent name="E:\Git\campusinfo-platform-parent\compusinfo-display\src\main\resources\templates\admin" />
+      <recent name="E:\Git\campusinfo-platform-parent\compusinfo-display\src\main\resources\static\css\images" />
+      <recent name="E:\Git\campusinfo-platform-parent\compusinfo-display\src\main\resources\static\js\replyJS" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+    <option name="contentProportion" value="0.23724884" />
+  </component>
+  <component name="RunManager" selected="Spring Boot.CompusinfoDisplayApplication">
+    <configuration name="CompusinfoDisplayApplicationTests.contextLoads" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="compusinfo-display" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.graduation.compusinfo.display.dto.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.graduation.compusinfo.display" />
+      <option name="MAIN_CLASS_NAME" value="com.graduation.compusinfo.display.CompusinfoDisplayApplicationTests" />
+      <option name="METHOD_NAME" value="contextLoads" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CompusinfoDisplayApplicationTests.testFilter" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="compusinfo-display" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.graduation.compusinfo.display.dto.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.graduation.compusinfo.display" />
+      <option name="MAIN_CLASS_NAME" value="com.graduation.compusinfo.display.CompusinfoDisplayApplicationTests" />
+      <option name="METHOD_NAME" value="testFilter(java.util.List)" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CompusinfoDisplayApplicationTests.testMap" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="compusinfo-display" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.graduation.compusinfo.display.dto.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.graduation.compusinfo.display" />
+      <option name="MAIN_CLASS_NAME" value="com.graduation.compusinfo.display.CompusinfoDisplayApplicationTests" />
+      <option name="METHOD_NAME" value="testMap(java.util.List)" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="agreement.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/campusinfo-platform-parent/campusinfo-crm/templates/agreement.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="CampusinfoCrmApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="campusinfo-crm" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.graduation.campusinfocrm.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.graduation.campusinfocrm.CampusinfoCrmApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CampusinfoPlatformParentApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="campusinfo-platform-parent" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.graduation.campusinfo.CampusinfoPlatformParentApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CompusinfoDisplayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="compusinfo-display" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.graduation.compusinfo.display.CompusinfoDisplayApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.CampusinfoCrmApplication" />
+        <item itemvalue="JavaScript Debug.agreement.html" />
+        <item itemvalue="JUnit.CompusinfoDisplayApplicationTests.contextLoads" />
+        <item itemvalue="JUnit.CompusinfoDisplayApplicationTests.testMap" />
+        <item itemvalue="JUnit.CompusinfoDisplayApplicationTests.testFilter" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SshConsoleOptionsProvider">
+    <option name="myEncoding" value="UTF-8" />
+    <option name="myConnectionType" value="NONE" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8d270c16-d081-4f82-8fbc-c2d9d329a136" name="Default Changelist" comment="" />
+      <created>1571298613589</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1571298613589</updated>
+      <workItem from="1571298618900" duration="6059000" />
+      <workItem from="1571314210215" duration="273000" />
+      <workItem from="1571316074379" duration="623000" />
+      <workItem from="1571318505774" duration="1621000" />
+      <workItem from="1571324086909" duration="939000" />
+      <workItem from="1571325285151" duration="2800000" />
+      <workItem from="1571360181966" duration="2635000" />
+      <workItem from="1574043982600" duration="6119000" />
+      <workItem from="1574304715592" duration="9222000" />
+      <workItem from="1574384726426" duration="14482000" />
+      <workItem from="1574647259109" duration="14346000" />
+      <workItem from="1574678926274" duration="3014000" />
+      <workItem from="1574731594173" duration="1873000" />
+      <workItem from="1574819963287" duration="16294000" />
+      <workItem from="1574903369408" duration="1986000" />
+      <workItem from="1575457267572" duration="3558000" />
+      <workItem from="1575508060105" duration="7530000" />
+      <workItem from="1575532062003" duration="3914000" />
+      <workItem from="1575537936751" duration="5100000" />
+      <workItem from="1575595720943" duration="6912000" />
+      <workItem from="1575855138502" duration="596000" />
+      <workItem from="1575881847767" duration="2863000" />
+      <workItem from="1575940016427" duration="19966000" />
+      <workItem from="1576026683142" duration="17570000" />
+      <workItem from="1576112869613" duration="14861000" />
+      <workItem from="1576199763184" duration="3588000" />
+      <workItem from="1576205638233" duration="1294000" />
+      <workItem from="1576459949674" duration="1559000" />
+      <workItem from="1576514403086" duration="1960000" />
+      <workItem from="1576517025670" duration="203000" />
+      <workItem from="1576517271374" duration="2102000" />
+      <workItem from="1576519953429" duration="1213000" />
+      <workItem from="1576546815622" duration="1540000" />
+      <workItem from="1576553708637" duration="1896000" />
+      <workItem from="1576558186242" duration="1189000" />
+      <workItem from="1576559474316" duration="2516000" />
+      <workItem from="1576648996844" duration="1766000" />
+      <workItem from="1576745402749" duration="3659000" />
+      <workItem from="1576768825262" duration="3588000" />
+      <workItem from="1576804459576" duration="11489000" />
+      <workItem from="1576830927240" duration="448000" />
+      <workItem from="1576831777236" duration="3464000" />
+      <workItem from="1577024158107" duration="7742000" />
+      <workItem from="1577063732338" duration="13841000" />
+      <workItem from="1577111926770" duration="5213000" />
+      <workItem from="1577149565538" duration="2321000" />
+      <workItem from="1577151979164" duration="3924000" />
+      <workItem from="1577180807887" duration="586000" />
+      <workItem from="1577197177759" duration="1251000" />
+      <workItem from="1577235705909" duration="1345000" />
+      <workItem from="1577241449667" duration="238000" />
+      <workItem from="1577241893888" duration="22000" />
+      <workItem from="1577370443978" duration="6611000" />
+      <workItem from="1577414835173" duration="595000" />
+      <workItem from="1577427042251" duration="2329000" />
+      <workItem from="1577593443473" duration="1687000" />
+      <workItem from="1577668871615" duration="589000" />
+      <workItem from="1577672576271" duration="578000" />
+      <workItem from="1582528182892" duration="2244000" />
+      <workItem from="1582530594253" duration="1330000" />
+      <workItem from="1582532358718" duration="5874000" />
+      <workItem from="1582551797363" duration="5261000" />
+      <workItem from="1582558120170" duration="2679000" />
+      <workItem from="1582594955921" duration="590000" />
+      <workItem from="1582693044571" duration="8671000" />
+      <workItem from="1582715171172" duration="1413000" />
+      <workItem from="1582716888191" duration="656000" />
+      <workItem from="1582779447566" duration="8733000" />
+      <workItem from="1583073995337" duration="635000" />
+      <workItem from="1583112283108" duration="51000" />
+      <workItem from="1583205418645" duration="20911000" />
+      <workItem from="1583241065648" duration="7997000" />
+      <workItem from="1583284273089" duration="74000" />
+      <workItem from="1583332907242" duration="5687000" />
+      <workItem from="1583370772126" duration="580000" />
+      <workItem from="1583378959368" duration="6203000" />
+      <workItem from="1583389605489" duration="3873000" />
+      <workItem from="1583393795597" duration="2949000" />
+      <workItem from="1583396895254" duration="3477000" />
+      <workItem from="1583406499156" duration="3685000" />
+      <workItem from="1583427471256" duration="2331000" />
+      <workItem from="1583457022322" duration="4295000" />
+      <workItem from="1583484214437" duration="10582000" />
+      <workItem from="1583503668039" duration="5433000" />
+      <workItem from="1583557341808" duration="1890000" />
+      <workItem from="1583573453968" duration="5959000" />
+      <workItem from="1583604308881" duration="1694000" />
+      <workItem from="1583642258510" duration="30184000" />
+      <workItem from="1583716603264" duration="1953000" />
+      <workItem from="1583724119068" duration="11777000" />
+      <workItem from="1583761948814" duration="3093000" />
+      <workItem from="1583765425419" duration="541000" />
+      <workItem from="1583804349025" duration="1204000" />
+      <workItem from="1583805714239" duration="583000" />
+      <workItem from="1583824597851" duration="10388000" />
+      <workItem from="1584025059464" duration="663000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="CompusinfoDisplayApplicationTests_testStudent - 2019.12.05 at 09h 35m 48s.xml">
+      <configuration name="CompusinfoDisplayApplicationTests.testStudent" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CompusinfoDisplayApplicationTests_testStudent - 2019.12.06 at 17h 13m 02s.xml">
+      <configuration name="CompusinfoDisplayApplicationTests.testStudent" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CompusinfoDisplayApplicationTests_testStudent - 2019.12.06 at 17h 17m 11s.xml">
+      <configuration name="CompusinfoDisplayApplicationTests.testStudent" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CompusinfoDisplayApplicationTests_testFilter - 2019.12.06 at 17h 18m 55s.xml">
+      <configuration name="CompusinfoDisplayApplicationTests.testFilter" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CompusinfoDisplayApplicationTests_testFilter - 2019.12.06 at 17h 19m 35s.xml">
+      <configuration name="CompusinfoDisplayApplicationTests.testFilter" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CompusinfoDisplayApplicationTests_testFilter - 2019.12.06 at 17h 21m 14s.xml">
+      <configuration name="CompusinfoDisplayApplicationTests.testFilter" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CompusinfoDisplayApplicationTests_testMap - 2019.12.06 at 17h 21m 55s.xml">
+      <configuration name="CompusinfoDisplayApplicationTests.testMap" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CompusinfoDisplayApplicationTests_contextLoads - 2019.12.06 at 17h 23m 24s.xml">
+      <configuration name="CompusinfoDisplayApplicationTests.contextLoads" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CompusinfoDisplayApplicationTests_contextLoads - 2019.12.06 at 17h 25m 25s.xml">
+      <configuration name="CompusinfoDisplayApplicationTests.contextLoads" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CompusinfoDisplayApplicationTests_contextLoads - 2019.12.06 at 17h 28m 01s.xml">
+      <configuration name="CompusinfoDisplayApplicationTests.contextLoads" configurationId="JUnit" />
+    </history-entry>
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="443645000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49557522" visible="true" weight="0.24432677" />
+      <window_info id="Structure" order="1" sideWeight="0.50442475" side_tool="true" weight="0.22644377" />
+      <window_info id="Designer" order="2" />
+      <window_info id="JRebel" order="3" side_tool="true" weight="0.32980332" />
+      <window_info id="Image Layers" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="UI Designer" order="6" />
+      <window_info id="Favorites" order="7" side_tool="true" weight="0.32980332" />
+      <window_info id="Web" order="8" side_tool="true" weight="0.32980332" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.327787" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49924356" weight="0.4076539" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32786885" />
+      <window_info anchor="bottom" id="Spring" order="7" weight="0.32786885" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49924356" weight="0.4147541" />
+      <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5030257" side_tool="true" weight="0.43114755" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.5823627" />
+      <window_info anchor="bottom" id="Java Enterprise" order="12" weight="0.32786885" />
+      <window_info anchor="bottom" id="Database Changes" order="13" />
+      <window_info anchor="bottom" id="Version Control" order="14" weight="0.23770492" />
+      <window_info anchor="bottom" id="JRebel Executor" order="15" />
+      <window_info anchor="bottom" id="JRebel Console" order="16" side_tool="true" />
+      <window_info anchor="bottom" id="Run Dashboard" order="17" sideWeight="0.4969743" visible="true" weight="0.18852459" />
+      <window_info anchor="bottom" id="Problems" order="18" weight="0.32786885" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.24924012" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" weight="0.32978722" />
+      <window_info anchor="right" id="Maven" order="4" weight="0.3837386" />
+      <window_info anchor="right" id="Palette" order="5" />
+      <window_info anchor="right" id="Capture Analysis" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info anchor="right" id="JRebel Setup Guide" order="9" weight="0.32980332" />
+      <window_info anchor="right" id="Bean Validation" order="10" weight="0.32978722" />
+      <window_info anchor="right" id="Coverage" order="11" side_tool="true" weight="0.32980332" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/campusinfo_platform_parent$CompusinfoDisplayApplication.ic" NAME="CompusinfoDisplayApplication Coverage Results" MODIFIED="1571326210169" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>commentList</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>commentMapper.selectId(1)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>commentMapper.selectById(1)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>commentMapper.selectById(3)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>commentMapper.selectList(Wrappers.&lt;Comment&gt;lambdaQuery().eq(Comment::getArticleId, articleId))</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/compusinfo-display/src/main/resources/static/admin/js/upImg.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1500">
+          <caret line="6" column="19" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="19" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/platform-impl.jar!/resources/html5-schema/html5/web-forms.rnc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="410" column="16" selection-start-line="410" selection-start-column="16" selection-end-line="410" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compusinfo-display/src/main/resources/static/admin/edit.js/qiniu.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compusinfo-display/src/main/resources/static/admin/js/myJS/jquery.min.js" />
+    <entry file="file://$PROJECT_DIR$/compusinfo-display/src/main/resources/templates/com/admin-com.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="896">
+          <caret line="46" column="48" lean-forward="true" selection-start-line="46" selection-start-column="48" selection-end-line="46" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compusinfo-display/src/main/resources/static/css/bootstrap5152.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="1689" column="30" selection-start-line="1689" selection-start-column="30" selection-end-line="1689" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compusinfo-display/src/main/resources/templates/com/head.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="625">
+          <caret line="25" column="27" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="27" />
+          <folding>
+            <element signature="n#div#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compusinfo-display/src/main/resources/static/admin/js/myJS/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="4" column="46" selection-start-line="4" selection-start-column="34" selection-end-line="4" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/campusinfo-crm/src/main/resources/static/css/home.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="273" column="1" selection-start-line="273" selection-start-column="1" selection-end-line="273" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compusinfo-display/src/main/resources/static/admin/images/logo.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compusinfo-display/src/main/resources/static/admin/css/home.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="1796" column="30" selection-start-line="1796" selection-start-column="30" selection-end-line="1796" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compusinfo-display/src/main/resources/templates/contact.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="509">
+          <caret line="44" column="14" selection-start-line="44" selection-start-column="14" selection-end-line="44" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/maven/repository/org/springframework/spring-web/5.2.0.RELEASE/spring-web-5.2.0.RELEASE-sources.jar!/org/springframework/web/method/support/InvocableHandlerMethod.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="79">
+          <caret line="196" selection-start-line="196" selection-end-line="196" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compusinfo-display/src/main/java/com/graduation/compusinfo/display/controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="61" column="9" lean-forward="true" selection-start-line="61" selection-start-column="9" selection-end-line="61" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/platform-impl.jar!/resources/html5-schema/html5/phrase.rnc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="79" column="14" selection-start-line="79" selection-start-column="14" selection-end-line="79" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compusinfo-display/src/main/resources/templates/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1850">
+          <caret line="74" column="15" selection-start-line="74" selection-start-column="15" selection-end-line="74" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compusinfo-display/src/main/resources/templates/regist.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://F:/jdkEnvironment/jdk/src.zip!/java/util/UUID.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="69" column="19" selection-start-line="69" selection-start-column="19" selection-end-line="69" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compusinfo-display/src/main/java/com/graduation/compusinfo/display/utils/RedisKeyUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="13" column="46" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compusinfo-display/src/main/java/com/graduation/compusinfo/display/service/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="97">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compusinfo-display/src/main/java/com/graduation/compusinfo/display/service/impl/CommentServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compusinfo-display/src/main/java/com/graduation/compusinfo/display/service/RedisService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="725">
+          <caret line="35" column="11" selection-start-line="35" selection-start-column="11" selection-end-line="35" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compusinfo-display/src/main/java/com/graduation/compusinfo/display/utils/RedisConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="28" column="20" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compusinfo-display/src/main/resources/templates/go-reg-username.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="14" column="7" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
+          <folding>
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#div#2;n#div#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#a#1;n#div#0;n#div#2;n#div#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#a#2;n#div#0;n#div#2;n#div#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compusinfo-display/src/main/java/com/graduation/compusinfo/display/common/GlobalExceptionHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="18" column="7" lean-forward="true" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compusinfo-display/src/main/java/com/graduation/compusinfo/display/common/LoginHandlerInterceptor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="26" column="25" lean-forward="true" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compusinfo-display/src/main/java/com/graduation/compusinfo/display/service/impl/UserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="83">
+          <caret line="52" column="26" selection-start-line="52" selection-start-column="26" selection-end-line="52" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compusinfo-display/src/main/resources/templates/admin-content.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#li#5;n#ol#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compusinfo-display/src/main/resources/static/js/replyJS/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-125">
+          <caret line="109" column="18" selection-start-line="109" selection-start-column="18" selection-end-line="109" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compusinfo-display/src/main/java/com/graduation/compusinfo/display/controller/ArticleController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="875">
+          <caret line="47" column="61" selection-start-line="47" selection-start-column="7" selection-end-line="47" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.dom.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="9541" column="4" selection-start-line="9541" selection-start-column="4" selection-end-line="9541" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compusinfo-display/src/main/resources/static/js/replyJS/common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="1" column="9" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="9" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compusinfo-display/src/main/resources/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6275">
+          <caret line="251" column="12" selection-start-line="251" selection-start-column="12" selection-end-line="251" selection-end-column="40" />
+          <folding>
+            <element signature="e#10734#11256#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compusinfo-display/src/main/java/com/graduation/compusinfo/display/service/impl/RedisServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="875">
+          <caret line="45" column="27" selection-start-line="45" selection-start-column="27" selection-end-line="45" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compusinfo-display/src/main/resources/static/admin/js/myJS/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="650">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compusinfo-display/src/main/java/com/graduation/compusinfo/display/utils/CommonResponseDto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="950">
+          <caret line="40" column="29" selection-start-line="40" selection-start-column="29" selection-end-line="40" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compusinfo-display/src/main/java/com/graduation/compusinfo/display/controller/AdminController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="118" column="32" selection-start-line="118" selection-start-column="23" selection-end-line="118" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compusinfo-display/src/main/java/com/graduation/compusinfo/display/entity/Article.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compusinfo-display/src/main/java/com/graduation/compusinfo/display/entity/Collect.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-76">
+          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compusinfo-display/src/main/java/com/graduation/compusinfo/display/entity/Comment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="61" column="4" lean-forward="true" selection-start-line="61" selection-start-column="4" selection-end-line="61" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/maven/repository/io/springfox/springfox-swagger-ui/2.9.2/springfox-swagger-ui-2.9.2.jar!/META-INF/resources/webjars/springfox-swagger-ui/swagger-ui-bundle.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="42" column="15979" selection-start-line="42" selection-start-column="15979" selection-end-line="42" selection-end-column="15979" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compusinfo-display/src/main/resources/templates/admin/release.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="13" column="27" lean-forward="true" selection-start-line="13" selection-start-column="27" selection-end-line="13" selection-end-column="27" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compusinfo-display/src/main/resources/templates/admin-index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3125">
+          <caret line="125" selection-start-line="125" selection-end-line="125" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compusinfo-display/src/main/resources/templates/admin-login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2750">
+          <caret line="110" column="32" selection-start-line="110" selection-start-column="32" selection-end-line="110" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compusinfo-display/src/main/java/com/graduation/compusinfo/display/entity/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1500">
+          <caret line="69" column="23" selection-start-line="69" selection-start-column="19" selection-end-line="69" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compusinfo-display/src/main/resources/templates/com/adminhead.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="875">
+          <caret line="35" column="34" selection-start-line="35" selection-start-column="34" selection-end-line="35" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compusinfo-display/src/main/resources/static/admin/js/myJS/common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="925">
+          <caret line="37" column="5" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compusinfo-display/src/main/resources/templates/single.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2000">
+          <caret line="80" column="38" selection-start-line="80" selection-start-column="38" selection-end-line="80" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compusinfo-display/src/main/resources/templates/categoriesPage.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compusinfo-display/src/main/resources/templates/admin-userInfo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#11;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#11;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compusinfo-display/src/main/resources/templates/admin-release.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="274" lean-forward="true" selection-start-line="274" selection-end-line="274" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#0;n#div#1;n#div#1;n#form#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArquillianSettingsConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>campusinfo-platform-parent</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
