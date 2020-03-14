@@ -1,12 +1,15 @@
 package com.graduation.compusinfo.display.controller;
 
+import com.alibaba.druid.util.StringUtils;
 import com.graduation.compusinfo.display.dto.WangEditor;
+import com.graduation.compusinfo.display.entity.Article;
 import com.graduation.compusinfo.display.entity.User;
+import com.graduation.compusinfo.display.service.ArticleService;
 import com.graduation.compusinfo.display.service.UserService;
 import com.graduation.compusinfo.display.utils.CommonResponseDto;
+import com.graduation.compusinfo.display.utils.FastDFSClientUtil;
 import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,13 +20,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author zzk
@@ -37,6 +42,12 @@ public class AdminController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private ArticleService articleService;
+
+    @Autowired
+    private FastDFSClientUtil fastDFSClientUtil;
 
 
     @RequestMapping(value = "/login",method = RequestMethod.GET)
@@ -132,10 +143,11 @@ public class AdminController {
     @RequestMapping(value = "/article/add",method = RequestMethod.POST)
     public  @ResponseBody
     CommonResponseDto articleAdd(@RequestParam("title") String title,
-                           @RequestParam("content") String content,
-                           @RequestParam("typeId") Long typeId,
-                           @RequestParam("userId") Long userId){
+                                 @RequestParam("content") String content,
+                                 @RequestParam("typeId") Long typeId,
+                                 @RequestParam("userId") Long userId){
         log.info("title  {} , content  {} , typeId  {} , userId  {} , ",title,content,typeId,userId);
+        articleService.addArticle(title,content,typeId,userId);
         return new CommonResponseDto().code(0).success(true);
     }
 
@@ -147,7 +159,6 @@ public class AdminController {
         String separator = System.getProperty("file.separator");
         separator=separator.replaceAll("\\\\","/");
         String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() +           request.getContextPath()+ separator; //获取项目路径+端口号 比如：http://localhost:8080/
-
         try {
             // 获取项目路径
             String realPath = request.getSession().getServletContext()
@@ -157,16 +168,21 @@ public class AdminController {
             // 服务器根目录的路径
 //            String path = realPath.replace(contextPath.substring(1), "");
             // 根目录下新建文件夹upload，存放上传图片
-            String uploadPath = "path" + "upload";
+//            String uploadPath = "path" + "upload";
             // 获取文件名称
             String filename = multipartFile.getOriginalFilename();
             // 将文件上传的服务器根目录下的upload文件夹
-            File file = new File(uploadPath, filename);
-            FileUtils.copyInputStreamToFile(inputStream, file);
-            // 返回图片访问路径
-            String url = request.getScheme() + "://" + request.getServerName()
-                    + ":" + request.getServerPort() + "/upload/" + filename;
+            long size = multipartFile.getSize();
+//            InputStream is = null;
+//            is = multipartFile.getFile(param).getInputStream();
 
+            String url = fastDFSClientUtil.uploadFileStream(inputStream,size,filename);
+//            File file = new File(uploadPath, filename);
+//            FileUtils.copyInputStreamToFile(inputStream, file);
+            // 返回图片访问路径
+//            String url = request.getScheme() + "://" + request.getServerName()
+//                    + ":" + request.getServerPort() + "/upload/" + filename;
+            log.info("图片的url："+url);
             String [] str = {url};
             WangEditor we = new WangEditor(str);
             return we;
@@ -175,5 +191,48 @@ public class AdminController {
         }
         return null;
     }
+
+    /**
+     *
+     * @param multipartFile
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "/picture/up",method = RequestMethod.POST)
+    public Map<String,String> fileUp(MultipartHttpServletRequest multipartFile, HttpServletRequest request){
+
+        Map<String,String> result = new HashMap<String,String>();
+        String param = request.getParameter("myPicture");//参数名称
+        if(StringUtils.isEmpty(param)){
+            result.put("result","false");
+            result.put("msg","请添加参数");
+        }
+        InputStream is = null;
+
+        String fileName = multipartFile.getFile(param).getOriginalFilename();
+        try {
+            long size = multipartFile.getFile(param).getSize();
+            is = multipartFile.getFile(param).getInputStream();
+            String path = fastDFSClientUtil.uploadFileStream(is,size,fileName);
+            result.put("result","true");
+            //图片地址
+            result.put("srckey",path);
+        }catch (IOException e){
+            result.put("result","false");
+            log.error("file:"+fileName,e.fillInStackTrace());
+        }finally {
+            if (is !=null){
+                try {
+                    is.close();
+                }catch (IOException io){
+                    log.error(io.getMessage());
+                }
+            }
+        }
+        return result;
+    }
+
+
+
 
 }

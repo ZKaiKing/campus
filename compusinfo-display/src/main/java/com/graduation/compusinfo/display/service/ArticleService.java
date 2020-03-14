@@ -16,4 +16,7 @@ public interface ArticleService extends IService<Article> {
 
     /**通过id查找文章*/
     Article selectArticlalById(Integer arti);
+
+    /**上传文章**/
+    Long addArticle(String title, String content, Long typeId, Long userId);
 }

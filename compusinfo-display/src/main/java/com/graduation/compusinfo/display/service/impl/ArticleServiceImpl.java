@@ -29,4 +29,18 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
     public Article selectArticlalById(Integer arti) {
         return this.getById(arti);
     }
+
+    @Override
+    public Long addArticle(String title, String content, Long typeId, Long userId) {
+        Article article=new Article();
+        article.setTitle(title);
+        article.setContent(content);
+        article.setTypeId(typeId);
+        article.setUserId(userId);
+        int insert = articleMapper.insert(article);
+        if(insert ==1){
+            return article.getId();
+        }
+        return Long.valueOf(0);
+    }
 }
