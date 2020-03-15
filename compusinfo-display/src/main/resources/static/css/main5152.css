@@ -592,7 +592,6 @@ ul.articles li.article-entry:last-child {
   background: url("../images/like.png") no-repeat 6px 8px;
 }
 
-
 .article-entry:hover .like-count {
   background: url("../images/like.png") no-repeat 6px 8px;
   color: #395996;
@@ -600,8 +599,8 @@ ul.articles li.article-entry:last-child {
 
 
 .article-entry:hover .unlike-count {
-  background: url("../images/like.png") no-repeat 6px 8px;
-  color: #395996;
+  background: url("../images/like.png") no-repeat 6px -22px;
+  color: #3b4348;
 }
 
 #footer .article-entry .like-count {

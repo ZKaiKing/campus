@@ -8,6 +8,8 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -32,7 +34,8 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
 
     @Override
     public Long addArticle(String title, String content, Long typeId, Long userId) {
-        Article article=new Article();
+        Date date = new Date();
+        Article article=new Article(date,date,Long.valueOf(0),0,0,0,0);
         article.setTitle(title);
         article.setContent(content);
         article.setTypeId(typeId);
@@ -42,5 +45,11 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
             return article.getId();
         }
         return Long.valueOf(0);
+    }
+
+    @Override
+    public List<Article> selectAdminArticleList(Long userId) {
+        List<Article> articleList= articleMapper.selectList(Wrappers.<Article>lambdaQuery().eq(Article::getUserId,userId));
+        return articleList.size()>0 ? articleList : new ArrayList<>();
     }
 }

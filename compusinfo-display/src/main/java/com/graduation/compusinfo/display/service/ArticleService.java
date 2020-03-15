@@ -19,4 +19,6 @@ public interface ArticleService extends IService<Article> {
 
     /**上传文章**/
     Long addArticle(String title, String content, Long typeId, Long userId);
+
+    List<Article> selectAdminArticleList(Long userId);
 }

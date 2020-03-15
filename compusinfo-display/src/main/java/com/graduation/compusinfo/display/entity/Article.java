@@ -77,5 +77,17 @@ public class Article implements Serializable {
     @TableField("`like_num`")
     private Integer likeNum;
 
+    public Article(){
 
+    }
+
+    public Article(Date creatTime, Date updateTime, Long commentId, Integer viewNum, Integer comNum, Integer hotNum, Integer likeNum) {
+        this.creatTime = creatTime;
+        this.updateTime = updateTime;
+        this.commentId = commentId;
+        this.viewNum = viewNum;
+        this.comNum = comNum;
+        this.hotNum = hotNum;
+        this.likeNum = likeNum;
+    }
 }

@@ -32,32 +32,15 @@ public class CampusPageController {
 
     @RequestMapping(value = "/admin",method = RequestMethod.GET)
     public String toAdminPage(Model model){
-//        List<Article> hotArticals = articleService.selectHotArtical();
-//        hotArticals.stream().forEach(article->{
-////            if(article.getArtContent().length() > BALANCE_DISPLAY_ARTICLEWORDS){
-////                article.setArtContent(article.getArtContent().substring(0,70)+"...");
-////            }
-////           });
-//        Article article = new Article();
-//        List<Tag> allTag = tagService.getAllTag();
-//        model.addAttribute("tags",allTag);
-//        model.addAttribute("hotArticals",hotArticals);
-//        System.out.println(hotArticals.stream().findFirst().toString());
         return "admin-index";
     }
 
     @RequestMapping(value = "/index",method = RequestMethod.GET)
     public String toIndexPage(Model model){
-        List<Article> hotArticals = articleService.selectHotArtical();
-//        hotArticals.stream().forEach(article->{
-////            if(article.getArtContent().length() > BALANCE_DISPLAY_ARTICLEWORDS){
-////                article.setArtContent(article.getArtContent().substring(0,70)+"...");
-////            }
-////           });
-//        Article article = new Article();
+//        List<Article> hotArticals = articleService.selectHotArtical();
         List<Tag> allTag = tagService.getAllTag();
         model.addAttribute("tags",allTag);
-        model.addAttribute("hotArticals",hotArticals);
+//        model.addAttribute("hotArticals",hotArticals);
 //        System.out.println(hotArticals.stream().findFirst().toString());
         return "index";
     }

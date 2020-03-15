@@ -2,6 +2,22 @@
 let commonfun = {
     request : (url,data,callback,failfun)=>{
         $.ajax({
+            url:url,
+            type:"post",
+            data:data,
+            dataType:"json",
+            success:(data)=>{
+                callback(data)
+            },
+            fail:(err)=>{
+                failfun(err)
+            }
+        })
+    }
+}
+let commonPostfun = {
+    request : (url,data,callback,failfun)=>{
+        $.ajax({
         url:url,
         type:"post",
         data:data,
@@ -16,6 +32,22 @@ let commonfun = {
     }
 }
 
+let commonGetfun = {
+    request : (url,data,callback,failfun)=>{
+        $.ajax({
+            url:url,
+            type:"get",
+            data:data,
+            dataType:"json",
+            success:(data)=>{
+                callback(data)
+            },
+            fail:(err)=>{
+                failfun(err)
+            }
+        })
+    }
+}
 
 /**
  * [userstorage 存储localstorage时候最好是封装一个自己的键值，在这个值里存储自己的内容对象，封装一个方法针对自己对象进行操作。避免冲突也会在开发中更方便。]

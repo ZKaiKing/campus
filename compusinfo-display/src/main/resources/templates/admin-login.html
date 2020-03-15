@@ -94,6 +94,7 @@
 			success: function (result) {
 				console.log(result);//打印服务端返回的数据(调试用)
 				if (result.code == 200) {
+					userstorage.set("user_id",result.data.id);
 					userstorage.set("user_name",result.data.username);
 					userstorage.set("user_img",result.data.user_img);
 					userstorage.set("user_email",result.data.email);
@@ -104,7 +105,7 @@
 					userstorage.set("user_fansNum",result.data.fansNum);
 					userstorage.set("user_concernNum",result.data.concernNum);
 					userstorage.set("user_blog",result.data.blog);
-                    window.location.href="index";
+                    window.location.href="admin-index";
                 };
 			},
 			error : function() {

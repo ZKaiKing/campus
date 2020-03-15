@@ -2,7 +2,6 @@ package com.graduation.compusinfo.display.controller;
 
 import com.alibaba.druid.util.StringUtils;
 import com.graduation.compusinfo.display.dto.WangEditor;
-import com.graduation.compusinfo.display.entity.Article;
 import com.graduation.compusinfo.display.entity.User;
 import com.graduation.compusinfo.display.service.ArticleService;
 import com.graduation.compusinfo.display.service.UserService;
@@ -85,30 +84,6 @@ public class AdminController {
     public String toUserInfoPage(Model model){
         return "admin-userInfo";
     }
-
-
-//    @ApiOperation(value = "用户登录",notes = "用户根据信息进行登录操作")
-//    @RequestMapping(value = "/login",method = RequestMethod.POST)
-//    public String userLogin(@ModelAttribute User user, HttpServletRequest request, Model model, HttpServletResponse response){
-//        User AdminUser = userService.AdminuserLogin(user);
-//        if(AdminUser==null || !AdminUser.getPhone().equals(user.getPhone())){
-//            System.out.println("账户不存在");
-//            model.addAttribute("error","该账户不存在");
-//            return "admin-login";
-//        }
-//        String password = DigestUtils.md5DigestAsHex(user.getPassword().getBytes());
-//        if(!password.equals(AdminUser.getPassword())){
-//            System.out.println("密码错误");
-//            model.addAttribute("error","密码错误");
-//            return "admin-login";
-//        }
-//        String rediskey = userService.putUserInfoToRedis(AdminUser);
-//        Cookie cookie=new Cookie("sessionId",rediskey);
-//        response.addCookie(cookie);
-//        AdminUser.setPassword("");//返回前端时密码隐蔽掉
-//        model.addAttribute("user",AdminUser);
-//        return "admin-index";
-//    }
 
 
     @RequestMapping(value = "/login",method = RequestMethod.POST)

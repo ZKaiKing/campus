@@ -78,6 +78,7 @@
 													<a href="page.html" target="_blank">4月特色MCN | 点讯号MCN颁发月度特色奖项：决定就是你了！</a>
 													<span>2017-04-17 10:00:00</span>
 												</li>
+												<div id="articleList"></div>
 											</ol>
 											<div class="ydc-pagination">
 												<ol>
@@ -123,6 +124,10 @@
 <script>
 	$("#admin-index").addClass("active");
 	//数据处理
+
+	window.onload=function(){
+		getArticleList();
+	}
 
 </script>
 

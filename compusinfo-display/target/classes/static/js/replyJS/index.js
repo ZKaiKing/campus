@@ -36,8 +36,7 @@ function renderData(data){
       if(data.data.length >0 ){
         talkStr += '<h3 id="comments-title">'+'('+data.data.length+')条评论'+'</h3>'
       }
-
-      data.data.forEach((talkitem,index)=>{
+        data.data.forEach((talkitem,index)=>{
         //判断此评论是否有回复
         let replyStr = '';  //回复文本
         if(talkitem.child.length > 0){
