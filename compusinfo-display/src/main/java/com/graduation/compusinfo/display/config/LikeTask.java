@@ -24,9 +24,10 @@ public class LikeTask extends QuartzJobBean {
     @Override
     protected void executeInternal(JobExecutionContext context) throws JobExecutionException {
 
-        log.info("LikeTask START : -- {}",sdf.format(new Date()));
+        log.info("Redis回读数据到DB定时任务开始LikeTask START : --> {}",sdf.format(new Date()));
         //将 Redis 里的点赞信息同步到数据库里
         userLikeService.saveRedisLikeData2DB();
         userLikeService.SaveRedisLikeCount2DB();
+        log.info("Redis回读数据到DB定时任务结束 LikeTask END : --> {}",sdf.format(new Date()));
     }
 }

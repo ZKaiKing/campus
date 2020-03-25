@@ -61,10 +61,10 @@ public class UserLikeServiceImpl extends ServiceImpl<UserLikeMapper, UserLike> i
         likeList.stream().forEach(userLike -> {
             UserLike uk1 = getByUserIdAndPostId(userLike.getLikedUserId(), userLike.getLikedPostId());
             if(uk1 == null){
-                saveToDB(uk1);
+                saveToDB(userLike);
             }else{
                 uk1.setStatus(userLike.getStatus());
-                saveToDB(uk1);
+                userLikeMapper.updateById(uk1);
             }
         });
     }
