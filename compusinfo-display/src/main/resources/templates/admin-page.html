@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>文章详情</title>
+</head>
+<body>
+<!-- head YDC begin -->
+<div th:include="/com/adminhead.html"></div>
+<!-- head YDC end -->
+<div>
+	<!-- content YDC begin -->
+	<section>
+		<div class="ydc-content-slide ydc-body">
+			<div class="ydc-page-content">
+				<div class="ydc-page-head">
+					<h3 th:text="${article.title}"></h3>
+					<p th:utext="${article.content}"></p>
+				</div>
+				<div class="ydc-page-aut">
+					<p th:text="${article.updateTime}"></p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- content YDC end -->
+</div>
+
+
+</body>
+</html>
