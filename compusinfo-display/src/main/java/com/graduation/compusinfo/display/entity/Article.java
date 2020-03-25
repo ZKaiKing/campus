@@ -77,6 +77,10 @@ public class Article implements Serializable {
     @TableField("`like_num`")
     private Integer likeNum;
 
+
+    @TableField(exist = false)
+    private boolean likeOrNo;
+
     public Article(){
 
     }

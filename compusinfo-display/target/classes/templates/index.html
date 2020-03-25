@@ -1,12 +1,5 @@
 <!doctype html>
-<!--[if lt IE 7]>
-<html class="lt-ie9 lt-ie8 lt-ie7" lang="en-US" xmlns:th="http://www.thymeleaf.org"> <![endif]-->
-<!--[if IE 7]>
-<html class="lt-ie9 lt-ie8" lang="en-US" xmlns:th="http://www.thymeleaf.org"> <![endif]-->
-<!--[if IE 8]>
-<html class="lt-ie9" lang="en-US" xmlns:th="http://www.thymeleaf.org"> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html lang="en" xmlns:th="http://www.thymeleaf.org"> <!--<![endif]-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,15 +27,6 @@
                         <ul class="articles" >
                             <div id="hotArticleList"></div>
                         </ul>
-<!--                        <ul class="articles" th:each="hotArtical,articalStat:${hotArticals}">-->
-<!--                            <li class="article-entry image">-->
-<!--                                <h4><a th:href="@{/article/single(arti=${hotArtical.id})}" th:text="${hotArtical.title}"></a></h4>-->
-<!--                                <span class="article-meta" th:text="${hotArtical.creatTime}"></span>-->
-<!--                                <span class="article-content"><a th:href="@{/article/single(arti=${hotArtical.id})}" th:utext="${hotArtical.content.substring(0,300)}" ></a></span>-->
-<!--                                <span th:if="${hotArtical.likeNum}==0"  class="like-count" th:text="${hotArtical.likeNum}" id="likeArt" th:value="${hotArtical.likeNum}"></span>-->
-<!--                                <span th:if="${hotArtical.likeNum}!=0"  class="unlike-count" th:text="${hotArtical.likeNum}" id="likeArt" th:value="${hotArtical.likeNum}"></span>-->
-<!--                            </li>-->
-<!--                        </ul>-->
                     </section>
                     <section class="span4 articles-list">
                         <h3>最新资讯</h3>
@@ -55,11 +39,8 @@
             <!-- end of page content -->
             <!-- start of sidebar -->
             <aside class="span4 page-sidebar">
-
                 <section class="widget">
                     <div class="support-widget">
-<!--                        <h3 class="title">询问</h3>-->
-<!--                        <a href="contact.html" th:href="@{/campus/contact}"><p class="intro">需要更多资料么？如果您找不到所需信息，请与我们联系以获取更多帮助。</p></a>-->
                         <input type="text" class="form-control" id="keywords" placeholder="回车查询">
                         <span class="input-group-btn">
                              <button class="btn btn-default" id="search" type="button">查询</button>
@@ -70,7 +51,6 @@
                         <div style="margin:10px;" id="history"></div>
                     </div>
                 </section>
-
                 <section class="widget">
                     <div class="quick-links-widget">
                         <h3 class="title">快速链接</h3>
@@ -81,15 +61,12 @@
                         </ul>
                     </div>
                 </section>
-
                 <section class="widget">
                     <h3 class="title">标签</h3>
-
                     <div class="tagcloud" th:each="tag,tagStat:${tags}">
                         <a th:href="@{/tag/all(tagId=${tag.id})}" class="btn btn-mini" th:text="${tag.tagName}"></a>
                     </div>
                 </section>
-
             </aside>
             <!-- end of sidebar -->
         </div>
@@ -97,34 +74,33 @@
 </div>
 <!-- End of Page Container -->
 <a href="#top" id="scroll-top"></a>
-
 <!--下面是搜索的-->
 <script type="text/javascript">
     $(function(){
-        //热度文章回显
+        //首页文章回显
         getIndexArticleList();
         update_history();
         // 绑定回车事件
-        $(document).keydown(function(event){
-            if(event.keyCode==13){
-                var searchval = $("#keywords").val();
-                $("#search").click();
-                $.ajax({
-                    type: "POST",
-                    url: "../article/search",
-                    data: {"searchval":searchval},
-                    dataType: "json",
-                    success: function (data) {
-                        if (data.code === 200){
-                        }
-                    },
-                    error : function(e) {           //请求失败的回调函数
-                        console.log(e);
-                        alert("搜索失败");
-                    }
-                })
-            }
-        });
+        // $(document).keydown(function(event){
+        //     if(event.keyCode==13){
+        //         var searchval = $("#keywords").val();
+        //         $("#search").click();
+        //         $.ajax({
+        //             type: "POST",
+        //             url: "../article/search",
+        //             data: {"searchval":searchval},
+        //             dataType: "json",
+        //             success: function (data) {
+        //                 if (data.code === 200){
+        //                 }
+        //             },
+        //             error : function(e) {           //请求失败的回调函数
+        //                 console.log(e);
+        //                 alert("搜索失败");
+        //             }
+        //         })
+        //     }
+        // });
         // 搜索点击事件
         $("#search").click(function(){
             var searchval = $("#keywords").val();
@@ -236,6 +212,7 @@
             clear : clear
         };
     })();
+
 
 
 

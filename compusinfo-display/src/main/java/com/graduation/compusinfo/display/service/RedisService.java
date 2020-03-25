@@ -1,5 +1,10 @@
 package com.graduation.compusinfo.display.service;
 
+import com.graduation.compusinfo.display.entity.UserLike;
+
+import java.util.HashMap;
+import java.util.List;
+
 /**
  * @author zzk
  * @date 2020/2/27 23:07
@@ -27,6 +32,38 @@ public interface RedisService {
      * @param likedPostId
      */
     void unlikeFromRedis(String likedUserId, String likedPostId);
+
+    /**
+     * 从Redis中删除一条点赞数据
+     * @param likedUserId
+     * @param likedPostId
+     */
+    void deleteLikedFromRedis(String likedUserId, String likedPostId);
+
+
+    /**
+     * 该文章点赞数+1
+     * @param likedPostId
+     */
+    void increArticleLikedCount(String likedPostId);
+
+    /**
+     *该文章点赞数-1
+     * @param likedPostId
+     */
+    void decreArticleLikedCount(String likedPostId);
+
+    /**
+     *获取Redis中存储的所有点赞数据
+     * @return
+     */
+    List<UserLike> getLikedDataFromRedis();
+
+    /**
+     * 获取Redis中存储的所有点赞数量
+     * @return
+     */
+    HashMap<Integer, Integer> getLikedCountFromRedis();
 
     /**
      * 保存用户登录到redis

@@ -1,11 +1,4 @@
 <!doctype html>
-<!--[if lt IE 7]>
-<html class="lt-ie9 lt-ie8 lt-ie7" lang="en-US" xmlns:th="http://www.thymeleaf.org"> <![endif]-->
-<!--[if IE 7]>
-<html class="lt-ie9 lt-ie8" lang="en-US" xmlns:th="http://www.thymeleaf.org"> <![endif]-->
-<!--[if IE 8]>
-<html class="lt-ie9" lang="en-US" xmlns:th="http://www.thymeleaf.org"> <![endif]-->
-<!--[if gt IE 8]><!-->
 <html lang="en" xmlns:th="http://www.thymeleaf.org"> <!--<![endif]-->
 <head>
     <!-- META TAGS -->
@@ -24,7 +17,6 @@
 <div class="page-container">
     <div class="container">
         <div class="row">
-
             <!-- start of page content -->
             <div class="span8 main-listing">
                 <article class="format-standard type-post hentry clearfix">
@@ -50,12 +42,9 @@
                             <br>
                         </div>
                     </div>
-                    <p>Many of us . . . <a class="readmore-link"  href="http://knowledgebase.inspirythemes.com/integrating-wordpress-with-your-website/">Read
-                        more</a></p>
+                    <p>Many of us . . . <a class="readmore-link"  href="#">阅读更多</a></p>
                 </article>
-
                 <!-- end of 1 page content -->
-
                 <article class="format-standard type-post hentry clearfix">
                     <header class="clearfix">
                         <h3 class="post-title">
@@ -70,67 +59,29 @@
                         </div><!-- end of post meta -->
 
                     </header>
-
                     <p>Many of us ng and never ending.&nbsp;Then the day is over, and we are exhausted, and we often
                         have very little to show for it. And we start the next . . . <a class="readmore-link"
                                                                                         href="http://knowledgebase.inspirythemes.com/using-javascript/">Read
                             more</a></p>
-
                 </article>
-
                 <article class=" type-post format-image hentry clearfix">
-
                     <header class="clearfix">
-
                         <h3 class="post-title">
                             <a href="single.html">Using Images</a>
                         </h3>
-
                         <div class="post-meta clearfix">
                             <span class="date">25 Feb, 2013</span>
                             <span class="category"><a href="#" title="View all posts in Designing in WordPress">Designing in WordPress</a></span>
                             <span class="comments"><a href="#" title="Comment on Using Images">0 Comments</a></span>
                             <span class="like-count">7</span>
                         </div><!-- end of post meta -->
-
                     </header>
-
                     <a href="#" title="Using Images"><img width="770" height="501"
                                                           src="images/temp/living-room-770x501.jpg"
                                                           class="attachment-std-thumbnail wp-post-image"
                                                           alt="Living room"></a>
-
                     <p>Many of us . . . <a class="readmore-link"
                                            href="http://knowledgebase.inspirythemes.com/using-images/">Read more</a></p>
-
-                </article>
-
-                <article class="type-post  format-video hentry clearfix">
-
-                    <header class="clearfix">
-
-                        <h3 class="post-title">
-                            <a href="single.html">Using Video</a>
-                        </h3>
-
-                        <div class="post-meta clearfix">
-                            <span class="date">24 Feb, 2013</span>
-                            <span class="category"><a href="#" title="View all posts in WordPress Plugins">WordPress Plugins</a></span>
-
-                            <span class="comments"><a href="#" title="Comment on Using Video">0 Comments</a></span>
-
-                            <span class="like-count">7</span>
-                        </div><!-- end of post meta -->
-                    </header>
-                    <div class="post-video">
-                        <div class="video-wrapper">
-                            <iframe src="http://player.vimeo.com/video/24535181" width="500" height="281"
-                                    frameborder="0" webkitallowfullscreen="" mozallowfullscreen=""
-                                    allowfullscreen=""></iframe>
-                        </div>
-                    </div>
-                    <p> 深度. . . <a class="readmore-link" href="http://knowledgebase.inspirythemes.com/using-video/">Read
-                        more</a></p>
                 </article>
                 <article class=" type-post  format-standard hentry clearfix">
 
@@ -163,34 +114,6 @@
                 </div>
             </div>
             <!-- end of page content -->
-            <!-- start of sidebar -->
-            <aside class="span4 page-sidebar">
-                <section class="widget">
-                    <div class="support-widget">
-                        <h3 class="title">询问</h3>
-                        <a href="contact.html" th:href="@{/campus/contact}"><p class="intro">需要更多资料么？如果您找不到所需信息，请与我们联系以获取更多帮助。</p></a>
-                    </div>
-                </section>
-                <section class="widget">
-                    <div class="quick-links-widget">
-                        <h3 class="title">快速链接</h3>
-                        <ul id="menu-quick-links" class="menu clearfix">
-                            <li><a th:href="@{/campus/articleslist}">文章列表</a></li>
-                            <li><a href="faq.html" th:href="@{/campus/faq}">常见问题</a></li>
-                            <li><a href="contact.html" th:href="@{/campus/contact}">联系</a></li>
-                        </ul>
-                    </div>
-                </section>
-                <section class="widget">
-                    <h3 class="title">标签</h3>
-                    <div class="tagcloud">
-                        <a href="#" class="btn btn-mini">basic</a>
-                        <a href="#" class="btn btn-mini">beginner</a>
-                        <a href="#" class="btn btn-mini">blogging</a>
-                    </div>
-                </section>
-            </aside>
-            <!-- end of sidebar -->
         </div>
     </div>
 </div>

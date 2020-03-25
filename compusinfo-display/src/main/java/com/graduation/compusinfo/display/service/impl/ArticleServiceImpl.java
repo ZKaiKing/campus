@@ -1,14 +1,15 @@
 package com.graduation.compusinfo.display.service.impl;
 
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.graduation.compusinfo.display.entity.Article;
 import com.graduation.compusinfo.display.mapper.ArticleMapper;
 import com.graduation.compusinfo.display.service.ArticleService;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -48,8 +49,37 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
     }
 
     @Override
-    public List<Article> selectAdminArticleList(Long userId) {
-        List<Article> articleList= articleMapper.selectList(Wrappers.<Article>lambdaQuery().eq(Article::getUserId,userId));
-        return articleList.size()>0 ? articleList : new ArrayList<>();
+    public PageInfo<List<Article>> selectAdminArticleList(Long userId) {
+
+        PageInfo<List<Article>> articlePage = PageHelper.startPage(1,10,"")
+                .doSelectPageInfo(()->articleMapper.selectList(Wrappers.<Article>lambdaQuery().eq(Article::getUserId,userId)));
+
+//        List<Article> articleList= articleMapper.selectList(Wrappers.<Article>lambdaQuery().eq(Article::getUserId,userId));
+//        return articleList.size()>0 ? articleList : new ArrayList<>();
+
+        return articlePage;
+    }
+
+    @Override
+    public List<Article> selectHotArticleList(Long userId) {
+        List<Article> articleList = articleMapper.selectList(Wrappers.<Article>lambdaQuery().eq(Article::getUserId, userId));
+        return articleList;
+    }
+
+    @Override
+    public List<Article> selectFastArticleList(Long userId) {
+        List<Article> articleList = articleMapper.selectList(Wrappers.<Article>lambdaQuery().eq(Article::getUserId, userId));
+        return articleList;
+    }
+
+    @Override
+    public List<Article> selectArticlesByTypeId(Long typeId) {
+        return  articleMapper.selectList(Wrappers.<Article>lambdaQuery().eq(Article::getTypeId, typeId));
+    }
+
+    @Override
+    public void updateLikeCount(Article article, Integer value) {
+        article.setLikeNum(value);
+        articleMapper.updateById(article);
     }
 }

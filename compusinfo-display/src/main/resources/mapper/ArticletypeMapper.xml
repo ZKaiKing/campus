@@ -14,4 +14,8 @@
 <!--        typeId, typeName, typeCreateTime-->
 <!--    </sql>-->
 
+
+    <select id="randomAricleType" resultType="com.graduation.compusinfo.display.entity.Articletype">
+          select * from camp_articletype limit 10;
+    </select>
 </mapper>

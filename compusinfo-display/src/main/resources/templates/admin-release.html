@@ -30,9 +30,6 @@
                                         <li class="hit">发布文章</li>
                                     </ul>
                                     <div class="ydc-release-amount">
-                                        <span>
-                                            <a href="standard.html" target="_blank">发文规范</a>
-                                        </span>
                                     </div>
                                 </div>
                                 <div class="ydc-panes">
@@ -49,11 +46,8 @@
                                                 </div>
                                             </div>
                                         </div>
-<!--                                        <div class="ydc-release-form-text">-->
-<!--                                            <textarea name="area2" style="width: 100%;">请输入内容-->
-<!--										</textarea>-->
-                                        <div id="editor">
-                                            <p>正文...</p>
+                                            <div id="editor">
+                                            <p></p>
                                         </div>
                                         <div class="ydc-form-city">
                                             <form action="">
@@ -86,8 +80,6 @@
                                                     <button class="btn btn-default" id="submitArt">保存草稿</button>
                                                 </div>
                                             </form>
-
-
                                         </div>
                                     </div>
                                 </div>
@@ -109,11 +101,6 @@
 	        upload_start();
 	    });
         </script>
-<!--        <script type="text/javascript">-->
-<!--            -->
-<!--	    bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });//编辑器-->
-<!--	-->
-<!--        </script>-->
 
         <script type="text/javascript">
 	    function textLimitCheck(thisArea, maxLength){
@@ -130,7 +117,6 @@
 <!--        以下是编辑器的-->
         <script src="../static/admin/edit.js/jquery-1.8.2.min.js"></script>
         <script src="../static/admin/edit.js/wangEditor.min.js"></script>
-        <script src="https://unpkg.com/qiniu-js@2.2.2/dist/qiniu.min.js"></script>
         <script src="../static/admin/edit.js/ui.js"></script>
         <script src="../static/admin/edit.js/highlight.js"></script>
         <script>
@@ -191,8 +177,6 @@
                 }
             }
 
-            //wangEditor 从v3版本开始不支持 textarea ，但是可以通过onchange来实现 textarea 中提交富文本内容。
-            // var $text1 = $('#text1')
             editor.customConfig.onchange = function (html) {
                 // 监控变化，同步更新到 textarea
                 $text1.val(html);

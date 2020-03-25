@@ -3,6 +3,7 @@ package com.graduation.compusinfo.display.config;
 import com.graduation.compusinfo.display.common.LoginHandlerInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -30,19 +31,19 @@ public class WebMvcConfigurers implements WebMvcConfigurer {
     }
 
 
-    //@Override
-    //public void addInterceptors(InterceptorRegistry registry) {
-    //    registry.addInterceptor(loginHandlerInterceptor).addPathPatterns("/**")
-    //            .excludePathPatterns("/","/static/**","/campus/login","/campus/register")
-    //            .excludePathPatterns("/css/**","/js/**","/images/**")
-    //            .excludePathPatterns("/swagger-resources/**", "/webjars/**", "/v2/**","/swagger-ui.htm/**","/swagger-ui.html/**");
-    //}
-
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(loginHandlerInterceptor).addPathPatterns("/comment/*")  //addPathPatterns("/**")对所有请求都拦截
+                .excludePathPatterns("/","/static/**","/admin/login","/campus/register")
+                .excludePathPatterns("/css/**","/js/**","/images/**")
+                .excludePathPatterns("/swagger-resources/**", "/webjars/**", "/v2/**","/swagger-ui.htm/**","/swagger-ui.html/**");
+    }
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/").setViewName("login");
-        registry.addViewController("/campus/login.html").setViewName("login");
+//admin类访问
+        registry.addViewController("/").setViewName("admin-login");
+        registry.addViewController("/admin/login").setViewName("admin-login");
     }
 
 }

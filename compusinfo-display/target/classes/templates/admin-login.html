@@ -7,7 +7,6 @@
 	<link type="text/css" rel="stylesheet" href="../static/admin/css/core.css">
 	<link type="text/css" rel="stylesheet" href="../static/admin/css/icon.css">
 	<link type="text/css" rel="stylesheet" href="../static/admin/css/home.css">
-
 	<!-- Style -->
 	<script type="application/x-javascript"> addEventListener("load", function () {
 		setTimeout(hideURLbar, 0);
@@ -16,7 +15,6 @@
 		window.scrollTo(0, 1);
 	}
 	</script>
-
 </head>
 <body>
 <div class="ydc-body-content">
@@ -64,16 +62,13 @@
 					<div class="ydc-login-box">
 						<a href="go-reg.html" target="_blank">立即注册</a>
 						<span>|</span>
-						<a href="customer.html" target="_blank">常见问题</a>
 					</div>
 <!--				</form>-->
-
 			</div>
-
 		</div>
 	</div>
 </div>
-	<script type="text/javascript" src="../static/admin/js/jquery.min.js"></script>
+<script type="text/javascript" src="../static/admin/js/jquery.min.js"></script>
 <script type="text/javascript" src="../static/admin/js/myJS/config.js"></script>
 <script type="text/javascript" src="../static/admin/js/myJS/common.js"></script>
 <script type="text/javascript" src="../static/admin/js/myJS/index.js"></script>
@@ -88,7 +83,7 @@
 			type: "POST",//方法类型
 			dataType: "json",//预期服务器返回的数据类型
             sync: false,
-			url: "/admin/login" ,//url
+			url: "/admin/ToLogin" ,//url
 			data: data,
 			// data: $('#form1').serialize(),
 			success: function (result) {
@@ -109,7 +104,7 @@
                 };
 			},
 			error : function() {
-				alert("异常！");
+				console.log("登录异常！");
 			}
 		});
 	}

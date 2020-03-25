@@ -49,10 +49,10 @@ public class AdminController {
     private FastDFSClientUtil fastDFSClientUtil;
 
 
-    @RequestMapping(value = "/login",method = RequestMethod.GET)
-    public String toLoginPage(Model model){
-        return "admin-login";
-    }
+//    @RequestMapping(value = "/login",method = RequestMethod.GET)
+//    public String toLoginPage(Model model){
+//        return "admin-login";
+//    }
 
     @RequestMapping(value = "/index",method = RequestMethod.GET)
     public String toAdminPage(Model model){
@@ -85,8 +85,7 @@ public class AdminController {
         return "admin-userInfo";
     }
 
-
-    @RequestMapping(value = "/login",method = RequestMethod.POST)
+    @RequestMapping(value = "/ToLogin",method = RequestMethod.POST)
     public  @ResponseBody CommonResponseDto
     userLogin(@ModelAttribute User user, HttpServletRequest request,HttpServletResponse response){
         User AdminUser = userService.AdminuserLogin(user);
@@ -128,9 +127,9 @@ public class AdminController {
 
     @RequestMapping(value = "/picture/upload",method = RequestMethod.POST)
     public  @ResponseBody
-    WangEditor upLoadPicture(@RequestParam("myPicture") MultipartFile multipartFile,
+    WangEditor upLoadPicture(@RequestParam("myPicture") MultipartFile myPicture,
                              HttpServletRequest request){
-        log.info("picture  {} ",multipartFile);
+        log.info("picture  {} ",myPicture);
         String separator = System.getProperty("file.separator");
         separator=separator.replaceAll("\\\\","/");
         String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() +           request.getContextPath()+ separator; //获取项目路径+端口号 比如：http://localhost:8080/
@@ -138,16 +137,16 @@ public class AdminController {
             // 获取项目路径
             String realPath = request.getSession().getServletContext()
                     .getRealPath("");
-            InputStream inputStream = multipartFile.getInputStream();
+            InputStream inputStream = myPicture.getInputStream();
 //            String contextPath = request.getContextPath();
             // 服务器根目录的路径
 //            String path = realPath.replace(contextPath.substring(1), "");
             // 根目录下新建文件夹upload，存放上传图片
 //            String uploadPath = "path" + "upload";
             // 获取文件名称
-            String filename = multipartFile.getOriginalFilename();
+            String filename = myPicture.getOriginalFilename();
             // 将文件上传的服务器根目录下的upload文件夹
-            long size = multipartFile.getSize();
+            long size = myPicture.getSize();
 //            InputStream is = null;
 //            is = multipartFile.getFile(param).getInputStream();
 

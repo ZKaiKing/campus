@@ -1,7 +1,9 @@
 package com.graduation.compusinfo.display.service;
 
-import com.graduation.compusinfo.display.entity.Articletype;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.graduation.compusinfo.display.entity.Articletype;
+
+import java.util.List;
 
 /**
  * @author zhangzk
@@ -9,4 +11,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface ArticletypeService extends IService<Articletype> {
 
+
+
+    //随机获取文章类型进行分类回显
+    List<Articletype> RandomgGetArticleType();
 }
