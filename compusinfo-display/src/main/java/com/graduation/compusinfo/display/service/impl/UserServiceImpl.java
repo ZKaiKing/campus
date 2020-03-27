@@ -10,6 +10,8 @@ import com.graduation.compusinfo.display.utils.JsonUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
+
 /**
  * @author zzkai
  * @date 2019-12-12 15:21:16
@@ -26,8 +28,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     @Override
     public Boolean userRegister(User user) {
         User DBuser = getOne(Wrappers.<User>lambdaQuery()
-                .eq(User::getUsername, user.getUsername()));
-        if(DBuser != null){
+                .eq(User::getStudentNo, user.getStudentNo()));
+        if(DBuser == null){
+            user.setCreated(new Date());
             return save(user);
         }
         return false;
@@ -35,17 +38,17 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
     }
 
-    @Override
-    public User userLogin(User user) {
-        User DBuser = getOne(Wrappers.<User>lambdaQuery()
-                .eq(User::getUsername, user.getUsername()));
-        return DBuser;
-    }
+//    @Override
+//    public User userLogin(User user) {
+//        User DBuser = getOne(Wrappers.<User>lambdaQuery()
+//                .eq(User::getUsername, user.getUsername()));
+//        return DBuser;
+//    }
 
     @Override
     public User AdminuserLogin(User user) {
         User DBuser = getOne(Wrappers.<User>lambdaQuery()
-                .eq(User::getPhone, user.getPhone()));
+                .eq(User::getStudentNo, user.getStudentNo()));
         return DBuser;
     }
 
@@ -55,6 +58,11 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         String userJoin = JsonUtils.toJson(adminUser);
         String rediskey = redisService.saveUser2Redis(userJoin);
         return rediskey;
+    }
+
+    @Override
+    public void deleteUserInfoFromRedis(String struuid) {
+        redisService.deleteUserFromRedis(struuid);
     }
 
 }

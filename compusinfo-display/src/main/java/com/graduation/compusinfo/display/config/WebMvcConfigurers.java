@@ -33,8 +33,8 @@ public class WebMvcConfigurers implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(loginHandlerInterceptor).addPathPatterns("/comment/*")  //addPathPatterns("/**")对所有请求都拦截
-                .excludePathPatterns("/","/static/**","/admin/login","/campus/register")
+        registry.addInterceptor(loginHandlerInterceptor).addPathPatterns("/comment/**","/admin/**","/replyComment/**")  //addPathPatterns("/**")
+                .excludePathPatterns("/","/comment/reply/get","/static/**","/admin/login","/campus/register","/campus/login")
                 .excludePathPatterns("/css/**","/js/**","/images/**")
                 .excludePathPatterns("/swagger-resources/**", "/webjars/**", "/v2/**","/swagger-ui.htm/**","/swagger-ui.html/**");
     }

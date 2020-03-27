@@ -37,9 +37,9 @@ public class User implements Serializable {
     @TableField("`email`")
     private String email;
 
-    @ApiModelProperty(value = "登录密钥")
-    @TableField("`token`")
-    private String token;
+    @ApiModelProperty(value = "学号")
+    @TableField("`student_no`")
+    private String studentNo;
 
     @ApiModelProperty(value = "用户角色")
     @TableField("`role_id`")

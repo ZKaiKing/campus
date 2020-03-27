@@ -66,12 +66,30 @@
 <script src="../static/js/replyJS/config.js" type="text/javascript"></script>
 <script src="../static/js/replyJS/common.js" type="text/javascript"></script>
 <script src="../static/js/replyJS/index.js" type="text/javascript"></script>
+<script type='text/javascript' src="../static/js/jquery-1.8.3.min.js"></script>
 <script type="text/javascript">
+    // 解决Ajax异步请求 springMvc 不跳转页面的问题
+    $.ajaxSetup({
+        //设置ajax请求结束后的执行动作
+        complete:
+            function (XMLHttpRequest, textStatus) {
+                // 通过XMLHttpRequest取得响应头，sessionstatus
+                var sessionstatus = XMLHttpRequest.getResponseHeader("SESSIONSTATUS");
+                if (sessionstatus == "TIMEOUT") {
+                    var win = window;
+                    while (win != win.top) {
+                        win = win.top;
+                    }
+                    alert("请先登陆");
+                    // win.location.href = XMLHttpRequest.getResponseHeader("CONTEXTPATH");
+                }
+            }
+    });
 
     window.onload=function(){
         var articleId=$("#articleId").val();
         getTalkData(articleId);
-    }
+    };
 
 
     //取消点赞效果
@@ -137,11 +155,12 @@
                 },
                 error : function(e) {           //请求失败的回调函数
                     console.log(e);
-                    alert("操作失败");
+                    console.log("操作失败");
                 }
             })
         }
     }
+
 </script>
 
 </body>

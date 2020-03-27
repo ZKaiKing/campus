@@ -1,8 +1,6 @@
 package com.graduation.compusinfo.display.controller;
 
-import com.alibaba.druid.util.StringUtils;
 import com.graduation.compusinfo.display.dto.WangEditor;
-import com.graduation.compusinfo.display.entity.User;
 import com.graduation.compusinfo.display.service.ArticleService;
 import com.graduation.compusinfo.display.service.UserService;
 import com.graduation.compusinfo.display.utils.CommonResponseDto;
@@ -12,22 +10,15 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.DigestUtils;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * @author zzk
@@ -82,36 +73,9 @@ public class AdminController {
 
     @RequestMapping(value = "/userInfo",method = RequestMethod.GET)
     public String toUserInfoPage(Model model){
+
         return "admin-userInfo";
     }
-
-    @RequestMapping(value = "/ToLogin",method = RequestMethod.POST)
-    public  @ResponseBody CommonResponseDto
-    userLogin(@ModelAttribute User user, HttpServletRequest request,HttpServletResponse response){
-        User AdminUser = userService.AdminuserLogin(user);
-        if(AdminUser==null || !AdminUser.getPhone().equals(user.getPhone())){
-            System.out.println("账户不存在");
-//            model.addAttribute("error","该账户不存在");
-            return new CommonResponseDto().code(1).success(false);
-        }
-        String password = DigestUtils.md5DigestAsHex(user.getPassword().getBytes());
-        if(!password.equals(AdminUser.getPassword())){
-            System.out.println("密码错误");
-//            model.addAttribute("error","密码错误");
-            return new CommonResponseDto().code(1).success(false);
-        }
-        String rediskey = userService.putUserInfoToRedis(AdminUser);
-        Cookie cookie=new Cookie("sessionId",rediskey);
-        response.addCookie(cookie);
-        AdminUser.setPassword("");//返回前端时密码隐蔽掉
-//        model.addAttribute("user",AdminUser);
-        CommonResponseDto result = new CommonResponseDto();
-        result.setData(AdminUser);
-        return result.code(200).success(true);
-    }
-
-
-
 
 
     @RequestMapping(value = "/article/add",method = RequestMethod.POST)
@@ -124,6 +88,7 @@ public class AdminController {
         articleService.addArticle(title,content,typeId,userId);
         return new CommonResponseDto().code(0).success(true);
     }
+
 
     @RequestMapping(value = "/picture/upload",method = RequestMethod.POST)
     public  @ResponseBody
@@ -138,21 +103,10 @@ public class AdminController {
             String realPath = request.getSession().getServletContext()
                     .getRealPath("");
             InputStream inputStream = myPicture.getInputStream();
-//            String contextPath = request.getContextPath();
-            // 服务器根目录的路径
-//            String path = realPath.replace(contextPath.substring(1), "");
-            // 根目录下新建文件夹upload，存放上传图片
-//            String uploadPath = "path" + "upload";
-            // 获取文件名称
             String filename = myPicture.getOriginalFilename();
             // 将文件上传的服务器根目录下的upload文件夹
             long size = myPicture.getSize();
-//            InputStream is = null;
-//            is = multipartFile.getFile(param).getInputStream();
-
             String url = fastDFSClientUtil.uploadFileStream(inputStream,size,filename);
-//            File file = new File(uploadPath, filename);
-//            FileUtils.copyInputStreamToFile(inputStream, file);
             // 返回图片访问路径
 //            String url = request.getScheme() + "://" + request.getServerName()
 //                    + ":" + request.getServerPort() + "/upload/" + filename;
@@ -165,48 +119,6 @@ public class AdminController {
         }
         return null;
     }
-
-    /**
-     *
-     * @param multipartFile
-     * @return
-     */
-    @ResponseBody
-    @RequestMapping(value = "/picture/up",method = RequestMethod.POST)
-    public Map<String,String> fileUp(MultipartHttpServletRequest multipartFile, HttpServletRequest request){
-
-        Map<String,String> result = new HashMap<String,String>();
-        String param = request.getParameter("myPicture");//参数名称
-        if(StringUtils.isEmpty(param)){
-            result.put("result","false");
-            result.put("msg","请添加参数");
-        }
-        InputStream is = null;
-
-        String fileName = multipartFile.getFile(param).getOriginalFilename();
-        try {
-            long size = multipartFile.getFile(param).getSize();
-            is = multipartFile.getFile(param).getInputStream();
-            String path = fastDFSClientUtil.uploadFileStream(is,size,fileName);
-            result.put("result","true");
-            //图片地址
-            result.put("srckey",path);
-        }catch (IOException e){
-            result.put("result","false");
-            log.error("file:"+fileName,e.fillInStackTrace());
-        }finally {
-            if (is !=null){
-                try {
-                    is.close();
-                }catch (IOException io){
-                    log.error(io.getMessage());
-                }
-            }
-        }
-        return result;
-    }
-
-
 
 
 }

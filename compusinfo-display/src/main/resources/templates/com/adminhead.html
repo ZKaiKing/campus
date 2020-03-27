@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"  xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <link type="text/css" rel="stylesheet" href="../../static/admin/css/core.css">
 <link type="text/css" rel="stylesheet" href="../../static/admin/css/icon.css">
 <link type="text/css" rel="stylesheet" href="../../static/admin/css/home.css">
@@ -13,7 +13,7 @@
         <div class="ydc-entered">
             <div class="ydc-header-content ydc-flex">
                 <div class="ydc-column">
-                    <a href="../index.html" class="ydc-column-ydc-logo">
+                    <a th:href="@{/campus/index}" class="ydc-column-ydc-logo">
                         <img src="../../static/admin/images/logo.png" title="" about="" alt="">
                     </a>
                 </div>
@@ -34,7 +34,7 @@
                                         <i class="ydc-icon ydc-icon-mail fl"></i>
                                         <em>12</em>
                                     </span>
-                                <a href="javascript:;">退出</a>
+                                <a th:href="@{/user/loginOut}">退出</a>
                             </div>
                         </div>
                     </div>

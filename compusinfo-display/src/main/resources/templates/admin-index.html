@@ -1,11 +1,4 @@
 <!doctype html>
-<!--[if lt IE 7]>
-<html class="lt-ie9 lt-ie8 lt-ie7" lang="en-US" xmlns:th="http://www.thymeleaf.org"> <![endif]-->
-<!--[if IE 7]>
-<html class="lt-ie9 lt-ie8" lang="en-US" xmlns:th="http://www.thymeleaf.org"> <![endif]-->
-<!--[if IE 8]>
-<html class="lt-ie9" lang="en-US" xmlns:th="http://www.thymeleaf.org"> <![endif]-->
-<!--[if gt IE 8]><!-->
 <html lang="en" xmlns:th="http://www.thymeleaf.org"> <!--<![endif]-->
 <head>
 	<meta charset="UTF-8">
@@ -70,10 +63,6 @@
 									<div class="ydc-panes">
 										<div class="ydc-pane" style="display:block;">
 											<ol class="ydc-pane-list">
-												<li>
-													<a href="page.html" target="_blank">一点车点讯号</a>
-													<span>2017-04-17 10:00:00</span>
-												</li>
                                                  <!--查询我的文章-->
 												<div id="articleList"></div>
 											</ol>
@@ -121,7 +110,6 @@
 <script>
 	$("#admin-index").addClass("active");
 	//数据处理
-
 	window.onload=function(){
 		getArticleList();
 	}

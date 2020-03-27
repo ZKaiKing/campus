@@ -1,8 +1,6 @@
-let user_Id= 32;
-
 //首页获取文章
 function getIndexArticleList(data) {
-  commonfun.request(serverApi.getIndexArticles,data,getHotArtSuc,getHotArtFail);
+  commonPostfun.request(serverApi.getIndexArticles,data,getHotArtSuc,getHotArtFail);
 }
 //首页获取文章成功
 function getHotArtSuc(data) {
@@ -41,56 +39,7 @@ function getHotArtSuc(data) {
 function getHotArtFail(data) {
 
 }
-//点赞/取消点赞功能
-function LikeIt(artId) {
-    var clas = $(this).attr("class");
-    alert(clas);
-    if(clas=="like-count"){
-        $(this).css({color:"#395996",background:"url('../images/like.png')no-repeat 6px 8px"});
-        $(this).attr("class","unlike-count");
-    }else {
-        $(this).css({color:"#395996",background:"url('../images/like.png')no-repeat 6px -22px"});
-        $(this).attr("class","like-count");
-    }
-    likefunc(artId,clas);
-}
-//点赞响应
-var likefunc= function (artId,clas) {
-    // var clas = $(this).attr("class");
-    if(clas=="like-count"){
-        $.ajax({
-            type: "POST",
-            async : false,
-            url: server+"/article/like",
-            data: {"artId": artId,"userId": user_Id,"isLike": false},
-            dataType: "json",
-            success: function (data) {
-                if (data.code === 200){
-                    console.log("取消点赞操作成功");
-                }
-            },
-            error : function(e) {           //请求失败的回调函数
-                console.log(e);
-            }
-        })
-    }else {
-        $.ajax({
-            type: "POST",
-            async : false,
-            url: server+"/article/like",
-            data: {"artId": artId,"userId": user_Id,"isLike": true},
-            dataType: "json",
-            success: function (data) {
-                if (data.code === 200){
-                    console.log("点赞操作成功");
-                }
-            },
-            error : function(e) {           //请求失败的回调函数
-                console.log(e);
-            }
-        })
-    }
-}
+
 
 //发布文章功能
 function publicArticle(data) {

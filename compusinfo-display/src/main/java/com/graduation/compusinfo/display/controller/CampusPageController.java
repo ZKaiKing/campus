@@ -46,10 +46,10 @@ public class CampusPageController {
         return "index";
     }
 
-//    @RequestMapping(value = "/register",method = RequestMethod.GET)
-//    public String toRegisterPage(){
-//        return "regist";
-//    }
+    @RequestMapping(value = "/register",method = RequestMethod.GET)
+    public String toRegisterPage(){
+        return "regist";
+    }
 
 //    @RequestMapping(value = "/login",method = RequestMethod.GET)
 //    public String login(){

@@ -1,11 +1,12 @@
 package com.graduation.compusinfo.display.controller;
 
 
-import com.graduation.compusinfo.display.dto.UserDTO;
 import com.graduation.compusinfo.display.entity.User;
 import com.graduation.compusinfo.display.service.UserService;
+import com.graduation.compusinfo.display.utils.CommonResponseDto;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,9 +14,11 @@ import org.springframework.util.DigestUtils;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
-import java.util.UUID;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  *
@@ -25,6 +28,7 @@ import java.util.UUID;
 @Api(tags = {"User"})
 @Controller
 @RequestMapping("/user")
+@Slf4j
 public class UserController {
 
     @Autowired
@@ -32,42 +36,63 @@ public class UserController {
 
     @ApiOperation(value = "用户注册",notes = "用户根据信息进行注册操作")
     @RequestMapping(value = "/register",method = RequestMethod.POST)
-    public String userRegister(@ModelAttribute UserDTO userdto, HttpServletRequest request, Model model){
-        User user = userdto.userdtoConverUser(new User());
-        String token= UUID.randomUUID().toString();
-        user.setToken(token);
+    public String userRegister(@ModelAttribute User user, HttpServletRequest request, Model model){
+//        User user = userdto.userdtoConverUser(new User());
         user.setStatus(1);
-        System.out.println(userdto);
+//        System.out.println(userdto);
         Boolean hasregister = userService.userRegister(user);
         if (!hasregister) {
             model.addAttribute("该用户名已存在");
             return "regist";
         } else {
             model.addAttribute("注册成功");
-            request.getSession().setAttribute("user-token",token);
-            return "index";
+            log.info("注册成功");
+            return "regist";
         }
     }
 
 
 
+    @ApiOperation(value = "用户登出",notes = "用户进行登出操作")
+    @RequestMapping(value = "/loginOut",method = RequestMethod.GET)
+    public String loginOut(HttpServletRequest request, Model model){
+//       删除cookie中的用户密钥
+        Cookie[] cookies = request.getCookies();
+        String struuid = null;
+        for (Cookie cookie : cookies) {
+            if (cookie.getName().equalsIgnoreCase("USER_TOKEN")) {
+                struuid = cookie.getValue();
+                cookie.setMaxAge(0);
+            }
+        }
+        //去redis删除该用户密钥
+        userService.deleteUserInfoFromRedis(struuid);
+        return "redirect:/admin/login";
+    }
+
     @ApiOperation(value = "用户登录",notes = "用户根据信息进行登录操作")
-    @RequestMapping(value = "/login",method = RequestMethod.POST)
-    public String userLogin(@ModelAttribute User user, HttpServletRequest request, Model model){
-        User DBuser = userService.userLogin(user);
-        if(DBuser ==null || !DBuser.getUsername().equals(user.getUsername())){
-            System.out.println("账户不存在");
-            model.addAttribute("error","该账户不存在");
-            return "login";
+    @RequestMapping(value = "/ToLogin",method = RequestMethod.POST)
+    public  @ResponseBody
+    CommonResponseDto
+    userLogin(@ModelAttribute User user, HttpServletRequest request, HttpServletResponse response){
+        User AdminUser = userService.AdminuserLogin(user);
+        if(AdminUser==null || !AdminUser.getStudentNo().equals(user.getStudentNo())){
+            log.info("账户不存在");
+            return new CommonResponseDto().code(10001).success(false);
         }
         String password = DigestUtils.md5DigestAsHex(user.getPassword().getBytes());
-        if(!password.equals(DBuser.getPassword())){
-            System.out.println("密码错误");
-            model.addAttribute("error","密码错误");
-            return "login";
+        if(!password.equals(AdminUser.getPassword())){
+            log.info("密码错误");
+            return new CommonResponseDto().code(10002).success(false);
         }
-        model.addAttribute("user",user);
-        return "redirect:/campus/index";
+        String rediskey = userService.putUserInfoToRedis(AdminUser);
+        Cookie cookie=new Cookie("USER_TOKEN",rediskey);
+        cookie.setPath("/");
+        response.addCookie(cookie);//将用户密钥写入cookie中
+        AdminUser.setPassword(rediskey);//返回前端时密码隐蔽掉
+        CommonResponseDto result = new CommonResponseDto();
+        result.setData(AdminUser);
+        return result.code(200).success(true);
     }
 
 }

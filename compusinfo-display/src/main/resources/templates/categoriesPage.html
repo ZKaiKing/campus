@@ -10,7 +10,6 @@
 <!-- Start of Head -->
 <div th:include="/com/head.html"></div>
 <!-- End of Head -->
-
 <!-- Start of Page Container -->
 <div class="page-container">
     <div class="container">
@@ -29,9 +28,8 @@
                         <ul class="articles">
                             <li class="article-entry image" th:each="article,articalStat:${articleType.value}">
                                 <h4><a th:href="@{/article/single(arti=${article.id})}" th:text="${article.title}"> &#8211; 一</a></h4>
+                                <span class="article-content"><a th:href="@{/article/single(arti=${article.id})}" th:utext="${article.content.substring(0,300)}" ></a></span>
                                 <span class="article-meta" th:text="${article.updateTime}"><a th:href="@{/campus/single}" title="学院资讯1">所属学院</a></span>
-                                <span th:if="${article.likeNum}==0"  class="like-count" th:text="${article.likeNum}"  th:value="${article.likeNum}"></span>
-                                <span th:if="${article.likeNum}!=0"  class="unlike-count" th:text="${article.likeNum}" th:value="${article.likeNum}"></span>
                             </li>
                         </ul>
                     </section>

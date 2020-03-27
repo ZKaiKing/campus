@@ -109,10 +109,20 @@ public class RedisServiceImpl implements RedisService{
     public String saveUser2Redis(String userJoin) {
         //获取uuid
         UUID uuid = UUID.randomUUID();
-        String redisKey="user:"  + uuid;
-        //把用户信息存入redis  set（key，value，过期时长，过期格式） 设置三天过期
-        redisTemplate.opsForValue().set(redisKey, userJoin, RedisKeyUtils.USER_SAVE_TIME_OUT, TimeUnit.DAYS);
+        String redisKey="user::"  + uuid;
+        //把用户信息存入redis  set（key，value，过期时长，过期格式） 设置三小时过期
+        redisTemplate.opsForValue().set(redisKey, userJoin, RedisKeyUtils.USER_SAVE_TIME_OUT, TimeUnit.HOURS);
         return redisKey;
+    }
+
+    @Override
+    public void deleteUserFromRedis(String rediskey) {
+        redisTemplate.delete(rediskey);
+    }
+
+    @Override
+    public String getUserFromRedis(String struuid) {
+        return (String) redisTemplate.opsForValue().get(struuid);
     }
 
 

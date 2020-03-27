@@ -1,20 +1,4 @@
 //请求函数封装
-let commonfun = {
-    request : (url,data,callback,failfun)=>{
-        $.ajax({
-            url:url,
-            type:"post",
-            data:data,
-            dataType:"json",
-            success:(data)=>{
-                callback(data)
-            },
-            fail:(err)=>{
-                failfun(err)
-            }
-        })
-    }
-}
 let commonPostfun = {
     request : (url,data,callback,failfun)=>{
         $.ajax({

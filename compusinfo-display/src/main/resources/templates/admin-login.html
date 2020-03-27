@@ -7,14 +7,7 @@
 	<link type="text/css" rel="stylesheet" href="../static/admin/css/core.css">
 	<link type="text/css" rel="stylesheet" href="../static/admin/css/icon.css">
 	<link type="text/css" rel="stylesheet" href="../static/admin/css/home.css">
-	<!-- Style -->
-	<script type="application/x-javascript"> addEventListener("load", function () {
-		setTimeout(hideURLbar, 0);
-	}, false);
-	function hideURLbar() {
-		window.scrollTo(0, 1);
-	}
-	</script>
+	<script type="text/javascript" src="../static/admin/js/jquery.min.js"></script>
 </head>
 <body>
 <div class="ydc-body-content">
@@ -33,7 +26,7 @@
 							<div class="ydc-user-img-img"><img src="../static/admin/images/icon/ph.png" alt=""></div>
 						</div>
 						<div class="ydc-user-border">
-							<input id="phone" type="text" Name="phone" data-type="phone" placeholder="请输入手机号码">
+							<input id="studentNo" type="text" Name="studentNo" data-type="studentNo" placeholder="请输入学号">
 						</div>
 					</div>
 					<div class="ydc-body-login-box">
@@ -68,14 +61,14 @@
 		</div>
 	</div>
 </div>
-<script type="text/javascript" src="../static/admin/js/jquery.min.js"></script>
 <script type="text/javascript" src="../static/admin/js/myJS/config.js"></script>
 <script type="text/javascript" src="../static/admin/js/myJS/common.js"></script>
 <script type="text/javascript" src="../static/admin/js/myJS/index.js"></script>
+
 <script type="text/javascript">
 	function login() {
 		let data = {
-			phone: $("#phone").val(),
+			studentNo: $("#studentNo").val(),
 			password: $("#password").val(),
 		};
 		$.ajax({
@@ -83,8 +76,9 @@
 			type: "POST",//方法类型
 			dataType: "json",//预期服务器返回的数据类型
             sync: false,
-			url: "/admin/ToLogin" ,//url
+			url: "/user/ToLogin" ,//url
 			data: data,
+			// withCredentials: true,
 			// data: $('#form1').serialize(),
 			success: function (result) {
 				console.log(result);//打印服务端返回的数据(调试用)
@@ -100,8 +94,17 @@
 					userstorage.set("user_fansNum",result.data.fansNum);
 					userstorage.set("user_concernNum",result.data.concernNum);
 					userstorage.set("user_blog",result.data.blog);
-                    window.location.href="admin-index";
-                };
+					// $.cookie("USER_TOKEN",result.data.password,{ path: '/'});
+					if(result.data.roleId ==1){
+						window.location.href="/campus/index";
+					}else {
+						window.location.href="/admin/index";
+					}
+                }else if(result.code == 10001){
+					alert("该账户不存在");
+				}else if(result.code == 10002){
+					alert("登录密码错误");
+				}
 			},
 			error : function() {
 				console.log("登录异常！");

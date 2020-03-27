@@ -1,8 +1,10 @@
-let replySize = 3;  //回复默认显示3条  当点击更多 则为评论相关回复total总数
-const replyCount = 3; //回复条数大于3  隐藏
-const currentUserID = '1';
-const currentUserName="张老师";
+var storage=window.sessionStorage;
+let replySize = 5;  //回复默认显示3条  当点击更多 则为评论相关回复total总数
+const replyCount = 5; //回复条数大于3  隐藏
+const currentUserID = storage.get("user_name");
+const currentUserName= storage.get("user_id");
 let articleId=$("#articleId").val();
+
 
 let replyUser = '';   //回复人XXX
 let replyUserID = '';  //回复人ID

@@ -71,4 +71,16 @@ public interface RedisService {
      * @return
      */
     String saveUser2Redis(String userJoin);
+
+    /**
+     * 删除Redis中用户密钥
+     * @param rediskey
+     */
+    void deleteUserFromRedis(String rediskey);
+
+    /**
+     *通过cookie中存储信息查询Redis是否存在该用户
+     * @param struuid
+     */
+    String getUserFromRedis(String struuid);
 }
