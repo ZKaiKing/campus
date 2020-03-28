@@ -97,12 +97,12 @@
 <script type="text/javascript">
     let sessionStorage = window.sessionStorage;
     document.cookie.includes('USER_TOKEN')
-    if(sessionStorage.getItem("user_name")==null){
-        $('#morePag').html("    <a href=\"#\">更多</a>\n" +
-            "        <ul class=\"sub-menu\">\n" +
-            "        <li><a href=\"faq.html\"  th:href=\"@{/campus/categories}\">我的评论</a></li>\n" +
-            "    <li><a href=\"contact.html\" th:href=\"@{/campus/contact}\">联系我</a></li>\n" +
-            "    </ul>");
+    if(sessionStorage.getItem("user_name") !=null){
+        $('#morePag').html("<a href=\"#\">更多</a>\n" +
+            "<ul class=\"sub-menu\">\n" +
+            "<li><a href=\"faq.html\"  th:href=\"@{/campus/categories}\">我的评论</a></li>\n" +
+            "<li><a href=\"contact.html\" th:href=\"@{/campus/contact}\">联系我</a></li>\n" +
+            "</ul>");
         $('#userInfos').html("<div class=\"ydc-column-user\">\n" +
             "<div class=\"ydc-user-photo\">\n" +
             " <a href=\"javascript:;\">\n" +
@@ -122,10 +122,8 @@
             "</div>\n" +
             "</div>\n" +
             "</div>");
-        let userName = window.sessionStorage.getItem("user_name");
-        console.log(userName);
         $("#user_name").text(sessionStorage.getItem("user_name"));
-        $("#user_roleName").text(sessionStorage.getItem("user_roleName"));
+        $("#user_roleName").text("学生");
     }else{
         $('#userInfos').html('<a  href="/admin/index"'+'>登录</a>');
     }

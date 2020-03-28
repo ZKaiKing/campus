@@ -88,8 +88,6 @@ public class AdminController {
         articleService.addArticle(title,content,typeId,userId);
         return new CommonResponseDto().code(0).success(true);
     }
-
-
     @RequestMapping(value = "/picture/upload",method = RequestMethod.POST)
     public  @ResponseBody
     WangEditor upLoadPicture(@RequestParam("myPicture") MultipartFile myPicture,

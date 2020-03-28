@@ -49,14 +49,12 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
     }
 
     @Override
-    public PageInfo<List<Article>> selectAdminArticleList(Long userId) {
+    public PageInfo<List<Article>> selectAdminArticleList(Long userId,int pageNum,int pageSize) {
 
-        PageInfo<List<Article>> articlePage = PageHelper.startPage(1,10,"")
+        PageInfo<List<Article>> articlePage = PageHelper.startPage(pageNum,pageSize,"")
                 .doSelectPageInfo(()->articleMapper.selectList(Wrappers.<Article>lambdaQuery().eq(Article::getUserId,userId)));
-
 //        List<Article> articleList= articleMapper.selectList(Wrappers.<Article>lambdaQuery().eq(Article::getUserId,userId));
 //        return articleList.size()>0 ? articleList : new ArrayList<>();
-
         return articlePage;
     }
 

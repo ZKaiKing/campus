@@ -64,16 +64,6 @@ public class ArticleController {
         return "single";
     }
 
-//    @RequestMapping(value = "/like",method = RequestMethod.POST)
-//    public  @ResponseBody
-//    CommonResponseDto like(@RequestParam Long artId,
-//                           @RequestParam Long userId,
-//                           @RequestParam boolean isLike){
-//        log.info("artId  {} ,userId  {} ,isLike:{} ",artId,userId,isLike);
-//        return new CommonResponseDto().code(200).success(true);
-//    }
-
-
     @RequestMapping(value = "/search",method = RequestMethod.POST)
     public  @ResponseBody
     CommonResponseDto like(@RequestParam String searchval){
@@ -85,10 +75,11 @@ public class ArticleController {
     @RequestMapping(value = "/admin/articleList",method = RequestMethod.POST)
     public  @ResponseBody
     CommonResponseDto<PageInfo<List<Article>>> adminArticleList(
-            @RequestParam("userId") Long userId){
+            @RequestParam("userId") Long userId,
+            @RequestParam("pageNum") int pageNum){
         CommonResponseDto commonResponseDto = new CommonResponseDto();
         log.info("userId  {} , ",userId);
-        PageInfo<List<Article>> articleList = articleService.selectAdminArticleList(userId);
+        PageInfo<List<Article>> articleList = articleService.selectAdminArticleList(userId,pageNum,3);
         commonResponseDto.setData(articleList);
         return commonResponseDto.code(200).success(true);
     }

@@ -22,7 +22,7 @@ public interface ArticleService extends IService<Article> {
     Long addArticle(String title, String content, Long typeId, Long userId);
 
     /**分页显示列表**/
-    PageInfo<List<Article>> selectAdminArticleList(Long userId);
+    PageInfo<List<Article>> selectAdminArticleList(Long userId,int pageNum,int pageSize);
 
 //   热度文章
     List<Article> selectHotArticleList(Long valueOf);
