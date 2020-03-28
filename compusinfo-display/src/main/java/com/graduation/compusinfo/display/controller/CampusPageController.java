@@ -51,21 +51,12 @@ public class CampusPageController {
         return "regist";
     }
 
-//    @RequestMapping(value = "/login",method = RequestMethod.GET)
-//    public String login(){
-//        return "login";
-//    }
-//
+
     @RequestMapping(value = "/articleslist",method = RequestMethod.GET)
     public String toLogin(){
         return "articleslist";
     }
 
-
-//    @RequestMapping(value = "/single",method = RequestMethod.GET)
-//    public String toSinglePage(){
-//        return "single";
-//    }
 
 
     @RequestMapping(value = "/categories",method = RequestMethod.GET)

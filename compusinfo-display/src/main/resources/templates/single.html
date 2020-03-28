@@ -5,9 +5,6 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../static/js/searchJS/jquery.min.js"></script>
-<!--    <script type="text/javascript" src="../static/admin/js/myJS/common.js"></script>-->
-<!--    <script type="text/javascript" src="../static/admin/js/myJS/index.js"></script>-->
-<!--    <script type="text/javascript" src="../static/admin/js/myJS/config.js"></script>-->
     <link rel="stylesheet" href="../static/css/animate.css">
     <link rel="stylesheet" href="../static/css/reply.css">
     <title>CampusInfo Platform</title>
@@ -63,8 +60,6 @@
 <!-- End of Page Container -->
 <a href="#top" id="scroll-top"></a>
 <script src="../static/js/replyJS/jquery.min.js" type="text/javascript"></script>
-<script src="../static/js/replyJS/config.js" type="text/javascript"></script>
-<script src="../static/js/replyJS/common.js" type="text/javascript"></script>
 <script src="../static/js/replyJS/index.js" type="text/javascript"></script>
 <script type='text/javascript' src="../static/js/jquery-1.8.3.min.js"></script>
 <script type="text/javascript">
@@ -125,12 +120,13 @@
         likefunc(artId,clas);
     })
     var likefunc= function (artId,clas) {
+        let userId = window.sessionStorage.getItem("user_id");
         if(clas=="like-it"){
             $.ajax({
                 type: "POST",
                 async : false,
                 url: "../user-like/like",
-                data: {"artId": artId,"userId": 11,"isLike": false},
+                data: {"artId": artId,"userId": userId,"isLike": false},
                 dataType: "json",
                 success: function (data) {
                     if (data.code === 200){
@@ -146,7 +142,7 @@
                 type: "POST",
                 async : false,
                 url: "../user-like/like",
-                data: {"artId": artId,"userId": 11,"isLike": true},
+                data: {"artId": artId,"userId": userId,"isLike": true},
                 dataType: "json",
                 success: function (data) {
                     if (data.code === 200){

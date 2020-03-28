@@ -86,5 +86,12 @@ public class UserLikeServiceImpl extends ServiceImpl<UserLikeMapper, UserLike> i
         }
     }
 
+    @Override
+    public boolean userLikePostOrNo(Integer userId, Integer arti) {
+        UserLike userLike = userLikeMapper.selectOne(Wrappers.<UserLike>lambdaQuery().eq(UserLike::getLikedUserId, userId)
+                .eq(UserLike::getLikedPostId, arti));
+        return userLike != null;
+    }
+
 
 }

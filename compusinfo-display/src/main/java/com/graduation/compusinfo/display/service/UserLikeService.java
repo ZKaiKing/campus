@@ -22,4 +22,7 @@ public interface UserLikeService extends IService<UserLike> {
      * 将Redis中的点赞数量数据存入数据库
      */
     void SaveRedisLikeCount2DB();
+
+    /**判断该用户是否点赞过该文章**/
+    boolean userLikePostOrNo(Integer userId, Integer arti);
 }

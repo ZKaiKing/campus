@@ -29,7 +29,7 @@ public class CommentController {
     @Autowired
     private CommentService commentService;
 
-    @RequestMapping(value = "/reply/get",method = RequestMethod.POST)
+    @RequestMapping(value = "/reply/get",method = RequestMethod.GET)
     public @ResponseBody
     Result<List<Comment>> toSinglePage(@RequestParam("replyCount")  int replyCount,@RequestParam("articleId") Long articleId){
         Result<List<Comment>> talkitem = new Result<>();

@@ -1,38 +1,26 @@
 var storage=window.sessionStorage;
 let replySize = 5;  //回复默认显示3条  当点击更多 则为评论相关回复total总数
 const replyCount = 5; //回复条数大于3  隐藏
-const currentUserID = storage.get("user_name");
-const currentUserName= storage.get("user_id");
+const currentUserID = storage.getItem("user_id");
+const currentUserName= storage.getItem("user_name");
 let articleId=$("#articleId").val();
-
 
 let replyUser = '';   //回复人XXX
 let replyUserID = '';  //回复人ID
 let replyUserImg= '';  //回复人头像
-let seeAlltalkID = '';   //点击查看按钮时  储存点击的评论ID  
-// let articleID = '1'    // 假设此篇文章ID 为 0 (根据文章ID 请求对应评论数据)
-
-//初始化渲染评论数据
-// getTalkData();
+let seeAlltalkID = '';   //点击查看按钮时  储存点击的评论ID
 
 //初始化渲染评论数据
 function getTalkData(articel_id){
-  // let talkID = id || '';
   let data = {
     replyCount:replyCount,
-    // articleID,
     articleId:articel_id
   };
-  commonfun.request(serverApi.getTalk,data,renderData,renderFail)
+  commonGetfun.request(serverApi.getTalk,data,renderData,renderFail)
 }
 
 //获取数据成功回调
 function renderData(data){
-
-      if(data.code != 0){
-          tipObj.setErrmsg(data.msg,1);
-          return;
-      }
       let talkStr = '';  //整个评论信息
       let moreStr = '';
       if(data.data.length >0 ){
@@ -62,11 +50,10 @@ function renderData(data){
               '</div></div>'
           })
           //子类评论结束
-          moreStr = '<div class="comment_more '+(talkitem.replytotal>replyCount?'':'none')+'">'+
-      '<span>剩余'+(seeAlltalkID== talkitem.id? talkitem.replytotal-replySize : talkitem.replytotal-replyCount)+'条评论</span>  <span id="see_reply" data-total='+talkitem.replytotal+' class="green see">'+(talkitem.replytotal-replySize == 0?'收起':"点击查看")+'</span></div>';
+          moreStr = '<div class="comment_more '+(talkitem.commentList>replyCount?'':'none')+'">'+
+      '<span>剩余'+(seeAlltalkID== talkitem.id? talkitem.commentList-replySize : talkitem.commentList-replyCount)+'条评论</span>  <span id="see_reply" data-total='+talkitem.replytotal+' class="green see">'+(talkitem.replytotal-replySize == 0?'收起':"点击查看")+'</span></div>';
           replyStr += moreStr+'</div>'
         }
-
           talkStr += '<div data-id='+talkitem.id+' data-userID='+talkitem.userId+' class="comment">'+
       '<div class="comment_people">'+
         '<div class="comment_people_titleBox">'+
@@ -79,10 +66,8 @@ function renderData(data){
           '<span class="fl_left">'+talkitem.content+'</span>'+
               '<span id="talk_remove" class="reply_btn fl_right none reply_btn_cont">删除</span>'+
               '</div></div>'+replyStr+'</div></div>';
-            
       })
       $('#talk_content').html(talkStr);
-
     }
 
 // 渲染数据失败
@@ -90,7 +75,7 @@ function renderFail(err){
   tipObj.setErrmsg("请求失败，请重试",1);
 }
 
-//对文章评论   ++++++++++++++++++++++
+//对文章评论
 $('#textareaBox').on('focus',function () {
    $('#cancelbtn').removeClass('none')
 })
@@ -101,7 +86,6 @@ $('#talk_submit').on('click',function(){
   let content = $.trim($('#textareaBox').val());
   var articleId=$("#articleId").val();
   if(content.length > 0){
-
     let data = {
       userID:currentUserID,
       userName:currentUserName,
@@ -109,7 +93,6 @@ $('#talk_submit').on('click',function(){
       content,
     };
     commonfun.request(serverApi.addTalk,data,addTalkfun,addTalkFail)
-
   }else{
     //提示层
     tipObj.setErrmsg('请输入评论内容',1);
@@ -147,7 +130,6 @@ $('#cancelbtn').on('click',function(){
 //滑过评论控件  显示删除按钮
 $('#talk_content').on('mouseover','.comment_people_titleBox ',function(){
   if(currentUserID == $(this).parents('.comment').attr('data-userID')){
-   
     $(this).find('#talk_remove').removeClass('none')
   }
 });

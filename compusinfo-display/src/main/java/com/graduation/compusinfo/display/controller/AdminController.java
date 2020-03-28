@@ -73,7 +73,6 @@ public class AdminController {
 
     @RequestMapping(value = "/userInfo",method = RequestMethod.GET)
     public String toUserInfoPage(Model model){
-
         return "admin-userInfo";
     }
 

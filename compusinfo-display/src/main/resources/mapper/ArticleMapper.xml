@@ -22,4 +22,7 @@
 <!--        id, artUser_id, artTitle, artContent, artType_id, artCreTime, artComment_id, artView, artComNum, artHotNum, artLikeNum-->
 <!--    </sql>-->
 
+    <select id="selectHotList" resultType="com.graduation.compusinfo.display.entity.Article">
+        SELECT * FROM camp_article order by create_time desc LIMIT #{n};
+    </select>
 </mapper>

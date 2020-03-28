@@ -38,13 +38,6 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
     }
 
-//    @Override
-//    public User userLogin(User user) {
-//        User DBuser = getOne(Wrappers.<User>lambdaQuery()
-//                .eq(User::getUsername, user.getUsername()));
-//        return DBuser;
-//    }
-
     @Override
     public User AdminuserLogin(User user) {
         User DBuser = getOne(Wrappers.<User>lambdaQuery()

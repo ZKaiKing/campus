@@ -6,4 +6,11 @@ let serverApi={
     publicArticle : server+'/admin/article/add',   //发布文章AP
     getArticleList : server+'/article/admin/articleList',  //回显用户所有文章
     viewArticle: server+'/article/view',
+    // 评论请求接口设置
+    addTalk : server+'/comment/reply/add',   //添加评论API
+    getTalk : server+'/comment/reply/get',  //获取评论API及相关回复
+    removeTalk : server+'/comment/reply/remove',   //删除评论API
+
+    addreply : server+'/replyComment/addreply',   //添加回复API
+    removereply : server+'/replyComment/removereply',   //删除回复API
 }

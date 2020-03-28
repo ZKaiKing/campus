@@ -25,7 +25,8 @@ public class ReplyCommentServiceImpl  extends ServiceImpl<ReplyCommentMapper, Re
     @Override
     public List<ReplyComment> getReplyCommentByCommentId(Long commentId) {
         List<ReplyComment> replyCommentList = replyCommentMapper.selectList(
-                Wrappers.<ReplyComment>lambdaQuery().eq(ReplyComment::getCommentId, commentId));
+                Wrappers.<ReplyComment>lambdaQuery().eq(ReplyComment::getCommentId, commentId)
+                        .orderByDesc(ReplyComment::getCreateTime));
         return replyCommentList;
     }
 

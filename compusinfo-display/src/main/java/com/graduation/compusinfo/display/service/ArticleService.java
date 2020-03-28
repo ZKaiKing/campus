@@ -12,8 +12,8 @@ import java.util.List;
  */
 public interface ArticleService extends IService<Article> {
 
-    /** 查询热度文章*/
-    List<Article> selectHotArtical();
+    /** 搜索框查询文章**/
+    List<Article> getArticalBysearchval();
 
     /**通过id查找文章*/
     Article selectArticlalById(Integer arti);
@@ -25,14 +25,16 @@ public interface ArticleService extends IService<Article> {
     PageInfo<List<Article>> selectAdminArticleList(Long userId,int pageNum,int pageSize);
 
 //   热度文章
-    List<Article> selectHotArticleList(Long valueOf);
+    List<Article> selectHotArticleList();
 
 //    最新文章
-    List<Article> selectFastArticleList(Long valueOf);
+    List<Article> selectFastArticleList();
 
 //  通过类型Id获取文章列表
     List<Article> selectArticlesByTypeId(Long id);
 
-//    更新文章点赞数
+//    更新文章点赞
     void updateLikeCount(Article article, Integer value);
+
+
 }

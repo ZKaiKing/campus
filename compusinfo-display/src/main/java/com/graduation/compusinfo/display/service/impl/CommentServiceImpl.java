@@ -33,7 +33,8 @@ public class CommentServiceImpl extends ServiceImpl<CommentMapper, Comment> impl
         log.info("service----->articleId:  {} ,replyCount:{} ",articleId,replyCount);
 
         Comment comment1 = commentMapper.selectId(1);
-        List<Comment> commentList = commentMapper.selectList(Wrappers.<Comment>lambdaQuery().eq(Comment::getArticleId, articleId));
+        List<Comment> commentList = commentMapper.selectList(Wrappers.<Comment>lambdaQuery()
+                .eq(Comment::getArticleId, articleId).orderByDesc(Comment::getCreateTime));
         //获取子评论
         commentList.stream().forEach(comment -> {
             List<ReplyComment> replyCommentList = replyCommentService.getReplyCommentByCommentId(comment.getId());

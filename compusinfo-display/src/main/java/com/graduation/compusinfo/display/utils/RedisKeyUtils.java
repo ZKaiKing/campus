@@ -6,11 +6,15 @@ package com.graduation.compusinfo.display.utils;
  */
 public class RedisKeyUtils {
 
+
+    //文章排行榜
+    public static final String HOT_ARTICLE_RANK = "HOT_ARTICLE_RANK";
+
     //保存用户点赞数据的key
     public static final String MAP_KEY_USER_LIKED = "MAP_USER_LIKED";
     //保存文章点赞数量的key
     public static final String MAP_KEY_POST_LIKED_COUNT = "MAP_POST_LIKED_COUNT";
-
+//    用户过期时间
     public static final int USER_SAVE_TIME_OUT=3;
 
     /**

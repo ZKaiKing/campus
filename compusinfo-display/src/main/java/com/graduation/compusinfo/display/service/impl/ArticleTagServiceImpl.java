@@ -19,7 +19,6 @@ import java.util.List;
  */
 @Service("articleTagService")
 public class ArticleTagServiceImpl extends ServiceImpl<ArticleTagMapper, ArticleTag> implements ArticleTagService {
-
     @Autowired
     private ArticleTagMapper articleTagMapper;
 

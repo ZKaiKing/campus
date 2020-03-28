@@ -7,6 +7,7 @@ import com.github.pagehelper.PageInfo;
 import com.graduation.compusinfo.display.entity.Article;
 import com.graduation.compusinfo.display.mapper.ArticleMapper;
 import com.graduation.compusinfo.display.service.ArticleService;
+import com.graduation.compusinfo.display.service.RedisService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,10 +24,8 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
     @Autowired
     private ArticleMapper articleMapper;
 
-    @Override
-    public List<Article> selectHotArtical() {
-        return articleMapper.selectList(Wrappers.<Article>lambdaQuery().like(Article::getTitle,"%%"));
-    }
+    @Autowired
+    private RedisService redisService;
 
     @Override
     public Article selectArticlalById(Integer arti) {
@@ -59,14 +58,21 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
     }
 
     @Override
-    public List<Article> selectHotArticleList(Long userId) {
-        List<Article> articleList = articleMapper.selectList(Wrappers.<Article>lambdaQuery().eq(Article::getUserId, userId));
+    public List<Article> getArticalBysearchval() {
+        return articleMapper.selectList(Wrappers.<Article>lambdaQuery().like(Article::getTitle,"%%"));
+    }
+
+    @Override
+    public List<Article> selectHotArticleList() {
+//        前往redis获取
+        List<Integer> hotArticleRank = redisService.getHotArticleRank();
+        List<Article> articleList = articleMapper.selectBatchIds(hotArticleRank);
         return articleList;
     }
 
     @Override
-    public List<Article> selectFastArticleList(Long userId) {
-        List<Article> articleList = articleMapper.selectList(Wrappers.<Article>lambdaQuery().eq(Article::getUserId, userId));
+    public List<Article> selectFastArticleList() {
+        List<Article> articleList = articleMapper.selectHotList(10);
         return articleList;
     }
 
@@ -80,4 +86,6 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
         article.setLikeNum(value);
         articleMapper.updateById(article);
     }
+
+
 }

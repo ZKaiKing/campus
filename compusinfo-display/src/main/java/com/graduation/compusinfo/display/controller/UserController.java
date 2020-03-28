@@ -85,6 +85,7 @@ public class UserController {
             log.info("密码错误");
             return new CommonResponseDto().code(10002).success(false);
         }
+        putUser2HttpHead();
         String rediskey = userService.putUserInfoToRedis(AdminUser);
         Cookie cookie=new Cookie("USER_TOKEN",rediskey);
         cookie.setPath("/");
@@ -93,6 +94,10 @@ public class UserController {
         CommonResponseDto result = new CommonResponseDto();
         result.setData(AdminUser);
         return result.code(200).success(true);
+    }
+
+    private void putUser2HttpHead() {
+
     }
 
 }

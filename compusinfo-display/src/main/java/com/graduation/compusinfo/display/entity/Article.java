@@ -50,8 +50,8 @@ public class Article implements Serializable {
     private Long typeId;
 
     @ApiModelProperty(value = "创建时间")
-    @TableField("`creat_time`")
-    private Date creatTime;
+    @TableField("`create_time`")
+    private Date createTime;
 
     @ApiModelProperty(value = "修改时间")
     @TableField("`update_time`")
@@ -85,8 +85,8 @@ public class Article implements Serializable {
 
     }
 
-    public Article(Date creatTime, Date updateTime, Long commentId, Integer viewNum, Integer comNum, Integer hotNum, Integer likeNum) {
-        this.creatTime = creatTime;
+    public Article(Date createTime, Date updateTime, Long commentId, Integer viewNum, Integer comNum, Integer hotNum, Integer likeNum) {
+        this.createTime = createTime;
         this.updateTime = updateTime;
         this.commentId = commentId;
         this.viewNum = viewNum;

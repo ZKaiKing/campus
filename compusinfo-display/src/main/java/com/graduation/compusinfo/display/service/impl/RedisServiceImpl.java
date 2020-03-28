@@ -2,6 +2,7 @@ package com.graduation.compusinfo.display.service.impl;
 
 import com.graduation.compusinfo.display.entity.UserLike;
 import com.graduation.compusinfo.display.service.RedisService;
+import com.graduation.compusinfo.display.utils.HotPostType;
 import com.graduation.compusinfo.display.utils.LikedStatus;
 import com.graduation.compusinfo.display.utils.RedisKeyUtils;
 import lombok.extern.slf4j.Slf4j;
@@ -15,10 +16,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
-
-import static com.graduation.compusinfo.display.common.Constants.HotArticleMap;
 
 /**
  * @author zzk
@@ -33,11 +33,12 @@ public class RedisServiceImpl implements RedisService{
 
 //保存热门文章
     @Override
-    public void savehot2Redis(String IncrHotTypeint,int PostId) {
-        int hotnum = (int) HotArticleMap.get(IncrHotTypeint);
-        log.info("hotnum="+hotnum);
-        redisTemplate.opsForZSet().incrementScore("HOT_ARTICLE_RANK",12,12.3);
+    public void increHotsRank2Redis(HotPostType scoreType, Long PostId) {
+        log.info("scoreType ：{}",scoreType);
+        Integer score = scoreType.getScore();
+        redisTemplate.opsForZSet().incrementScore(RedisKeyUtils.HOT_ARTICLE_RANK,PostId,score);
     }
+
     //点赞
     @Override
     public void saveLiked2Redis(String likedUserId, String likedPostId) {
@@ -123,6 +124,14 @@ public class RedisServiceImpl implements RedisService{
     @Override
     public String getUserFromRedis(String struuid) {
         return (String) redisTemplate.opsForValue().get(struuid);
+    }
+
+    @Override
+    public List<Integer> getHotArticleRank() {
+        Set<Integer> set = redisTemplate.opsForZSet().reverseRange(RedisKeyUtils.HOT_ARTICLE_RANK, 0, 10);
+        List<Integer> articleIdList =new ArrayList<>();
+        articleIdList.addAll(set);
+        return articleIdList;
     }
 
 

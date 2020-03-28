@@ -32,8 +32,6 @@ public class TagController {
     public String getAllArticleByTagId(@RequestParam Long tagId, Model model){
         List<Article> articleList = articleTagService.getAllArticleByTagId(tagId);
         log.info("tagId  {} , ",tagId);
-//        redisService.savehot2Redis(READ_HOT_TYPE,arti);
-//        model.addAttribute("articleList",articleList);
         return "articleslist";
     }
 
