@@ -38,6 +38,9 @@ public class Comment implements Serializable {
     @TableField("`article_id`")
     private Long articleId;
 
+    @TableField(exist = false)
+    private String articleName;
+
     @ApiModelProperty(value = "评论用户id")
     @TableField("`user_id`")
     private Long userId;

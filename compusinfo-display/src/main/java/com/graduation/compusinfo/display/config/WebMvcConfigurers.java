@@ -44,6 +44,7 @@ public class WebMvcConfigurers implements WebMvcConfigurer {
 //admin类访问
         registry.addViewController("/").setViewName("admin-login");
         registry.addViewController("/admin/login").setViewName("admin-login");
+        registry.addViewController("/campus/articleslist").setViewName("articleslist");
     }
 
 }

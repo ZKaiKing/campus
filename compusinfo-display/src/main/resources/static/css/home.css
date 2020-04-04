@@ -862,6 +862,17 @@
     height: 140px;
 }
 
+.ydc-group-table-items{
+        position: relative;
+        font-size: 16px;
+        border: 1px solid #ddd;
+        padding: 16px 0;
+        border-top: 0;
+        width: 100%;
+}
+.ydc-group-table-item-textss{
+    position: center;
+}
 .ydc-group-table-item:first-child {
     border-top: 1px solid #ddd;
 }

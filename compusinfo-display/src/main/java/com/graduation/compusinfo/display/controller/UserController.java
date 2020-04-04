@@ -11,9 +11,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.DigestUtils;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.Cookie;
@@ -34,8 +35,8 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @PostMapping("/register")
     @ApiOperation(value = "用户注册",notes = "用户根据信息进行注册操作")
-    @RequestMapping(value = "/register",method = RequestMethod.POST)
     public String userRegister(@ModelAttribute User user, HttpServletRequest request, Model model){
 //        User user = userdto.userdtoConverUser(new User());
         user.setStatus(1);
@@ -53,8 +54,8 @@ public class UserController {
 
 
 
+    @GetMapping("/loginOut")
     @ApiOperation(value = "用户登出",notes = "用户进行登出操作")
-    @RequestMapping(value = "/loginOut",method = RequestMethod.GET)
     public String loginOut(HttpServletRequest request, Model model){
 //       删除cookie中的用户密钥
         Cookie[] cookies = request.getCookies();
@@ -70,8 +71,8 @@ public class UserController {
         return "redirect:/admin/login";
     }
 
+    @PostMapping("/ToLogin")
     @ApiOperation(value = "用户登录",notes = "用户根据信息进行登录操作")
-    @RequestMapping(value = "/ToLogin",method = RequestMethod.POST)
     public  @ResponseBody
     CommonResponseDto
     userLogin(@ModelAttribute User user, HttpServletRequest request, HttpServletResponse response){
@@ -85,7 +86,6 @@ public class UserController {
             log.info("密码错误");
             return new CommonResponseDto().code(10002).success(false);
         }
-        putUser2HttpHead();
         String rediskey = userService.putUserInfoToRedis(AdminUser);
         Cookie cookie=new Cookie("USER_TOKEN",rediskey);
         cookie.setPath("/");
@@ -96,8 +96,5 @@ public class UserController {
         return result.code(200).success(true);
     }
 
-    private void putUser2HttpHead() {
-
-    }
 
 }

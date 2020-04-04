@@ -23,13 +23,13 @@
                 </div>
                 <!--  分类显示-->
                 <div class="row separator">
-                    <section class="span6 articles-list"th:each="articleType : ${returnMap}">
+                    <section class="span6 articles-list" th:each="articleType : ${returnMap}">
                         <h3><a href="single.html" th:text="${articleType.key}"></a></h3>
                         <ul class="articles">
                             <li class="article-entry image" th:each="article,articalStat:${articleType.value}">
-                                <h4><a th:href="@{/article/single(arti=${article.id})}" th:text="${article.title}"> &#8211; 一</a></h4>
-                                <span class="article-content"><a th:href="@{/article/single(arti=${article.id})}" th:utext="${article.content.substring(0,300)}" ></a></span>
-                                <span class="article-meta" th:text="${article.updateTime}"><a th:href="@{/campus/single}" title="学院资讯1">所属学院</a></span>
+                                <h4><a th:href="@{/article/single(arti=${article.id},userId=-1)}" th:text="${article.title}"> &#8211; 一</a></h4>
+                                <span class="article-content"><a th:href="@{/article/single(arti=${article.id},userId=-1)}" th:utext="${article.content.substring(0,300)}" ></a></span>
+                                <span class="article-meta" th:text="${article.updateTime}"><a th:href="@{/campus/single(arti=${article.id},userId=-1)}" title="学院资讯1">所属学院</a></span>
                             </li>
                         </ul>
                     </section>
@@ -40,5 +40,6 @@
     </div>
 </div>
 <a href="#top" id="scroll-top"></a>
+
 </body>
 </html>

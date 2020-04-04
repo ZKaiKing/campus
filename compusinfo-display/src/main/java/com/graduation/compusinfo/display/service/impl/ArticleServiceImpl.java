@@ -11,6 +11,7 @@ import com.graduation.compusinfo.display.service.RedisService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -48,12 +49,11 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
     }
 
     @Override
-    public PageInfo<List<Article>> selectAdminArticleList(Long userId,int pageNum,int pageSize) {
+    public PageInfo<Article> selectAdminArticleList(Long userId,int pageNum,int pageSize) {
 
-        PageInfo<List<Article>> articlePage = PageHelper.startPage(pageNum,pageSize,"")
+        PageInfo<Article> articlePage = PageHelper.startPage(pageNum,pageSize,"")
                 .doSelectPageInfo(()->articleMapper.selectList(Wrappers.<Article>lambdaQuery().eq(Article::getUserId,userId)));
-//        List<Article> articleList= articleMapper.selectList(Wrappers.<Article>lambdaQuery().eq(Article::getUserId,userId));
-//        return articleList.size()>0 ? articleList : new ArrayList<>();
+
         return articlePage;
     }
 
@@ -66,7 +66,12 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
     public List<Article> selectHotArticleList() {
 //        前往redis获取
         List<Integer> hotArticleRank = redisService.getHotArticleRank();
-        List<Article> articleList = articleMapper.selectBatchIds(hotArticleRank);
+        List<Article> articleList=new ArrayList<>();
+        hotArticleRank.stream().forEach(articleId->{
+            Article article = articleMapper.selectById(articleId);
+            articleList.add(article);
+        });
+
         return articleList;
     }
 
@@ -85,6 +90,13 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
     public void updateLikeCount(Article article, Integer value) {
         article.setLikeNum(value);
         articleMapper.updateById(article);
+    }
+
+    @Override
+    public PageInfo<Article> getArticleList(int pageNum, int pageSize) {
+        PageInfo<Article> articlePage = PageHelper.startPage(pageNum,pageSize,"")
+                .doSelectPageInfo(()->articleMapper.selectList(Wrappers.<Article>lambdaQuery().orderByDesc(Article::getCreateTime)));
+        return articlePage;
     }
 
 

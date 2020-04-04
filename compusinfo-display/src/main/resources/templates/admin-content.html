@@ -3,6 +3,8 @@
 <html class="lt-ie9" lang="en-US" xmlns:th="http://www.thymeleaf.org"> <![endif]-->
 <!--[if gt IE 8]><!-->
 <html lang="en" xmlns:th="http://www.thymeleaf.org"> <!--<![endif]-->
+<link type="text/css" rel="stylesheet" href="../static/css/reply.css">
+<script type="text/javascript" src="../static/js/replyJS/jquery.min.js"></script>
 <head>
 	<meta charset="UTF-8">
 	<title>内容管理</title>
@@ -51,78 +53,61 @@
 											<button class="ydc-group-button">搜 索</button>
 										</div>
 									</div>
-									<div class="ydc-group-altogether">共<span>9</span>条内容</div>
-									<div class="ydc-group-table">
-										<div class="ydc-group-table-item">
-											<div class="ydc-group-table-item-img">
-												<img src="../static/admin/images/ad/img-ad1.jpg" alt="">
-											</div>
-											<div class="ydc-actions">
-												<div>
-													<button class="ydc-actions-trigger"></button>
-												</div>
-											</div>
-											<div class="ydc-group-table-item-text">
-												<span>
-													<a href="#">锤子R1价格赶超苹果iPhoneX</a>
-												</span>
-												<span class="ydc-group-table-item-tag">未通过</span>
-											</div>
-											<div class="ydc-group-table-item-info">
-												<span>2018-05-15 23:37:33</span>
-												<span>| 推荐：0 | 阅读：0 | 分享：0</span>
-											</div>
-										</div>
-										<div class="ydc-group-table-item">
-											<div class="ydc-group-table-item-img">
-												<img src="../static/admin/images/ad/img-ad2.jpg" alt="">
-											</div>
-											<div class="ydc-actions">
-												<div>
-													<button class="ydc-actions-trigger">下线</button>
-												</div>
-											</div>
-											<div class="ydc-group-table-item-text">
-												<span>
-													<a href="#">在国内为什么丰田阿尔法加价那么厉害还是会有人买？</a>
-												</span>
-												<span class="ydc-group-table-item-tag">已发布</span>
-											</div>
-											<div class="ydc-group-table-item-info">
-												<span>2018-05-15 23:37:33</span>
-												<span>| 推荐：4550 | 阅读：2370 | 分享：05665</span>
-											</div>
-										</div>
-									</div>
-								</div>
+									<div id="talk_content" class="talk_content"></div>
+<!--									<div class="ydc-group-table-item">-->
+<!--												<span class="fl_left">-->
+<!--													<H4 class="fl_left">文章：<a href="#">在国内为什么丰田阿尔法加价那么厉害还是会有人买？</a></H4>-->
+<!--												</span>-->
+<!--											<div class="comment_people_info">-->
+<!--												<img class="fl_left" src="" alt=""/>-->
+<!--												<span class="first_reply fl_left"><span class="first_reply_aa">刘亦菲</span></span>-->
+<!--										<span class="first_reply_text">回复: </span>-->
+<!--&lt;!&ndash;										<span class="date fl_right"></span>&ndash;&gt;-->
+<!--									</div>-->
+<!--									<div class="comment_people_content">-->
+<!--										<span class="fl_left">在国内为什么丰田阿尔法加价那么厉害还是会有人买？</span>-->
+<!--										<span data-userID="" data-userName="" class=" reply_fn reply_btn fl_right">回复</span>-->
+<!--									</div>-->
+<!--								</div>-->
+<!--									    <div class="ydc-group-table-item">-->
+<!--												<span class="fl_left">-->
+<!--													<H3>文章：<a href="#">在国内为什么丰田阿尔法加价那么厉害还是会有人买？</a></H3>-->
+<!--												</span>-->
+<!--										<div class="comment_people_info">-->
+<!--											<img class="fl_left" src="" alt=""/>-->
+<!--											<span class="first_reply fl_left"><span class="first_reply_aa">刘亦菲</span></span>-->
+<!--											<span class="first_reply_text">回复: </span>-->
+<!--											&lt;!&ndash;										<span class="date fl_right"></span>&ndash;&gt;-->
+<!--										</div>-->
+<!--										<div class="comment_people_content">-->
+<!--											<span class="fl_left">在国内为什么丰田阿尔法加价那么厉害还是会有人买？</span>-->
+<!--											<span data-userID="" data-userName="" class=" reply_fn reply_btn fl_right">回复</span>-->
+<!--										</div>-->
+<!--									</div>-->
+<!--										<div class="ydc-group-table-item">-->
+<!--											<div class="ydc-group-table-item-img">-->
+<!--												<img src="../static/admin/images/ad/img-ad2.jpg" alt="">-->
+<!--											</div>-->
+<!--											<div class="ydc-actions">-->
+<!--												<div>-->
+<!--													<button class="ydc-actions-trigger">下线</button>-->
+<!--												</div>-->
+<!--											</div>-->
+<!--											<div class="ydc-group-table-item-text">-->
+<!--												<span>-->
+<!--													<a href="#">在国内为什么丰田阿尔法加价那么厉害还是会有人买？</a>-->
+<!--												</span>-->
+<!--												<span class="ydc-group-table-item-tag">已发布</span>-->
+<!--											</div>-->
+<!--											<div class="ydc-group-table-item-info">-->
+<!--												<span>2018-05-15 23:37:33</span>-->
+<!--												<span>| 推荐：4550 | 阅读：2370 | 分享：05665</span>-->
+<!--											</div>-->
+<!--										</div>-->
+							</div>
 								<div class="ydc-pagination">
-									<ol>
-										<li class="ydc-previous-item">
-											<button class="ydc-previous-item-btn-medium ydc-disabled">
-												<span>上一页</span>
-											</button>
-										</li>
-										<li>
-											<button class="ydc-previous-item-btn-medium cur">1</button>
-										</li>
-										<li>
-											<button class="ydc-previous-item-btn-medium">2</button>
-										</li>
-										<li>
-											<button class="ydc-previous-item-btn-medium">3</button>
-										</li>
-										<li class="ydc-previous-item">
-											<button class="ydc-previous-item-btn-medium">
-												<span>下一页</span>
-											</button>
-										</li>
-										<li class="ydc-item-quick">
-											第<div class="ydc-item-quick-kun"><input type="number" aria-invalid="false" class=""></div>页
-											<button style="margin-left:5px;" class="ydc-previous-item-btn-medium">
-												<span>跳转</span>
-											</button>
-										</li>
-									</ol>
+									<!--分页栏显示-->
+									<ol id="pagePlugin"></ol>
 								</div>
 							</div>
 						</div>
@@ -135,9 +120,15 @@
 	</section>
 <!-- content YDC end -->
 
-	<script type="text/javascript" src="../static/admin/js/jquery.min.js"></script>
+<script type="text/javascript" src="../static/admin/js/myJS/common.js"></script>
+<script type="text/javascript" src="../static/admin/js/myJS/index.js"></script>
+<script type="text/javascript" src="../static/admin/js/myJS/config.js"></script>
+
 <script>
 	$("#admin-content").addClass("active");
+	window.onload=function(){
+		getUserAllTalkData(1,10);
+	};
 </script>
 
 </body>

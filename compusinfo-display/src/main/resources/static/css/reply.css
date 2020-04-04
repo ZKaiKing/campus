@@ -22,6 +22,9 @@ button::after,textarea::after{
 .fl_left{
   float: left;
 }
+.fl_center{
+  .;
+}
 .green{
   color: #3bcd86;
 }

@@ -58,7 +58,7 @@ function renderData(data){
       '<div class="comment_people">'+
         '<div class="comment_people_titleBox">'+
           '<div class="comment_people_info">'+
-              '<img class="fl_left" src="'+talkitem.img+'" alt="">'+
+              '<img class="fl_left" src="#" alt="">'+
               '<span class="first_reply fl_left">'+talkitem.userName+'</span>'+
               '<span class="date fl_left">'+talkitem.createTime+'</span>'+
               '<span data-userID='+talkitem.userId+' data-userName='+talkitem.userName+' class="reply_fn fl_right reply_btn">回复</span></div>'+

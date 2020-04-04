@@ -16,7 +16,12 @@
 <!--        Id, comContent, comArt_id, comUser_id, comTime-->
 <!--    </sql>-->
 
-    <select id="selectId" resultType="com.graduation.compusinfo.display.entity.Comment">
-        select * from camp_comment where id = 1;
+<!--    SELECT *  FROM camp_comment as comment WHERE comment.article_id in(-->
+<!--    select article.id as articleId  from camp_user as user,camp_article as article where user.id=article.user_id) ORDER BY create_time DESC limit 0,2;-->
+
+    <select id="selectCommentByUserId" resultType="com.graduation.compusinfo.display.entity.Comment">
+        SELECT *  FROM camp_comment as comment WHERE comment.article_id in(
+       select article.id as articleId  from camp_article as article where article.user_id=#{user_id} ) ORDER BY create_time DESC
     </select>
+
 </mapper>

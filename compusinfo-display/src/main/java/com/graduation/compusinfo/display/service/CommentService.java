@@ -1,6 +1,7 @@
 package com.graduation.compusinfo.display.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.github.pagehelper.PageInfo;
 import com.graduation.compusinfo.display.entity.Comment;
 
 import java.util.List;
@@ -16,4 +17,7 @@ public interface CommentService extends IService<Comment> {
     boolean addComment(Long userID, String userName, Long articleId, String content);
 
     boolean removeComment(Long id);
+
+    //分页获取用户文章评论信息
+    PageInfo<Comment> userAllArticleComment(Long user_id, int pageNum, int pageSize);
 }

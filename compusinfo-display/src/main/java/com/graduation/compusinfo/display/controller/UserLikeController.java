@@ -6,11 +6,12 @@ import com.graduation.compusinfo.display.service.UserLikeService;
 import com.graduation.compusinfo.display.utils.CommonResponseDto;
 import com.graduation.compusinfo.display.utils.HotPostType;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -31,12 +32,12 @@ public class UserLikeController {
     @Autowired
     RedisService redisService;
 
-    @RequestMapping(value = "/like",method = RequestMethod.POST)
+    @PostMapping("/like")
+    @ApiOperation("文章点赞/取消点赞")
     public  @ResponseBody
     CommonResponseDto like(@RequestParam Long artId,
                            @RequestParam Long userId,
                            @RequestParam boolean isLike){
-
         log.info("artId  {} ,userId  {} ,isLike:{} ",artId,userId,isLike);
         userLikeService.likePost(artId,userId,isLike);
 //        点赞，该文章热度＋3

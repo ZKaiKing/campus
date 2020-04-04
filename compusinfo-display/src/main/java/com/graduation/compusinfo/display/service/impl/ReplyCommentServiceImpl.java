@@ -31,11 +31,11 @@ public class ReplyCommentServiceImpl  extends ServiceImpl<ReplyCommentMapper, Re
     }
 
     @Override
-    public boolean addReplyComment(Long commentId, String content, Long replyUserId, String replyUserName, Long talkId, String talkName) {
-//            public ReplyComment(Long commentId, Long talkId, String talkName, String content, Long replyUserId, String replyUserImg, String replyUserName, Date createTime) {
-        Date date=new Date();
-        ReplyComment replyComment=new ReplyComment(commentId,talkId,talkName,content,replyUserId,"",replyUserName,date);
-        return replyCommentMapper.insert(replyComment) == 1;
+        public boolean addReplyComment(Long commentId, String content, Long replyUserId, String replyUserName, Long talkId, String talkName) {
+    //            public ReplyComment(Long commentId, Long talkId, String talkName, String content, Long replyUserId, String replyUserImg, String replyUserName, Date createTime) {
+            Date date=new Date();
+            ReplyComment replyComment=new ReplyComment(commentId,talkId,talkName,content,replyUserId,"",replyUserName,date);
+            return replyCommentMapper.insert(replyComment) == 1;
     }
 
     @Override

@@ -1,15 +1,21 @@
 package com.graduation.compusinfo.display.controller;
 
+import com.github.pagehelper.PageInfo;
 import com.graduation.compusinfo.display.dto.WangEditor;
+import com.graduation.compusinfo.display.entity.Comment;
 import com.graduation.compusinfo.display.service.ArticleService;
+import com.graduation.compusinfo.display.service.CommentService;
 import com.graduation.compusinfo.display.service.UserService;
 import com.graduation.compusinfo.display.utils.CommonResponseDto;
 import com.graduation.compusinfo.display.utils.FastDFSClientUtil;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -37,13 +43,10 @@ public class AdminController {
     private ArticleService articleService;
 
     @Autowired
+    private CommentService commentService;
+
+    @Autowired
     private FastDFSClientUtil fastDFSClientUtil;
-
-
-//    @RequestMapping(value = "/login",method = RequestMethod.GET)
-//    public String toLoginPage(Model model){
-//        return "admin-login";
-//    }
 
     @RequestMapping(value = "/index",method = RequestMethod.GET)
     public String toAdminPage(Model model){
@@ -77,17 +80,22 @@ public class AdminController {
     }
 
 
-    @RequestMapping(value = "/article/add",method = RequestMethod.POST)
+
+    @PostMapping("/article/public")
+    @ApiOperation("发布文章")
     public  @ResponseBody
     CommonResponseDto articleAdd(@RequestParam("title") String title,
                                  @RequestParam("content") String content,
-                                 @RequestParam("typeId") Long typeId,
+                                 @RequestParam("typeId") Long[] typeId,
                                  @RequestParam("userId") Long userId){
         log.info("title  {} , content  {} , typeId  {} , userId  {} , ",title,content,typeId,userId);
-        articleService.addArticle(title,content,typeId,userId);
+
+//        articleService.addArticle(title,content,typeId,userId);
         return new CommonResponseDto().code(0).success(true);
     }
-    @RequestMapping(value = "/picture/upload",method = RequestMethod.POST)
+
+    @PostMapping("/picture/upload")
+    @ApiOperation("图片上传到FastDFS")
     public  @ResponseBody
     WangEditor upLoadPicture(@RequestParam("myPicture") MultipartFile myPicture,
                              HttpServletRequest request){
@@ -103,10 +111,8 @@ public class AdminController {
             String filename = myPicture.getOriginalFilename();
             // 将文件上传的服务器根目录下的upload文件夹
             long size = myPicture.getSize();
-            String url = fastDFSClientUtil.uploadFileStream(inputStream,size,filename);
             // 返回图片访问路径
-//            String url = request.getScheme() + "://" + request.getServerName()
-//                    + ":" + request.getServerPort() + "/upload/" + filename;
+            String url = fastDFSClientUtil.uploadFileStream(inputStream,size,filename);
             log.info("图片的url："+url);
             String [] str = {url};
             WangEditor we = new WangEditor(str);
@@ -117,5 +123,17 @@ public class AdminController {
         return null;
     }
 
+    @GetMapping("/getAllTalk")
+    @ApiOperation("获取该用户文章所有被评论信息")
+    public  @ResponseBody
+    CommonResponseDto<PageInfo<Comment>> getAllTalk(@RequestParam("user_id") Long user_id,
+                                                          @RequestParam("pageNum") int pageNum,
+                                                          @RequestParam("pageSize") int pageSize){
+        CommonResponseDto commonResponseDto = new CommonResponseDto();
+        log.info("user_id  {} , pageNum  {} , pageSize  {}  , ",user_id,pageNum,pageSize);
+        PageInfo<Comment> listCommentInfo = commentService.userAllArticleComment(user_id, pageNum, pageSize);
+        commonResponseDto.setData(listCommentInfo);
+        return commonResponseDto.code(200).success(true);
+    }
 
 }

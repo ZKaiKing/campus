@@ -22,7 +22,7 @@ public interface ArticleService extends IService<Article> {
     Long addArticle(String title, String content, Long typeId, Long userId);
 
     /**分页显示列表**/
-    PageInfo<List<Article>> selectAdminArticleList(Long userId,int pageNum,int pageSize);
+    PageInfo<Article> selectAdminArticleList(Long userId,int pageNum,int pageSize);
 
 //   热度文章
     List<Article> selectHotArticleList();
@@ -36,5 +36,6 @@ public interface ArticleService extends IService<Article> {
 //    更新文章点赞
     void updateLikeCount(Article article, Integer value);
 
-
+//获得整个项目的文章清单，分页显示
+    PageInfo<Article> getArticleList(int pageNum,int pageSize);
 }

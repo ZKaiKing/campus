@@ -4,11 +4,12 @@ package com.graduation.compusinfo.display.controller;
 import com.graduation.compusinfo.display.common.Result;
 import com.graduation.compusinfo.display.service.ReplyCommentService;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -26,7 +27,8 @@ public class ReplyCommentController {
     @Autowired
     private ReplyCommentService replyCommentService;
 
-    @RequestMapping(value = "/addreply",method = RequestMethod.POST)
+    @PostMapping("/addreply")
+    @ApiOperation("用户回评")
     public @ResponseBody
     Result toSinglePage(@RequestParam("commentId")  Long commentId,
                         @RequestParam("content") String content,
@@ -42,7 +44,8 @@ public class ReplyCommentController {
         return result;
     }
 
-    @RequestMapping(value = "/removereply",method = RequestMethod.POST)
+    @PostMapping("/removereply")
+    @ApiOperation("用户删除回评")
     public @ResponseBody
     Result removeComment(@RequestParam("id")  Long id){
         Result result = new Result<>();

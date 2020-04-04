@@ -77,27 +77,6 @@
         //首页文章回显
         getIndexArticleList();
         update_history();
-        // 绑定回车事件
-        // $(document).keydown(function(event){
-        //     if(event.keyCode==13){
-        //         var searchval = $("#keywords").val();
-        //         $("#search").click();
-        //         $.ajax({
-        //             type: "POST",
-        //             url: "../article/search",
-        //             data: {"searchval":searchval},
-        //             dataType: "json",
-        //             success: function (data) {
-        //                 if (data.code === 200){
-        //                 }
-        //             },
-        //             error : function(e) {           //请求失败的回调函数
-        //                 console.log(e);
-        //                 alert("搜索失败");
-        //             }
-        //         })
-        //     }
-        // });
         // 搜索点击事件
         $("#search").click(function(){
             var searchval = $("#keywords").val();

@@ -9,12 +9,14 @@ import com.graduation.compusinfo.display.service.UserLikeService;
 import com.graduation.compusinfo.display.utils.CommonResponseDto;
 import com.graduation.compusinfo.display.utils.HotPostType;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -42,7 +44,8 @@ public class ArticleController {
     @Autowired
     private RedisService redisService;
 
-    @RequestMapping(value = "/indexArticles",method = RequestMethod.POST)
+    @PostMapping("/indexArticles")
+    @ApiOperation("首页热门/最新文章加载")
     public  @ResponseBody
     CommonResponseDto HotArticleList(){
         CommonResponseDto<Map<String,List<Article>>> commonResponseDto = new CommonResponseDto<>();
@@ -55,11 +58,12 @@ public class ArticleController {
         return commonResponseDto.code(200).success(true);
     }
 
-    @RequestMapping(value = "/single",method = RequestMethod.GET)
+    @GetMapping("/single")
+    @ApiOperation("前台用户查看文章")
     public String toSinglePage(@RequestParam Integer arti,
                                @RequestParam Integer userId, Model model){
         Article article = articleService.selectArticlalById(arti);
-        if(userId ==null){
+        if(userId ==null ||userId ==-1){
             article.setLikeOrNo(false);
         }else{
             boolean likePostOrNo = userLikeService.userLikePostOrNo(userId, arti);
@@ -76,7 +80,8 @@ public class ArticleController {
         return "single";
     }
 
-    @RequestMapping(value = "/search",method = RequestMethod.POST)
+    @PostMapping("/search")
+    @ApiOperation("前台用户查询文章")
     public  @ResponseBody
     CommonResponseDto<List<Article>> search(@RequestParam String searchval){
         CommonResponseDto commonResponseDto = new CommonResponseDto();
@@ -90,20 +95,35 @@ public class ArticleController {
         return commonResponseDto.code(200).success(true);
     }
 
-    @RequestMapping(value = "/admin/articleList",method = RequestMethod.POST)
+    @PostMapping("admin/articleList")
+    @ApiOperation("后台用户显示文章类别")
     public  @ResponseBody
-    CommonResponseDto<PageInfo<List<Article>>> adminArticleList(
+    CommonResponseDto<PageInfo<Article>> adminArticleList(
             @RequestParam("userId") Long userId,
-            @RequestParam("pageNum") int pageNum){
+            @RequestParam("pageNum") int pageNum,
+            @RequestParam("pageSize") int pageSize){
         CommonResponseDto commonResponseDto = new CommonResponseDto();
         log.info("userId  {} , ",userId);
-        PageInfo<List<Article>> articleList = articleService.selectAdminArticleList(userId,pageNum,3);
+        PageInfo<Article> articleList = articleService.selectAdminArticleList(userId,pageNum,pageSize);
         commonResponseDto.setData(articleList);
         return commonResponseDto.code(200).success(true);
     }
 
+    @GetMapping("all/articleList")
+    @ApiOperation("前台分页显示文章列表")
+    public  @ResponseBody
+    CommonResponseDto<PageInfo<Article>> AllArticleList(
+            @RequestParam("pageNum") int pageNum,
+            @RequestParam("pageSize") int pageSize){
+        CommonResponseDto commonResponseDto = new CommonResponseDto();
+        log.info("pageNum  {} ,pageSize:{}",pageNum,pageSize);
+        PageInfo<Article> articleList = articleService.getArticleList(pageNum,pageSize);
+        commonResponseDto.setData(articleList);
+        return commonResponseDto.code(200).success(true);
+    }
 
-    @RequestMapping(value = "/view",method = RequestMethod.GET)
+    @GetMapping("/view")
+    @ApiOperation("后台用户查看文章")
     public String toSinglePage(@RequestParam("artId") int artId, Model model){
         log.info("artId:{}",artId);
         Article article = articleService.selectArticlalById(artId);

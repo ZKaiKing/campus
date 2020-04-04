@@ -3,114 +3,25 @@
 <head>
     <!-- META TAGS -->
     <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CampusInfo Platform</title>
+    <link type="text/css" rel="stylesheet" href="../static/admin/css/home.css">
+    <title>校园资讯平台</title>
 </head>
-
 <body>
-
 <!-- Start of Head -->
 <div th:include="com/head.html"></div>
 <!-- End of Head -->
-
 <!-- Start of Page Container -->
 <div class="page-container">
     <div class="container">
         <div class="row">
             <!-- start of page content -->
-            <div class="span8 main-listing">
-                <article class="format-standard type-post hentry clearfix">
-                    <header class="clearfix">
-                        <h3 class="post-title">
-                            <a href="single.html">将WordPress与您的网站集成</a>
-                        </h3>
-                        <div class="post-meta clearfix">
-                            <span class="date">25 Feb, 2013</span>
-                            <span class="category"><a href="#" title="View all posts in Server &amp; Database">Server &amp; Database</a></span>
-                            <span class="comments"><a href="#"
-                                                      title="Comment on Integrating WordPress with Your Website">3 Comments</a></span>
-                            <span class="like-count">66</span>
-                        </div><!-- end of post meta -->
-                    </header>
-                    <div class="blog-post" th:if="${list0}">
-                        <img src="img/blog_post_1.png" alt="">
-                        <div class="text-content">
-                            <h2><a href="#" th:href="1" th:text="从疫苗事件看民众的发声之路"></a></h2>
-                            <div class="simple-btn">
-                                <a href="#" th:text="臭弟弟"></a>
-                            </div>
-                            <br>
-                        </div>
+            <div class="span10 main-listing" id="articleList"></div>
+            <div class="ydc-panes">
+                <div class="ydc-pane" style="display:block;">
+                    <div class="ydc-pagination">
+                        <!--分页栏显示-->
+                        <ol id="pagePlugin"></ol>
                     </div>
-                    <p>Many of us . . . <a class="readmore-link"  href="#">阅读更多</a></p>
-                </article>
-                <!-- end of 1 page content -->
-                <article class="format-standard type-post hentry clearfix">
-                    <header class="clearfix">
-                        <h3 class="post-title">
-                            <a href="single.html">Using Javascript</a>
-                        </h3>
-
-                        <div class="post-meta clearfix">
-                            <span class="date">25 Feb, 2013</span>
-                            <span class="category"><a href="#" title="View all posts in Advanced Techniques">Advanced Techniques</a></span>
-                            <span class="comments"><a href="#" title="Comment on Using Javascript">0 Comments</a></span>
-                            <span class="like-count">18</span>
-                        </div><!-- end of post meta -->
-
-                    </header>
-                    <p>Many of us ng and never ending.&nbsp;Then the day is over, and we are exhausted, and we often
-                        have very little to show for it. And we start the next . . . <a class="readmore-link"
-                                                                                        href="http://knowledgebase.inspirythemes.com/using-javascript/">Read
-                            more</a></p>
-                </article>
-                <article class=" type-post format-image hentry clearfix">
-                    <header class="clearfix">
-                        <h3 class="post-title">
-                            <a href="single.html">Using Images</a>
-                        </h3>
-                        <div class="post-meta clearfix">
-                            <span class="date">25 Feb, 2013</span>
-                            <span class="category"><a href="#" title="View all posts in Designing in WordPress">Designing in WordPress</a></span>
-                            <span class="comments"><a href="#" title="Comment on Using Images">0 Comments</a></span>
-                            <span class="like-count">7</span>
-                        </div><!-- end of post meta -->
-                    </header>
-                    <a href="#" title="Using Images"><img width="770" height="501"
-                                                          src="images/temp/living-room-770x501.jpg"
-                                                          class="attachment-std-thumbnail wp-post-image"
-                                                          alt="Living room"></a>
-                    <p>Many of us . . . <a class="readmore-link"
-                                           href="http://knowledgebase.inspirythemes.com/using-images/">Read more</a></p>
-                </article>
-                <article class=" type-post  format-standard hentry clearfix">
-
-                    <header class="clearfix">
-
-                        <h3 class="post-title">
-                            <a href="single.html">WordPress Site Maintenance</a>
-                        </h3>
-                        <div class="post-meta clearfix">
-                            <span class="date">24 Feb, 2013</span>
-                            <span class="category"><a href="#"
-                                                      title="View all posts in Website Dev">Website Dev</a></span>
-
-                            <span class="comments"><a href="#"
-                                                      title="Comment on WordPress Site Maintenance">0 Comments</a></span>
-
-                            <span class="like-count">15</span>
-                        </div><!-- end of post meta -->
-                    </header>
-                    <p>Many of us. . . <a class="readmore-link"
-                                          href="http://knowledgebase.inspirythemes.com/wordpress-site-maintenance/">Read
-                        more</a></p>
-                </article>
-                <div id="pagination">
-                    <a href="#" class="btn active">1</a>
-                    <a href="#" class="btn">2</a>
-                    <a href="#" class="btn">3</a>
-                    <a href="#" class="btn">Next »</a>
-                    <a href="#" class="btn">Last »</a>
                 </div>
             </div>
             <!-- end of page content -->
@@ -119,6 +30,11 @@
 </div>
 <!-- End of Page Container -->
 <a href="#top" id="scroll-top"></a>
-
+<script type="text/javascript">
+    $(function(){
+        //文章清单回显
+        getAllArticleList(1,5);
+    })
+</script>
 </body>
 </html>

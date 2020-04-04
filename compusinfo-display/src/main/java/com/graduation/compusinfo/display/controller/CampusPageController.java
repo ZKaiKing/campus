@@ -1,16 +1,21 @@
 package com.graduation.compusinfo.display.controller;
 
+import com.github.pagehelper.PageInfo;
 import com.graduation.compusinfo.display.entity.Article;
 import com.graduation.compusinfo.display.entity.Articletype;
 import com.graduation.compusinfo.display.entity.Tag;
 import com.graduation.compusinfo.display.service.ArticleService;
 import com.graduation.compusinfo.display.service.ArticletypeService;
 import com.graduation.compusinfo.display.service.TagService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -37,28 +42,21 @@ public class CampusPageController {
 
     private int BALANCE_DISPLAY_ARTICLEWORDS  = 70;
 
-
-    @RequestMapping(value = "/index",method = RequestMethod.GET)
-    public String toIndexPage(Model model){
-//        List<Article> hotArticals = articleService.selectHotArtical();
-        List<Tag> allTag = tagService.getAllTag();
-        model.addAttribute("tags",allTag);
-        return "index";
-    }
-
     @RequestMapping(value = "/register",method = RequestMethod.GET)
     public String toRegisterPage(){
         return "regist";
     }
 
-
-    @RequestMapping(value = "/articleslist",method = RequestMethod.GET)
-    public String toLogin(){
-        return "articleslist";
+    @GetMapping("/index")
+    @ApiOperation("前台首页显示")
+    public String toIndexPage(Model model){
+        List<Tag> allTag = tagService.getAllTag();
+        model.addAttribute("tags",allTag);
+        return "index";
     }
 
-
-
+    @GetMapping("/categories")
+    @ApiOperation("分页页面显示")
     @RequestMapping(value = "/categories",method = RequestMethod.GET)
     public String toCategoriesPage(Model model){
         List<Articletype> articletypes = articletypeService.RandomgGetArticleType();
