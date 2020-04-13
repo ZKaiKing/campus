@@ -25,4 +25,9 @@
     <select id="selectHotList" resultType="com.graduation.compusinfo.display.entity.Article">
         SELECT * FROM camp_article order by create_time desc LIMIT #{n};
     </select>
+
+    <select id="getCountFromTagId" resultType="java.lang.Integer">
+       SELECT COUNT(*) FROM camp_article WHERE tag_id=#{tagId};
+    </select>
+
 </mapper>

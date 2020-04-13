@@ -38,4 +38,10 @@ public interface ArticleService extends IService<Article> {
 
 //获得整个项目的文章清单，分页显示
     PageInfo<Article> getArticleList(int pageNum,int pageSize);
+
+//    通过标签id获取该标签有多少文章
+    int getCountFromTagId(Long id);
+
+    //根据标签id获取所属文章，分页显示
+    PageInfo<Article> getArticlePageByTagId(Long tagId, int pageNum, int pageSize);
 }

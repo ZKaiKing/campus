@@ -177,6 +177,37 @@ function renderUserAllTalkFail(err){
     tipObj.setErrmsg("请求失败，请重试",1);
 }
 
+//标签列表列中文章显示
+function getTagArticleList(tagId,pageNum,pageSize){
+    let data = {
+        pageNum: pageNum,
+        pageSize: pageSize,
+    };
+    let  getTagArticleListURL=server+'/tag/'+tagId+'/articleList';         //标签页面文章显示URL
+    commonGetfun.request(getTagArticleListURL,data,TagArticleListSuc,TagArticleListFail)
+}
+//标签列表列中文章显示成功
+function TagArticleListSuc(data) {
+    console.log("根据标签id获取文章列表成功");
+    let articleStr = '';  //整个信息
+    let PageControl='';//页面跳转控件
+    data.data.list.forEach((article,index)=>{
+        articleStr +='<article class="excerpt excerpt-1"><header><a class="cat" href="#" title="" >文章</a>'+
+        '<h2><a href="#" title="" target="_blank" >'+article.title+'</a></h2></header>'+
+        '<p class="meta"><time class="time"><i class="glyphicon glyphicon-time"></i>'+article.createTime+'</time></p>'+
+        '<span>'+article.content.substring(0,300)+'</span></article>';
+    });
+    //  分页栏显示
+    PageControl=pagePluin(data,PageControl,'getAllArticleList');
+    $('#tagArticleList').html(articleStr);
+    $('#tagPagePlugin').html(PageControl);
+}
+
+//标签列表列中文章显示失败
+function TagArticleListFail(data) {
+    console.log("根据标签id获取文章列表失败");
+}
+
 //分页插件实现调用
 function pagePluin(_data,PageControl,functionName) {
     _data.data.navigatepageNums.forEach((curpage,pageindex)=>{

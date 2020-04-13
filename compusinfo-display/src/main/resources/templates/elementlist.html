@@ -7,38 +7,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>肇梦之家</title>
     <link rel="shortcut icon" href="/static/images/favicon.png"/>
-    <script src="../static/js/searchJS/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/css/elementCSS/nprogress.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/elementCSS/style.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/elementCSS/font-awesome.min.css">
 </head>
-<body>
-<!-- Start of Head -->
-<div th:include="com/head.html"></div>
-<!-- End of Head -->
-<!-- Start of Page Container -->
-<div class="page-container">
-    <div class="container">
-        <div class="row">
-            <!-- start of page content -->
-            <div class="span8 page-content">
-                <!-- Basic Home Page Template -->
-                <div class="row separator">
-                    <section class="span4 articles-list">
-                        <h3>热度资讯</h3>
-                        <ul class="articles" >
-                            <div id="hotArticleList"></div>
-                        </ul>
-                    </section>
-                    <section class="span4 articles-list">
-                        <h3>最新资讯</h3>
-                        <ul class="articles">
-                            <div id="fastArticleList"></div>
-                        </ul>
-                    </section>
-                </div>
+<body class="user-select">
+<header class="header">
+    <nav class="navbar navbar-default" id="navbar">
+        <div th:include="com/head.html"></div>
+    </nav>
+</header>
+
+<section class="container">
+    <div class="content-wrap">
+        <div class="content" id="fasList">
+            <div class="title">
+                <h3 style="line-height: 1.3">标签</h3>
             </div>
-            <!-- end of page content -->
-            <!-- start of sidebar -->
-            <aside class="span4 page-sidebar">
-                <section class="widget">
+            <div id="tagArticleList"></div>
+            <div class="ydc-pagination">
+                <!--分页栏显示-->
+                <ol id="tagPagePlugin"></ol>
+            </div>
+        </div>
+    </div>
+<!--    查询栏-->
+    <aside class="sidebar">
+        <div class="fixed">
+            <section class="widget">
                     <div class="support-widget">
                         <input type="text" class="form-control" id="keywords" placeholder="回车查询">
                         <span class="input-group-btn">
@@ -49,35 +45,42 @@
                         </div>
                         <div style="margin:10px;" id="history"></div>
                     </div>
-                </section>
-                <section class="widget">
-                    <div class="quick-links-widget">
-                        <h3 class="title">快速链接</h3>
-                        <ul id="menu-quick-links" class="menu clearfix">
-                            <li><a th:href="@{/campus/articleslist}">文章列表</a></li>
-                            <li><a href="faq.html" th:href="@{/campus/faq}">常见问题</a></li>
-                            <li><a href="contact.html" th:href="@{/campus/contact}">联系</a></li>
-                        </ul>
-                    </div>
-                </section>
-                <section class="widget">
-                    <h3 class="title">标签</h3>
-                    <div class="tagcloud" th:each="tag,tagStat:${tags}">
-                        <a th:href="@{/tag/all(tagId=${tag.id})}" class="btn btn-mini" th:text="${tag.tagName}"></a>
-                    </div>
-                </section>
-            </aside>
-            <!-- end of sidebar -->
+            </section>
+
+
+            <!--  标签分类显示-->
+            <div class="widget widget_sentence">
+                <h3>标签云</h3>
+                <div class="widget-sentence-content">
+                    <ul class="plinks ptags" th:each="tag : ${tagList}">
+                        <li><a href="/tag/67/list" th:title="${tag.tagName}" draggable="false" th:inline="text">[[${tag.tagName}]]<span class="badge" th:text="${tag.subArticleCount}"></span></a></li>
+                    </ul>
+                </div>
+            </div>
+
+
         </div>
-    </div>
-</div>
+        <div class="widget widget_hot">
+            <h3>最新评论文章</h3>
+            <ul><li><a title="用DTcms做一个独立博客网站（响应式模板）" href="#" ><span class="thumbnail">
+<img class="thumb" data-original="#" src="#" alt="用DTcms做一个独立博客网站（响应式模板）"  style="display: block;">
+</span><span class="text">用DTcms做一个独立博客网站（响应式模板）</span><span class="muted"><i class="glyphicon glyphicon-time"></i>2016-11-01
+</span><span class="muted"><i class="glyphicon glyphicon-eye-open"></i>88</span></a></li>
+
+            </ul>
+        </div>
+    </aside>
+</section>
+
+
 <!-- End of Page Container -->
 <a href="#top" id="scroll-top"></a>
 <!--下面是搜索的-->
+<script src="/static/js/searchJS/jquery.min.js"></script>
+<script src="/static/admin/js/myJS/index.js"></script>
 <script type="text/javascript">
     $(function(){
-        //首页文章回显
-        getIndexArticleList();
+        getTagArticleList(1,1,5);
         update_history();
         // 搜索点击事件
         $("#search").click(function(){
@@ -191,5 +194,6 @@
         };
     })();
 </script>
+
 </body>
 </html>

@@ -15,7 +15,7 @@
     </sql>
 
     <select id="selectTopTag" resultType="com.graduation.compusinfo.display.entity.Tag">
-        select * from camp_tag;
+        select id,tagName,tagDetail from camp_tag;
     </select>
 
 </mapper>

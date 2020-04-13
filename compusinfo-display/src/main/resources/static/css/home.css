@@ -1072,7 +1072,7 @@
 
 .ydc-pagination{
     margin-top: 20px;
-    padding: 0 0 0 80px;
+    /*padding: 0 0 0 80px;*/
     display: inline-block;
     /* margin-right: 225px; */
     width: 100%;

@@ -55,6 +55,8 @@ public class CampusPageController {
         return "index";
     }
 
+
+
     @GetMapping("/categories")
     @ApiOperation("分页页面显示")
     @RequestMapping(value = "/categories",method = RequestMethod.GET)
@@ -70,7 +72,10 @@ public class CampusPageController {
         return "categoriesPage";
     }
 
-
+    @RequestMapping(value = "/elementlist",method = RequestMethod.GET)
+    public String toElementlistPage(){
+        return "elementlist";
+    }
 
     @RequestMapping(value = "/elements",method = RequestMethod.GET)
     public String toElementsPage(){

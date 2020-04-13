@@ -1,15 +1,12 @@
 <!DOCTYPE html>
-<!--[if IE 8]>
-<html class="lt-ie9" lang="en-US" xmlns:th="http://www.thymeleaf.org"> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html lang="en" xmlns:th="http://www.thymeleaf.org"> <!--<![endif]-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-	<meta charset="UTF-8">
+	<base href="http://localhost:8080/" />
+	<meta charset="UTF-8"/>
+	<link rel="shortcut icon" href="/static/images/favicon.png"/>
 	<title>帐号设置</title>
-
 </head>
 <body>
-
 <!-- head YDC begin -->
 <div th:include="/com/adminhead.html"></div>
 <!-- head YDC end -->
@@ -117,7 +114,6 @@
 
 	</section>
 <!-- content YDC end -->
-
 	<script type="text/javascript" src="../static/admin/js/jquery.min.js"></script>
 <script>
 	$("#admin-userinfo").addClass("active");

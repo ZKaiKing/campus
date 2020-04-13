@@ -99,5 +99,18 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
         return articlePage;
     }
 
+    @Override
+    public int getCountFromTagId(Long tagId) {
+        return articleMapper.getCountFromTagId(tagId);
+    }
+
+    @Override
+    public PageInfo<Article> getArticlePageByTagId(Long tagId, int pageNum, int pageSize) {
+        PageInfo<Article> articlePage = PageHelper.startPage(pageNum,pageSize,"")
+                .doSelectPageInfo(()->articleMapper.selectList(Wrappers.<Article>lambdaQuery().eq(Article::getTagId,tagId)
+                        .orderByDesc(Article::getCreateTime)));
+        return articlePage;
+    }
+
 
 }

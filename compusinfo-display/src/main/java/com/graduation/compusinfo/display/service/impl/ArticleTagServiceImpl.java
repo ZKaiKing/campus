@@ -27,7 +27,6 @@ public class ArticleTagServiceImpl extends ServiceImpl<ArticleTagMapper, Article
 
     @Override
     public List<Article> getAllArticleByTagId(Long tagId) {
-
         List<ArticleTag> articleTags = articleTagMapper.selectList(Wrappers.<ArticleTag>lambdaQuery()
                 .eq(ArticleTag::getTagId, tagId));
         List<Article> articleList = Lists.newArrayList();

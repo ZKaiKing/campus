@@ -34,5 +34,10 @@ public class Tag implements Serializable {
     @TableField("`tagDetail`")
     private String tagDetail;
 
+    @TableField(exist = false)
+    private int subArticleCount;
+
+    public Tag() {
+    }
 
 }

@@ -16,4 +16,6 @@ public interface ArticleMapper extends BaseMapper<Article> {
 
 //    获取n条最新文章
     List<Article> selectHotList(@Param("n") int n);
+//    通过标签ID获取该标签所属文章
+    int getCountFromTagId(@Param("tagId") Long tagId);
 }
