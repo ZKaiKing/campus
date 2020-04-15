@@ -2,7 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.graduation.compusinfo.display.mapper.ArticleMapper">
 
-<!--    &lt;!&ndash; 通用查询映射结果 &ndash;&gt;-->
+
+
+    <!--    &lt;!&ndash; 通用查询映射结果 &ndash;&gt;-->
 <!--    <resultMap id="BaseResultMap" type="com.graduation.compusinfo.display.entity.Article">-->
 <!--        <id column="id" property="id" />-->
 <!--        <result column="artUser_id" property="artuser_id" />-->
@@ -23,11 +25,17 @@
 <!--    </sql>-->
 
     <select id="selectHotList" resultType="com.graduation.compusinfo.display.entity.Article">
-        SELECT * FROM camp_article order by create_time desc LIMIT #{n};
+        SELECT * FROM camp_article order by create_time desc LIMIT ${n};
     </select>
 
     <select id="getCountFromTagId" resultType="java.lang.Integer">
-       SELECT COUNT(*) FROM camp_article WHERE tag_id=#{tagId};
+       SELECT COUNT(*) FROM camp_article WHERE tag_id=${tagId};
     </select>
+
+    <update id="commentNumDecBycommId">
+         UPDATE camp_article set com_num= com_num+1 WHERE id=${id}
+    </update>
+
+
 
 </mapper>

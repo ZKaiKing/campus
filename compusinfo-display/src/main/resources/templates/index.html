@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>肇梦之家</title>
     <link rel="shortcut icon" href="/static/images/favicon.png"/>
-    <script src="../static/js/searchJS/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/css/elementCSS/style.css">
+    <script src="/static/js/searchJS/jquery.min.js"></script>
 </head>
 <body>
 <!-- Start of Head -->
@@ -34,6 +35,12 @@
                         </ul>
                     </section>
                 </div>
+<!--                //搜索显示-->
+                <div id="tagArticleList"></div>
+                <div class="ydc-pagination">
+                    <!--分页栏显示-->
+                    <ol id="tagPagePlugin"></ol>
+                </div>
             </div>
             <!-- end of page content -->
             <!-- start of sidebar -->
@@ -55,17 +62,14 @@
                         <h3 class="title">快速链接</h3>
                         <ul id="menu-quick-links" class="menu clearfix">
                             <li><a th:href="@{/campus/articleslist}">文章列表</a></li>
-                            <li><a href="faq.html" th:href="@{/campus/faq}">常见问题</a></li>
                             <li><a href="contact.html" th:href="@{/campus/contact}">联系</a></li>
                         </ul>
                     </div>
                 </section>
                 <section class="widget">
-                    <h3 class="title">标签</h3>
-                    <div class="tagcloud" th:each="tag,tagStat:${tags}">
-                        <a th:href="@{/tag/all(tagId=${tag.id})}" class="btn btn-mini" th:text="${tag.tagName}"></a>
-                    </div>
+                    <div class="widget widget_hot" id="lastComment"></div>
                 </section>
+
             </aside>
             <!-- end of sidebar -->
         </div>
@@ -75,7 +79,9 @@
 <a href="#top" id="scroll-top"></a>
 <!--下面是搜索的-->
 <script type="text/javascript">
+window.sessionStorage
     $(function(){
+        LastCommentList(5);
         //首页文章回显
         getIndexArticleList();
         update_history();
@@ -87,12 +93,13 @@
             //ajax搜索返回
             $.ajax({
                 type: "POST",
-                url: "../article/search",
+                url: "/article/search",
                 data: {"searchval":searchval},
                 dataType: "json",
                 success: function (data) {
                     if (data.code === 200){
-                        alert("成功");
+                        TagArticleListSuc(data);
+                        console.log("搜索成功");
                     }
                 },
                 error : function(e) {           //请求失败的回调函数

@@ -2,9 +2,10 @@
 <html lang="en"  xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <base href="http://localhost:8080/" />
+
 </head>
 <body>
-
 <!-- left begin -->
 <div class="ydc-column ydc-column-2">
     <div class="ydc-menu">
@@ -21,7 +22,7 @@
 								</span>
                 <ul>
                     <li>
-                        <a href="content.html" id="admin-content"  th:href="@{/admin/commentManage}">内容管理</a>
+                        <a href="javascript:void(0);"  id="admin-content"  th:href="@{/admin/commentManage}">内容管理</a>
                     </li>
                 </ul>
             </li>
@@ -30,9 +31,6 @@
 									<i class="ydc-icon ydc-icon-record fl"></i>数据
 								</span>
                 <ul>
-                    <li>
-                        <a href="subscribe.html" id="admin-subscribe" th:href="@{/admin/subscribe}">订阅数据</a>
-                    </li>
                     <li>
                         <a href="content-data.html" id="admin-data"  th:href="@{/admin/contentData}">内容数据</a>
                     </li>
@@ -52,6 +50,5 @@
     </div>
 </div>
 <!-- left end -->
-
 </body>
 </html>

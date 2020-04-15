@@ -3,11 +3,11 @@
 <mapper namespace="com.graduation.compusinfo.display.mapper.TagMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.graduation.compusinfo.display.entity.Tag">
-        <id column="id" property="id" />
-        <result column="tagName" property="tagName" />
-        <result column="tagDetail" property="tagDetail" />
-    </resultMap>
+<!--    <resultMap id="BaseResultMap" type="com.graduation.compusinfo.display.entity.Tag">-->
+<!--        <id column="id" property="id" />-->
+<!--        <result column="tagName" property="tagName" />-->
+<!--        <result column="tagDetail" property="tagDetail" />-->
+<!--    </resultMap>-->
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">

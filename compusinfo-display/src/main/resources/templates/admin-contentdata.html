@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<!--[if IE 8]>
-<html class="lt-ie9" lang="en-US" xmlns:th="http://www.thymeleaf.org"> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html lang="en" xmlns:th="http://www.thymeleaf.org"> <!--<![endif]-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 	<base href="http://localhost:8080/" />
 	<meta charset="UTF-8"/>
@@ -26,25 +23,7 @@
 					<div class="ydc-entered-box">
 						<div class="ydc-content-right">
 							<div class="ydc-right-head">
-								<div class="ydc-right-head-info">
-									<dl>
-										<a href="javascript:;">
-											<dt>总订阅</dt>
-											<dd>89076</dd>
-										</a>
-									</dl>
-									<dl>
-										<a href="javascript:;">
-											<dt>昨日新增</dt>
-											<dd>3890</dd>
-										</a>
-									</dl>
-									<dl>
-										<a href="javascript:;">
-											<dt>昨日推荐</dt>
-											<dd>79963</dd>
-										</a>
-									</dl>
+								<div class="ydc-right-head-info" id="variousIndicators">
 								</div>
 							</div>
 							<!-- gongGao begin -->
@@ -54,117 +33,20 @@
 										<div class="fl">
 											<h2>整体统计</h2>
 										</div>
-										<div class="fl">
-											<span> <a href="#" style="color:#ff3c3c">7天</a> | <a href="#">14天</a>  | <a href="#">30天</a> </span>
-										</div>
 									</div>
 									<div id="main" style="height:400px; margin-top:20px;"></div>
 									<div class="ydc-chart-title ydc-chart-title-top clearfix">
 										<div class="fl">
 											<h2>数据明细</h2>
 										</div>
-										<div class="fr">
-											<a href="#">导出Excel</a>
-										</div>
 									</div>
-									<div class="ydc-chart-table">
-										<table>
-											<thead>
-											<tr>
-												<th>发布日期</th>
-												<th>阅读</th>
-												<th>推荐</th>
-												<th>跟贴</th>
-												<th>分享</th>
-											</tr>
-											</thead>
-											<tbody>
-											<tr>
-												<td>2018-05-20</td>
-												<td>68909</td>
-												<td>68909</td>
-												<td>68909</td>
-												<td>68909</td>
-											</tr>
-											<tr>
-												<td>2018-05-20</td>
-												<td>68909</td>
-												<td>68909</td>
-												<td>68909</td>
-												<td>68909</td>
-											</tr>
-											<tr>
-												<td>2018-05-20</td>
-												<td>68909</td>
-												<td>68909</td>
-												<td>68909</td>
-												<td>68909</td>
-											</tr>
-											<tr>
-												<td>2018-05-20</td>
-												<td>68909</td>
-												<td>68909</td>
-												<td>68909</td>
-												<td>68909</td>
-											</tr>
-											<tr>
-												<td>2018-05-20</td>
-												<td>68909</td>
-												<td>68909</td>
-												<td>68909</td>
-												<td>68909</td>
-											</tr>
-											<tr>
-												<td>2018-05-20</td>
-												<td>68909</td>
-												<td>68909</td>
-												<td>68909</td>
-												<td>68909</td>
-											</tr>
-											<tr>
-												<td>2018-05-20</td>
-												<td>68909</td>
-												<td>68909</td>
-												<td>68909</td>
-												<td>68909</td>
-											</tr>
-											</tbody>
-										</table>
+									<div class="ydc-chart-table" id="managecharTable">
+<!--										<table><thead><tr><th>发布日期</th><th>阅读</th><th>推荐</th><th>跟贴</th><th>分享</th></tr></thead>-->
+<!--											<tbody><tr><td>2018-05-20</td><td>68909</td><td>68909</td><td>689</td><td>68909</td></tr></tbody>-->
+<!--										</table>-->
 									</div>
-									<div class="ydc-pagination">
-										<ol>
-											<li class="ydc-previous-item">
-												<button class="ydc-previous-item-btn-medium ydc-disabled">
-													<span>上一页</span>
-												</button>
-											</li>
-											<li>
-												<button class="ydc-previous-item-btn-medium cur">1</button>
-											</li>
-											<li>
-												<button class="ydc-previous-item-btn-medium">2</button>
-											</li>
-											<li>
-												<button class="ydc-previous-item-btn-medium">3</button>
-											</li>
-											<li>
-												<button class="ydc-previous-item-btn-medium">4</button>
-											</li>
-											<li>
-												<button class="ydc-previous-item-btn-medium">5</button>
-											</li>
-											<li class="ydc-previous-item">
-												<button class="ydc-previous-item-btn-medium">
-													<span>下一页</span>
-												</button>
-											</li>
-											<li class="ydc-item-quick">
-												第<div class="ydc-item-quick-kun"><input type="number" aria-invalid="false" class=""></div>页
-												<button style="margin-left:5px;" class="ydc-previous-item-btn-medium">
-													<span>跳转</span>
-												</button>
-											</li>
-										</ol>
+									<div class="ydc-pagination" >
+										<ol id="pagePlugin"></ol>
 									</div>
 								</div>
 							</div>
@@ -178,53 +60,68 @@
 	</section>
 <!-- content YDC end -->
 
-	<script type="text/javascript" src="../static/admin/js/jquery.min.js"></script>
-	<script src="http://echarts.baidu.com/build/dist/echarts-all.js"></script>
-<script>
-	$("#admin-data").addClass("active");
-</script>
+<script type="text/javascript" src="../static/admin/js/jquery.min.js"></script>
+<script src="http://echarts.baidu.com/build/dist/echarts-all.js"></script>
+<script type="text/javascript">
+		$("#admin-data").addClass("active");
+		window.onload=function(){
+			let userId = window.sessionStorage.getItem("user_id");
+			ManagecharTable(1,7);
+			let data={
+				userId: userId,
+			};
+			$.ajax({
+				url:"/admin/variousIndicators",
+				type:"get",
+				data:data,
+				dataType:"json",
+				success:(data)=>{
+					echartsDOM(data);
+					console.log(data);
+				},
+				fail:(err)=>{
+					console.log("页面响应失败");
+				}
+			})
+		};
 
-	<script type="text/javascript">
-	    $(function(){
-	        $('.ydc-tabPanel ul li').click(function(){
-	            $(this).addClass('hit').siblings().removeClass('hit');
-	            $('.ydc-panes>div:eq('+$(this).index()+')').show().siblings().hide();
-	        })
-	    })
-	</script>
-	<script type="text/javascript">
 	    // 基于准备好的dom，初始化echarts图表
-	    var myChart = echarts.init(document.getElementById('main'));
-
-	    var option = {
-	        tooltip: {
-	            show: true
-	        },
-	        legend: {
-	            data:['总量']
-	        },
-	        xAxis : [
-	            {
-	                type : 'category',
-	                data : ["阅读","推荐","跟帖","分享","阅读总数"]
-	            }
-	        ],
-	        yAxis : [
-	            {
-	                type : 'value'
-	            }
-	        ],
-	        series : [
-	            {
-	                "name":"总量",
-	                "type":"bar",
-	                "data":[100, 10, 4, 3, 9, 70]
-	            }
-	        ]
-	    };
-
-	    // 为echarts对象加载数据
-	    myChart.setOption(option);
+		function  echartsDOM(data){
+			let variousIndicator = '';  //整个信息
+			variousIndicator='<dl><a href="/admin/index"><dt>总阅读数</dt><dd>'+data.data.ReadNumIndicator+'</dd></a></dl>' +
+					'<dl><a href="/admin/index"><dt>总点赞数</dt><dd>'+data.data.LikeNumSumIndicator+'</dd></a></dl>' +
+					'<dl><a href="/admin/index"><dt>总评论数</dt><dd>'+data.data.CommentSumIndicator+'</dd></a></dl>';
+			$("#variousIndicators").html(variousIndicator);
+			var myChart = echarts.init(document.getElementById('main'));
+			var option = {
+				tooltip: {
+					show: true
+				},
+				legend: {
+					data:['总量']
+				},
+				xAxis : [
+					{
+						type : 'category',
+						data : ["阅读","点赞","评论"]
+					}
+				],
+				yAxis : [
+					{
+						type : 'value'
+					}
+				],
+				series : [
+					{
+						"name":"总量",
+						"type":"bar",
+						"data":[data.data.ReadNumIndicator, data.data.LikeNumSumIndicator, data.data.CommentSumIndicator]
+					}
+				]
+			};
+			// 为echarts对象加载数据
+			myChart.setOption(option);
+		}
 	</script>
 
 </body>

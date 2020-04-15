@@ -2,8 +2,11 @@ package com.graduation.compusinfo.display.controller;
 
 
 import com.graduation.compusinfo.display.common.Result;
+import com.graduation.compusinfo.display.entity.Article;
 import com.graduation.compusinfo.display.entity.Comment;
+import com.graduation.compusinfo.display.service.ArticleService;
 import com.graduation.compusinfo.display.service.CommentService;
+import com.graduation.compusinfo.display.utils.CommonResponseDto;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
@@ -31,6 +34,9 @@ public class CommentController {
     @Autowired
     private CommentService commentService;
 
+    @Autowired
+    private ArticleService articleService;
+
     @GetMapping("/reply/get")
     @ApiOperation("回显文章评论列表")
     public @ResponseBody
@@ -52,6 +58,10 @@ public class CommentController {
         Result result = new Result<>();
         log.info("userID:  {} ,userName:{} ,articleId:{},content:{}",userID,userName,articleId,content);
         boolean sumbsuccess = commentService.addComment(userID, userName, articleId, content);
+        Article article = articleService.getById(articleId);
+        //文章评论数+1
+        article.setComNum(article.getComNum()+1);
+        articleService.save(article);
         return result;
     }
 
@@ -61,11 +71,22 @@ public class CommentController {
     Result removeComment(@RequestParam("id")  Long id){
         Result result = new Result<>();
         log.info("Comment id:  {} ",id);
+        //文章评论数-1
+        articleService.commentNumDecBycommId(id);
         boolean sumbsuccess = commentService.removeComment(id);
         return result;
     }
 
-
+    @GetMapping("/LastCommentList")
+    @ApiOperation("最新评论的文章")
+    public @ResponseBody
+    CommonResponseDto<List<Article>> LastCommentList(@RequestParam("num") int num){
+        CommonResponseDto<List<Article>> commonResponseDto = new CommonResponseDto<>();
+        log.info("num:  {} ",num);
+        List<Article> lastCommentList = commentService.getLastComment(num);
+        commonResponseDto.setData(lastCommentList);
+        return commonResponseDto;
+    }
 
 
 

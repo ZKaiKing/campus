@@ -15,6 +15,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -34,6 +35,12 @@ public class CommentServiceImpl extends ServiceImpl<CommentMapper, Comment> impl
 
     @Autowired
     private ArticleService articleService;
+
+    //用户文章评论总指标
+    private Integer  commentSumIndicator=0;
+
+    //文章昨日点赞指标
+    private int WeekCommentIndicator=0;
 
     @Override
     public List<Comment> getAllCommontsById(Long articleId, int replyCount) {
@@ -87,6 +94,51 @@ public class CommentServiceImpl extends ServiceImpl<CommentMapper, Comment> impl
         return CommentListPage;
     }
 
+    @Override
+    public PageInfo<Comment> ArticleCommentBySearchVal(Long user_id, int pageNum, int pageSize, String searchVal) {
+        log.info("service----->user_id:  {} ,pageNum:{} ,pageSize:{}",user_id,pageNum,pageSize);
+        List<Article> searchArticle = articleService.getArticalBysearchval(searchVal);
+        PageInfo<Comment> CommentListPage = PageHelper.startPage(pageNum,pageSize,"")
+                .doSelectPageInfo(()->commentMapper.selectCommentBysearchVal(user_id,searchVal));
+        List<Comment> commentList = CommentListPage.getList();
+        commentList.stream().forEach(comment -> {
+            List<ReplyComment> replyCommentList = replyCommentService.getReplyCommentByCommentId(comment.getId());
+            comment.setChild(replyCommentList);
+            Article article = articleService.getById(comment.getArticleId());
+            comment.setArticleName(article.getTitle());
+        });
+        CommentListPage.setList(commentList);
+        return CommentListPage;
+    }
+    @Override
+    public List<Article> getLastComment(int num) {
+        List<Long> comments = commentMapper.selectLastNumComment(num);
+        List<Article> articleList=new ArrayList<>();
+        comments.stream().forEach(articleId->{
+            Article article = articleService.getById(articleId);
+            articleList.add(article);
+        });
+        return articleList;
+    }
+
+    @Override
+    public int selectCommentSumIndicator(List<Article> articleList) {
+        commentSumIndicator=0;
+        articleList.stream().forEach(article -> {
+            commentSumIndicator += commentMapper.selectCount(Wrappers.<Comment>lambdaQuery()
+                    .eq(Comment::getArticleId,article.getId()));
+        });
+        return commentSumIndicator;
+    }
+
+    @Override
+    public int selectWeekCommentIndicator(List<Article> articleList) {
+        WeekCommentIndicator=0;
+        articleList.stream().forEach(article -> {
+            WeekCommentIndicator +=commentMapper.selectWeekCommentIndicator(article.getId());
+        });
+        return WeekCommentIndicator;
+    }
 //    select * from article ,comment where article.id=comment.article_id and
     //1查询出该用户的所有文章id
 //    select user.id from user，article where user.id=article.user_id --

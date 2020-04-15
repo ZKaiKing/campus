@@ -38,21 +38,17 @@
 									<div class="clearfix">
 										<div class="fl ydc-group-sel">
 											<select>
-												<option>全部类型</option>
 												<option>文章</option>
-												<option>视频</option>
 											</select>
 										</div>
 										<div class="fl ydc-group-sel">
 											<select>
-												<option>全部信息</option>
-												<option>点赞</option>
 												<option>评论</option>
 											</select>
 										</div>
 										<div class="fl ydc-group-input">
-											<input type="text" placeholder="请输入关键词进行搜索">
-											<button class="ydc-group-button">搜 索</button>
+											<input type="text" placeholder="请输入关键词进行搜索" id="searchVal">
+											<button class="ydc-group-button" onclick="searchUserAllTalkData()">搜 索</button>
 										</div>
 									</div>
 									<div id="talk_content" class="talk_content"></div>
@@ -70,15 +66,10 @@
 		</div>
 	</section>
 <!-- content YDC end -->
-
-<script type="text/javascript" src="../static/admin/js/myJS/common.js"></script>
-<script type="text/javascript" src="../static/admin/js/myJS/index.js"></script>
-<script type="text/javascript" src="../static/admin/js/myJS/config.js"></script>
-
 <script>
 	$("#admin-content").addClass("active");
 	window.onload=function(){
-		getUserAllTalkData(1,10);
+		getUserAllTalkData(1,5);
 	};
 </script>
 

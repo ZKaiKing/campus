@@ -1,7 +1,10 @@
 package com.graduation.compusinfo.display.service;
 
+import com.graduation.compusinfo.display.entity.Article;
 import com.graduation.compusinfo.display.entity.UserLike;
 import com.baomidou.mybatisplus.extension.service.IService;
+
+import java.util.List;
 
 /**
  * @author zzk
@@ -25,4 +28,10 @@ public interface UserLikeService extends IService<UserLike> {
 
     /**判断该用户是否点赞过该文章**/
     boolean userLikePostOrNo(Integer userId, Integer arti);
+
+    //获取某个用户所有文章的本周点赞指标
+    int selectWeekLikeNumIndicator(List<Article> articleList);
+
+    //获取某个用户所有文章的总点赞指标
+    int selectLikeNumAllIndicator(List<Article> articleList);
 }

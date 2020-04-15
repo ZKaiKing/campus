@@ -34,7 +34,7 @@ public class WebMvcConfigurers implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(loginHandlerInterceptor).addPathPatterns("/comment/**","/admin/**","/replyComment/**")  //addPathPatterns("/**")
-                .excludePathPatterns("/","/comment/reply/get","/static/**","/admin/login","/campus/register","/campus/login")
+                .excludePathPatterns("/","/#","/comment/reply/get","/static/**","/admin/login","/campus/register","/campus/login")
                 .excludePathPatterns("/css/**","/js/**","/images/**")
                 .excludePathPatterns("/swagger-resources/**", "/webjars/**", "/v2/**","/swagger-ui.htm/**","/swagger-ui.html/**");
     }
@@ -45,6 +45,10 @@ public class WebMvcConfigurers implements WebMvcConfigurer {
         registry.addViewController("/").setViewName("admin-login");
         registry.addViewController("/admin/login").setViewName("admin-login");
         registry.addViewController("/campus/articleslist").setViewName("articleslist");
+        registry.addViewController("/admin/index").setViewName("admin-index");
+        registry.addViewController("/admin/release").setViewName("admin-release");
+        registry.addViewController("/admin/commentManage").setViewName("admin-content");
+        registry.addViewController("/admin/contentData").setViewName("admin-contentdata");
     }
 
 }

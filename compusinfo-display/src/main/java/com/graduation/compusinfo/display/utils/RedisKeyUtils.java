@@ -17,6 +17,8 @@ public class RedisKeyUtils {
 //    用户过期时间
     public static final int USER_SAVE_TIME_OUT=3;
 
+
+
     /**
      * 拼接被点赞的用户id和点赞的人的id作为key。格式 33::22
      * @param likedUserId 被点赞的人id

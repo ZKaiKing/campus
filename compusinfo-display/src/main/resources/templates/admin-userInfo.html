@@ -4,47 +4,34 @@
 	<base href="http://localhost:8080/" />
 	<meta charset="UTF-8"/>
 	<link rel="shortcut icon" href="/static/images/favicon.png"/>
-	<title>帐号设置</title>
+	<title>帐号信息</title>
 </head>
 <body>
-<!-- head YDC begin -->
 <div th:include="/com/adminhead.html"></div>
-<!-- head YDC end -->
-
-<!-- content YDC begin -->
 	<section>
 		<div class="ydc-content-slide ydc-body">
 			<div class="ydc-flex">
-				<!-- left begin -->
 				<div th:include="/com/admin-com.html"></div>
-				<!-- left end -->
-				<!-- right begin -->
 				<div class="ydc-column ydc-column-8">
 					<div class="ydc-release-content">
 						<div class="ydc-tabPanel ydc-tabPanel-release">
 							<div class="ydc-release-tab-head">
 								<ul>
-									<li class="hit">帐号设置</li>
+									<li class="hit">帐号信息</li>
 								</ul>
 							</div>
 							<div class="ydc-panes">
 								<div class="ydc-pane ydc-pane-clear" style="display:block;">
 									<div class="ydc-reg-form-group clearfix">
-										<label>帐号名称</label>
+										<label>用户角色</label>
 										<div class="ydc-reg-form-input">
-											<label>一点车</label>
+											<label>新闻中心</label>
 										</div>
 									</div>
 									<div class="ydc-reg-form-group clearfix">
 										<label>帐号类别</label>
 										<div class="ydc-reg-form-input">
-											<label>自媒体</label>
-										</div>
-									</div>
-									<div class="ydc-reg-form-group clearfix">
-										<label>分类</label>
-										<div class="ydc-reg-form-input">
-											<label>汽车</label>
+											<label>新闻中心</label>
 										</div>
 									</div>
 									<div class="ydc-reg-form-group clearfix">
@@ -52,32 +39,20 @@
 										<div class="ydc-reg-form-input">
 											<label></label>
 											<div class="ydc-reg-form-text ydc-reg-form-user-logo">
-												<img src="../static/admin/images/icon/user-logo.png" alt="">
+												<img src="/static/admin/images/icon/user-logo.png" alt="">
 											</div>
 										</div>
 									</div>
 									<div class="ydc-reg-form-group clearfix">
 										<label>帐号简介</label>
 										<div class="ydc-reg-form-input">
-											<label>一点车，让您多懂一点车。</label>
-										</div>
-									</div>
-									<div class="ydc-reg-form-group clearfix">
-										<label>帐号详情</label>
-										<div class="ydc-reg-form-input">
-											<label>一点车，您会看到汽车相关的知识</label>
+											<label>这个一个官方新闻中心</label>
 										</div>
 									</div>
 									<div class="ydc-reg-form-group clearfix">
 										<label>姓名</label>
 										<div class="ydc-reg-form-input">
-											<label>李嘉桦</label>
-										</div>
-									</div>
-									<div class="ydc-reg-form-group clearfix">
-										<label>身份证号</label>
-										<div class="ydc-reg-form-input">
-											<label>411424**********31</label>
+											<label>张正楷</label>
 										</div>
 									</div>
 									<div class="ydc-reg-form-group clearfix">
@@ -93,9 +68,9 @@
 										</div>
 									</div>
 									<div class="ydc-reg-form-group clearfix">
-										<label>QQ/微信</label>
+										<label>学号</label>
 										<div class="ydc-reg-form-input">
-											<label>lizy_1025</label>
+											<label>201624134145</label>
 										</div>
 									</div>
 									<div class="ydc-reg-form-group clearfix" style="margin-top:40px;">
@@ -111,22 +86,11 @@
 				<!-- right end -->
 			</div>
 		</div>
-
 	</section>
 <!-- content YDC end -->
-	<script type="text/javascript" src="../static/admin/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/static/admin/js/jquery.min.js"></script>
 <script>
 	$("#admin-userinfo").addClass("active");
 </script>
-
-	<script type="text/javascript">
-	    $(function(){
-	        $('.ydc-tabPanel ul li').click(function(){
-	            $(this).addClass('hit').siblings().removeClass('hit');
-	            $('.ydc-panes>div:eq('+$(this).index()+')').show().siblings().hide();
-	        })
-	    })
-	</script>
-
 </body>
 </html>

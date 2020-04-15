@@ -23,32 +23,7 @@
 					<div class="ydc-entered-box">
 						<div class="ydc-content-right">
 							<div class="ydc-right-head">
-								<div class="ydc-right-head-info">
-									<dl>
-										<a href="#">
-											<dt>总订阅</dt>
-											<dd>35</dd>
-										</a>
-									</dl>
-									<dl>
-										<a href="#">
-											<dt>总阅读</dt>
-											<dd>224</dd>
-										</a>
-									</dl>
-									<dl>
-										<a href="#">
-											<dt>昨日阅读</dt>
-											<dd>14</dd>
-										</a>
-									</dl>
-									<dl>
-										<a href="#">
-											<dt>总数据指数</dt>
-											<dd>158</dd>
-										</a>
-									</dl>
-								</div>
+								<div class="ydc-right-head-info" id="variousIndicators"></div>
 								<button class="btn ydc-ne-carousel" onclick="javascript:window.location.href='/admin/release';">
 									<i class="ydc-icon-shu"></i>
 									<span>发布</span>
@@ -91,7 +66,8 @@
 	$("#admin-index").addClass("active");
 	//数据处理
 	window.onload=function(){
-		getArticleList(1,10);
+		getArticleList(1,10);//获得本人发布文章
+		getVariousIndicators();//获取各项指标
 	}
 
 </script>

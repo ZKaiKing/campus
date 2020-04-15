@@ -76,6 +76,9 @@ public class ArticleController {
         log.info("articleTitle  {} , ",article.getTitle());
         //阅读文章时，该文章热度+1
         redisService.increHotsRank2Redis(HotPostType.READ_HOT_TYPE,Long.valueOf(arti));
+        //文章阅读数+1
+        article.setViewNum(article.getViewNum()+1);
+        articleService.updateById(article);
         model.addAttribute("article",article);
         return "single";
     }
@@ -86,7 +89,7 @@ public class ArticleController {
     CommonResponseDto<List<Article>> search(@RequestParam String searchval){
         CommonResponseDto commonResponseDto = new CommonResponseDto();
         log.info("searchval  {} , ",searchval);
-        List<Article> articleList = articleService.getArticalBysearchval();
+        List<Article> articleList = articleService.getArticalBysearchval(searchval);
 //        增加搜索热度+2
         articleList.stream().forEach(article -> {
             redisService.increHotsRank2Redis(HotPostType.SEARCH_HOT_TYPE,article.getId());

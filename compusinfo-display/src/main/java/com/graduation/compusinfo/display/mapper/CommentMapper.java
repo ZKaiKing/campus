@@ -14,6 +14,15 @@ import java.util.List;
 @Component
 public interface CommentMapper extends BaseMapper<Comment> {
 
-//    通过用户id获取该用户的所有赞
+//    通过用户id获取该用户的所有评论
     List<Comment> selectCommentByUserId(@Param("user_id") Long user_id);
+
+//查询最新的num条评论
+    List<Long> selectLastNumComment(@Param("num")  int num);
+
+    List<Comment>  selectCommentBysearchVal(@Param("user_id") Long user_id,@Param("searchVal") String searchVal);
+//    用户所有文章上周评论数
+    int selectWeekCommentIndicator(@Param("id") Long id);
+
+//    List<Comment> selectCommentByIds(@Param("user_id") Long user_id, @Param("articleIdList") List<Long> articleIdList);
 }

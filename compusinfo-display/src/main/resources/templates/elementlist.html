@@ -46,28 +46,15 @@
                         <div style="margin:10px;" id="history"></div>
                     </div>
             </section>
-
-
             <!--  标签分类显示-->
             <div class="widget widget_sentence">
                 <h3>标签云</h3>
                 <div class="widget-sentence-content">
                     <ul class="plinks ptags" th:each="tag : ${tagList}">
-                        <li><a href="/tag/67/list" th:title="${tag.tagName}" draggable="false" th:inline="text">[[${tag.tagName}]]<span class="badge" th:text="${tag.subArticleCount}"></span></a></li>
+                        <li><a  href="javascript:void(0);" th:onclick='getTagArticleList([[${tag.id}]],1,5)' th:title="${tag.tagName}" draggable="false" th:inline="text">[[${tag.tagName}]]<span class="badge" th:text="${tag.subArticleCount}"></span></a></li>
                     </ul>
                 </div>
             </div>
-
-
-        </div>
-        <div class="widget widget_hot">
-            <h3>最新评论文章</h3>
-            <ul><li><a title="用DTcms做一个独立博客网站（响应式模板）" href="#" ><span class="thumbnail">
-<img class="thumb" data-original="#" src="#" alt="用DTcms做一个独立博客网站（响应式模板）"  style="display: block;">
-</span><span class="text">用DTcms做一个独立博客网站（响应式模板）</span><span class="muted"><i class="glyphicon glyphicon-time"></i>2016-11-01
-</span><span class="muted"><i class="glyphicon glyphicon-eye-open"></i>88</span></a></li>
-
-            </ul>
         </div>
     </aside>
 </section>
@@ -90,12 +77,13 @@
             //ajax搜索返回
             $.ajax({
                 type: "POST",
-                url: "../article/search",
+                url: "/article/search",
                 data: {"searchval":searchval},
                 dataType: "json",
                 success: function (data) {
                     if (data.code === 200){
-                        alert("成功");
+                        TagArticleListSuc(data);
+                        console.log("搜索成功");
                     }
                 },
                 error : function(e) {           //请求失败的回调函数

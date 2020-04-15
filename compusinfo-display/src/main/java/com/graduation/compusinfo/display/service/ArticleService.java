@@ -5,6 +5,7 @@ import com.github.pagehelper.PageInfo;
 import com.graduation.compusinfo.display.entity.Article;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author zhangzk
@@ -13,13 +14,13 @@ import java.util.List;
 public interface ArticleService extends IService<Article> {
 
     /** 搜索框查询文章**/
-    List<Article> getArticalBysearchval();
+    List<Article> getArticalBysearchval(String searchVal);
 
     /**通过id查找文章*/
     Article selectArticlalById(Integer arti);
 
     /**上传文章**/
-    Long addArticle(String title, String content, Long typeId, Long userId);
+    Long addArticle(String title, String content, Long typeId,String titleImgUrl, Long userId);
 
     /**分页显示列表**/
     PageInfo<Article> selectAdminArticleList(Long userId,int pageNum,int pageSize);
@@ -44,4 +45,9 @@ public interface ArticleService extends IService<Article> {
 
     //根据标签id获取所属文章，分页显示
     PageInfo<Article> getArticlePageByTagId(Long tagId, int pageNum, int pageSize);
+
+    //首页获取用户各项指标
+    Map<String, Integer> getvariousIndicators(Long userId);
+//  删除评论时，通过评论ID减少该文章评论数
+    boolean commentNumDecBycommId(Long id);
 }

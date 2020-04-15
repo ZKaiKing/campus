@@ -17,6 +17,7 @@ import java.util.Date;
  */
 @Slf4j
 public class LikeTask extends QuartzJobBean {
+
     @Autowired
     UserLikeService userLikeService;
     private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");

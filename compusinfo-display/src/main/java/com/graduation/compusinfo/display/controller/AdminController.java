@@ -2,6 +2,7 @@ package com.graduation.compusinfo.display.controller;
 
 import com.github.pagehelper.PageInfo;
 import com.graduation.compusinfo.display.dto.WangEditor;
+import com.graduation.compusinfo.display.entity.Article;
 import com.graduation.compusinfo.display.entity.Comment;
 import com.graduation.compusinfo.display.service.ArticleService;
 import com.graduation.compusinfo.display.service.CommentService;
@@ -25,6 +26,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Map;
 
 /**
  * @author zzk
@@ -48,49 +50,22 @@ public class AdminController {
     @Autowired
     private FastDFSClientUtil fastDFSClientUtil;
 
-    @RequestMapping(value = "/index",method = RequestMethod.GET)
-    public String toAdminPage(Model model){
-        return "admin-index";
-    }
-
-    @RequestMapping(value = "/release",method = RequestMethod.GET)
-    public String toReleasePage(Model model){
-        return "admin-release";
-    }
-
-    @RequestMapping(value = "/commentManage",method = RequestMethod.GET)
-    public String toCommentManagePage(Model model){
-        return "admin-content";
-    }
-
-
-    @RequestMapping(value = "/subscribe",method = RequestMethod.GET)
-    public String toSubscribePage(Model model){
-        return "admin-subscribe";
-    }
-
-    @RequestMapping(value = "/contentData",method = RequestMethod.GET)
-    public String toContentDataPage(Model model){
-        return "admin-contentdata";
-    }
-
     @RequestMapping(value = "/userInfo",method = RequestMethod.GET)
     public String toUserInfoPage(Model model){
         return "admin-userInfo";
     }
-
-
 
     @PostMapping("/article/public")
     @ApiOperation("发布文章")
     public  @ResponseBody
     CommonResponseDto articleAdd(@RequestParam("title") String title,
                                  @RequestParam("content") String content,
-                                 @RequestParam("typeId") Long[] typeId,
+                                 @RequestParam("typeId") Long typeId,
+                                 @RequestParam("titleImgUrl") String titleImgUrl,
                                  @RequestParam("userId") Long userId){
-        log.info("title  {} , content  {} , typeId  {} , userId  {} , ",title,content,typeId,userId);
+        log.info("title  {} , content  {} , typeId  {} , userId  {} ,titleImgUrl;{} ",title,content,typeId,userId,titleImgUrl);
 
-//        articleService.addArticle(title,content,typeId,userId);
+        articleService.addArticle(title,content,typeId,titleImgUrl,userId);
         return new CommonResponseDto().code(0).success(true);
     }
 
@@ -122,7 +97,6 @@ public class AdminController {
         }
         return null;
     }
-
     @GetMapping("/getAllTalk")
     @ApiOperation("获取该用户文章所有被评论信息")
     public  @ResponseBody
@@ -133,6 +107,44 @@ public class AdminController {
         log.info("user_id  {} , pageNum  {} , pageSize  {}  , ",user_id,pageNum,pageSize);
         PageInfo<Comment> listCommentInfo = commentService.userAllArticleComment(user_id, pageNum, pageSize);
         commonResponseDto.setData(listCommentInfo);
+        return commonResponseDto.code(200).success(true);
+    }
+
+    @GetMapping("/searchAllTalk")
+    @ApiOperation("获取该用户文章所有被评论信息")
+    public  @ResponseBody
+    CommonResponseDto<PageInfo<Comment>> searchAllTalk(@RequestParam("user_id") Long user_id,
+                                                       @RequestParam("searchVal") String searchVal,
+                                                       @RequestParam("pageNum") int pageNum,
+                                                       @RequestParam("pageSize") int pageSize){
+        CommonResponseDto commonResponseDto = new CommonResponseDto();
+        log.info("user_id  {} , pageNum  {} , pageSize  {}  searchVal:{}, ",user_id,pageNum,pageSize,searchVal);
+        PageInfo<Comment> listCommentInfo = commentService.ArticleCommentBySearchVal(user_id, pageNum, pageSize,searchVal);
+        commonResponseDto.setData(listCommentInfo);
+        return commonResponseDto.code(200).success(true);
+    }
+
+    @GetMapping("/variousIndicators")
+    @ApiOperation("后台首页获取各项指标")
+    public  @ResponseBody
+    CommonResponseDto<Map<String,Integer>> variousIndicators(@RequestParam("userId") Long userId){
+        CommonResponseDto commonResponseDto = new CommonResponseDto();
+        log.info("userId  {}  ",userId);
+        Map<String,Integer> variousIndicators = articleService.getvariousIndicators(userId);
+        commonResponseDto.setData(variousIndicators);
+        return commonResponseDto.code(200).success(true);
+    }
+
+    @GetMapping("/managecharTable")
+    @ApiOperation("后台内容管理获取文章指标")
+    public  @ResponseBody
+    CommonResponseDto<Map<String,Integer>> getManagecharTable(@RequestParam("userId") Long userId,
+                                                              @RequestParam("pageNum") int pageNum,
+                                                              @RequestParam("pageSize") int pageSize){
+        CommonResponseDto commonResponseDto = new CommonResponseDto();
+        log.info("userId  {} , ",userId);
+        PageInfo<Article> articleList = articleService.selectAdminArticleList(userId,pageNum,pageSize);
+        commonResponseDto.setData(articleList);
         return commonResponseDto.code(200).success(true);
     }
 

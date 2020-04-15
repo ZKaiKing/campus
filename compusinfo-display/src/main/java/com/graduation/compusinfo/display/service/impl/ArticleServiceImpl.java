@@ -7,13 +7,17 @@ import com.github.pagehelper.PageInfo;
 import com.graduation.compusinfo.display.entity.Article;
 import com.graduation.compusinfo.display.mapper.ArticleMapper;
 import com.graduation.compusinfo.display.service.ArticleService;
+import com.graduation.compusinfo.display.service.CommentService;
 import com.graduation.compusinfo.display.service.RedisService;
+import com.graduation.compusinfo.display.service.UserLikeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author zhangzk
@@ -28,19 +32,30 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
     @Autowired
     private RedisService redisService;
 
+    @Autowired
+    private UserLikeService userLikeService;
+
+    @Autowired
+    private CommentService commentService;
+
+    //用户文章阅读总指标
+    private Integer  ReadNumIndicator=0;
+
     @Override
     public Article selectArticlalById(Integer arti) {
-        return this.getById(arti);
+        Article article = this.getById(arti);
+        return article;
     }
 
     @Override
-    public Long addArticle(String title, String content, Long typeId, Long userId) {
+    public Long addArticle(String title, String content, Long typeId,String titleImgUrl, Long userId) {
         Date date = new Date();
-        Article article=new Article(date,date,Long.valueOf(0),0,0,0,0);
+        Article article=new Article(date,date,0,0,0);
         article.setTitle(title);
         article.setContent(content);
         article.setTypeId(typeId);
         article.setUserId(userId);
+        article.setImg(titleImgUrl);
         int insert = articleMapper.insert(article);
         if(insert ==1){
             return article.getId();
@@ -58,8 +73,8 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
     }
 
     @Override
-    public List<Article> getArticalBysearchval() {
-        return articleMapper.selectList(Wrappers.<Article>lambdaQuery().like(Article::getTitle,"%%"));
+    public List<Article> getArticalBysearchval(String searchVal) {
+        return articleMapper.selectList(Wrappers.<Article>lambdaQuery().like(Article::getTitle,searchVal));
     }
 
     @Override
@@ -110,6 +125,31 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
                 .doSelectPageInfo(()->articleMapper.selectList(Wrappers.<Article>lambdaQuery().eq(Article::getTagId,tagId)
                         .orderByDesc(Article::getCreateTime)));
         return articlePage;
+    }
+
+    @Override
+    public Map<String, Integer> getvariousIndicators(Long userId) {
+        Map<String,Integer> variousIndicators=new HashMap<>();
+        List<Article> articleList = articleMapper.selectList(Wrappers.<Article>lambdaQuery().eq(Article::getUserId, userId));
+        int  WeekLikeNumIndicator= userLikeService.selectWeekLikeNumIndicator(articleList);
+        variousIndicators.put("WeekLikeNumIndicator",WeekLikeNumIndicator);
+        int  LikeNumSumIndicator= userLikeService.selectLikeNumAllIndicator(articleList);
+        variousIndicators.put("LikeNumSumIndicator",LikeNumSumIndicator);
+        int  WeekCommentIndicator= commentService.selectWeekCommentIndicator(articleList);
+        variousIndicators.put("WeekCommentIndicator",WeekCommentIndicator);
+        int  CommentSumIndicator=commentService.selectCommentSumIndicator(articleList);
+        variousIndicators.put("CommentSumIndicator",CommentSumIndicator);
+        ReadNumIndicator=0;
+        articleList.stream().forEach(article -> {
+            ReadNumIndicator +=article.getViewNum();
+        });
+        variousIndicators.put("ReadNumIndicator",ReadNumIndicator);
+        return variousIndicators;
+    }
+
+    @Override
+    public boolean commentNumDecBycommId(Long id) {
+        return articleMapper.commentNumDecBycommId(id);
     }
 
 

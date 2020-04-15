@@ -48,28 +48,32 @@
                                             <p></p>
                                         </div>
                                         <div class="ydc-form-city">
-                                            <form action="">
+<!--                                            <form>-->
                                                 <input type="text" id="DemoInput3" value="">
                                                 <div class="aui-card-form-item preview  aui-news">
                                                     <label class="aui-card-form-label">封面:</label>
                                                     <div class="aui-file-up-img" id="preview_0">
-                                                        <img class="" id="imghead_0" border="0" src="../static/admin/images/icon/noimg.gif">
+                                                        <img class="" id="imghead_0" border="0" src="/static/admin/images/icon/noimg.gif">
                                                     </div>
                                                     <div class="aui-file-up-btn clearfix ">
                                                         <div class="idPicFile aui-btn aui-file-new">
-                                                            <input type="file" name="file" id="1" class="file_photo aui-file-new-up" style="margin:0;">
-                                                            <a>上传图片</a>
+                                                            <input type="file" name="myPicture" id="titleImg" class="file_photo aui-file-new-up" style="margin:0;">
+                                                            <input type="hidden" name="titleImgUrl" id="titleImgUrl">
+                                                            <a >上传封面</a>
+                                                            <div>
+                                                                <button  class="btn" id="uploadTitleImg">确定上传</button>
+                                                            </div>
                                                         </div>
                                                         <div class="aui-remarks">
                                                             <p>图片尺寸建议：800*400 图片大小不超过1MB</p>
                                                         </div>
                                                     </div>
                                                 </div>
+<!--                                            </form>-->
                                                 <div class="ydc-btn">
                                                     <button class="btn" id="relaseArt">发布</button>
 <!--                                                    <button class="btn btn-default" id="submitArt">保存草稿</button>-->
                                                 </div>
-                                            </form>
                                         </div>
                                     </div>
                                 </div>
@@ -92,7 +96,8 @@
         <script>
              $("#admin-release").addClass("active");
              var TagsData=[];
-             TagsData.push({id:1,name:"PHP",screen:"php"})
+             TagsData.push({id:5,name:"防疫",screen:"防疫"},{id:4,name:"新闻中心",screen:"新闻中心"},
+             {id:3,name:"计算机学院团委",screen:"计算机学院团委"},{id:1,name:"校易班发展中心",screen:"校易班发展中心"})
              $("#DemoInput3").sTags({
                  defaultData:[1],
                  data:TagsData,
@@ -121,8 +126,7 @@
 	        messageCount2.innerText = thisArea.value.length;
 	    }//标题输入框字数限制
         </script>
-
-<!--        以下是编辑器的-->
+        <!--以下是编辑器的-->
         <script src="../static/admin/edit.js/jquery-1.8.2.min.js"></script>
         <script src="../static/admin/edit.js/wangEditor.min.js"></script>
         <script src="../static/admin/edit.js/ui.js"></script>
@@ -226,8 +230,24 @@
                 return imgs;
             };
             editor.create();
-            // $text1.val(editor.txt.html()) //同步textarea和editor的内容
 
+            $("#uploadTitleImg").click(function(){
+                var formData = new FormData();
+                formData.append("myPicture",$("#titleImg")[0].files[0]);
+                $.ajax({
+                    url: server+'/admin/picture/upload', /*接口域名地址*/
+                    type:'post',
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    success:function(res){
+                        console.log(res.data);
+                        $("#titleImgUrl").val(res.data);
+                        console.log("图片："+$("#titleImgUrl").val());
+                    }
+                })
+
+            });
 
             $("#relaseArt").click(function(){
                 //获取编辑器的内容，带样式
@@ -237,10 +257,12 @@
                 // var type = $("#province option:selected");
                 var type = $("#DemoInput3");
                 var type_id=type.val();//获取选中项的值
+                var titleImgUrl = $("#titleImgUrl").val();//文章标题图片
                 let data = {
                     title:art_title,
                     content:_connent,
                     typeId: type_id,
+                    titleImgUrl: titleImgUrl,
                     userId: window.sessionStorage.getItem("user_id"),
                 };
                 publicArticle(data);

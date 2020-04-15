@@ -11,6 +11,7 @@ import com.graduation.compusinfo.display.service.UserLikeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -31,6 +32,11 @@ public class UserLikeServiceImpl extends ServiceImpl<UserLikeMapper, UserLike> i
 
     @Autowired
     private ArticleService articleService;
+//  文章昨日点赞指标
+    private int WeekLikeNumIndicator=0;
+
+    //用户文章点赞总指标
+    private int  LikeNumSumIndicator=0;
 
     @Override
     public void likePost(Long artId, Long userId, boolean isLike) {
@@ -59,11 +65,14 @@ public class UserLikeServiceImpl extends ServiceImpl<UserLikeMapper, UserLike> i
     public void saveRedisLikeData2DB() {
         List<UserLike> likeList = redisService.getLikedDataFromRedis();
         likeList.stream().forEach(userLike -> {
+            Date date = new Date();
             UserLike uk1 = getByUserIdAndPostId(userLike.getLikedUserId(), userLike.getLikedPostId());
             if(uk1 == null){
+                userLike.setCreateTime(date);
                 saveToDB(userLike);
             }else{
                 uk1.setStatus(userLike.getStatus());
+                userLike.setUpdateTime(date);
                 userLikeMapper.updateById(uk1);
             }
         });
@@ -91,6 +100,24 @@ public class UserLikeServiceImpl extends ServiceImpl<UserLikeMapper, UserLike> i
         UserLike userLike = userLikeMapper.selectOne(Wrappers.<UserLike>lambdaQuery().eq(UserLike::getLikedUserId, userId)
                 .eq(UserLike::getLikedPostId, arti));
         return userLike != null;
+    }
+
+    @Override
+    public int selectWeekLikeNumIndicator(List<Article> articleList) {
+        WeekLikeNumIndicator=0;
+        articleList.stream().forEach(article -> {
+            WeekLikeNumIndicator +=userLikeMapper.selectWeekLikeNumIndicator(article.getId());
+        });
+        return  WeekLikeNumIndicator;
+    }
+
+    @Override
+    public int selectLikeNumAllIndicator(List<Article> articleList) {
+        LikeNumSumIndicator=0;
+        articleList.stream().forEach(article -> {
+            LikeNumSumIndicator +=userLikeMapper.selectLikeNumSumIndicator(article.getId());
+        });
+        return LikeNumSumIndicator;
     }
 
 

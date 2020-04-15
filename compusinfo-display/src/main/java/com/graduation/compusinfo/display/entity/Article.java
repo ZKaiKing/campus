@@ -57,9 +57,6 @@ public class Article implements Serializable {
     @TableField("`update_time`")
     private Date updateTime;
 
-    @ApiModelProperty(value = "评论id")
-    @TableField("`comment_id`")
-    private Long commentId;
 
     @ApiModelProperty(value = "浏览量")
     @TableField("`view_num`")
@@ -68,10 +65,6 @@ public class Article implements Serializable {
     @ApiModelProperty(value = "评论量")
     @TableField("`com_num`")
     private Integer comNum;
-
-    @ApiModelProperty(value = "热度")
-    @TableField("`hot_num`")
-    private Integer hotNum;
 
     @ApiModelProperty(value = "点赞数")
     @TableField("`like_num`")
@@ -85,13 +78,11 @@ public class Article implements Serializable {
 
     }
 
-    public Article(Date createTime, Date updateTime, Long commentId, Integer viewNum, Integer comNum, Integer hotNum, Integer likeNum) {
+    public Article(Date createTime, Date updateTime,Integer viewNum, Integer comNum, Integer likeNum) {
         this.createTime = createTime;
         this.updateTime = updateTime;
-        this.commentId = commentId;
         this.viewNum = viewNum;
         this.comNum = comNum;
-        this.hotNum = hotNum;
         this.likeNum = likeNum;
     }
 }

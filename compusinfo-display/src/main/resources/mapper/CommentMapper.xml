@@ -21,7 +21,24 @@
 
     <select id="selectCommentByUserId" resultType="com.graduation.compusinfo.display.entity.Comment">
         SELECT *  FROM camp_comment as comment WHERE comment.article_id in(
-       select article.id as articleId  from camp_article as article where article.user_id=#{user_id} ) ORDER BY create_time DESC
+       select article.id as articleId  from camp_article as article where article.user_id=#{user_id})
+        ORDER BY create_time DESC
+    </select>
+    <select id="selectLastNumComment" resultType="java.lang.Long">
+          SELECT article_id from camp_comment ORDER BY create_time desc limit #{num};
+    </select>
+
+    <select id="selectCommentBysearchVal" resultType="com.graduation.compusinfo.display.entity.Comment">
+        SELECT *  FROM camp_comment as comment WHERE comment.article_id in(
+       select article.id as articleId  from camp_article as article where article.user_id=#{user_id}
+           and  article.title like CONCAT ('%', #{searchVal}),'%')
+       )
+        ORDER BY create_time DESC
+    </select>
+
+    <select id="selectWeekCommentIndicator" resultType="java.lang.Integer">
+        SELECT count(*) FROM camp_comment  where article_id= ${id}
+            and  date(create_time) >= date_sub(curdate(),interval 7 day);
     </select>
 
 </mapper>
